@@ -1,7 +1,8 @@
 ---
 layout: post
-cover: 'assets/images/covers/cover3.jpg'
-title:  REST API''s: Easier Than You Imagined
+cover: 'assets/images/covers/http-verbs.png'
+cover_blur: true
+title:  'REST API''s: Easier Than You Imagined'
 date:   2013-05-18
 tags: Talks
 subclass: 'post tag-Talks'
