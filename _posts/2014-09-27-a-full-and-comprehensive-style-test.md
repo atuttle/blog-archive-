@@ -1,24 +1,16 @@
-<?xml version="1.0" encoding="UTF-8" ?>
+---
+layout: post
+cover: 'assets/images/covers/cover3.jpg'
+title: A Full and Comprehensive Style Test
+date:   2014-09-27 10:18:00
+tags: test content
+subclass: 'post tag-test tag-content'
+categories: 'casper'
+navigation: True
+logo: 'assets/images/ghost.png'
+---
 
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-<channel>
-   
-      <title>biomadeira.github.io/jasper/</title>
-   
-   <link>http://biomadeira.github.io/jasper/</link>
-   <description>A beautiful narrative written with the world's most elegant publishing platform. The story begins here.</description>
-   <language>en-uk</language>
-   <managingEditor> Casper McFadden</managingEditor>
-   <atom:link href="rss" rel="self" type="application/rss+xml" />
-   
-	<item>
-	  <title>A Full and Comprehensive Style Test</title>
-	  <link>/jasper//a-full-and-comprehensive-style-test</link>
-	  <author>Casper McFadden</author>
-	  <pubDate>2014-09-27T11:18:00+01:00</pubDate>
-	  <guid>/jasper//a-full-and-comprehensive-style-test</guid>
-	  <description><![CDATA[
-	     <p>This is just an <em>ipsis verbis</em> copy of the first example running on the <a href="http://demo.ghost.io">Ghost Demo</a>. This shows how you can use html styling to achieve your hopes.</p>
+<p>This is just an <em>ipsis verbis</em> copy of the first example running on the <a href="http://demo.ghost.io">Ghost Demo</a>. This shows how you can use html styling to achieve your hopes.</p>
 
 
 <p>Below is just about everything you’ll need to style in the theme. Check the source code to see the many embedded elements within paragraphs.</p>
@@ -70,11 +62,11 @@
 
 <h3 id="definitionlist">Definition List</h3>
 
-<dl>  
-<dt>Definition List Title</dt>  
-<dd>This is a definition list division.</dd>  
-<dt>Definition</dt>  
-<dd>An exact statement or description of the nature, scope, or meaning of something: <em>our definition of what constitutes poetry.</em></dd>  
+<dl>
+<dt>Definition List Title</dt>
+<dd>This is a definition list division.</dd>
+<dt>Definition</dt>
+<dd>An exact statement or description of the nature, scope, or meaning of something: <em>our definition of what constitutes poetry.</em></dd>
 </dl>
 
 <h3 id="orderedlist">Ordered List</h3>
@@ -101,29 +93,29 @@
 
 <h2 id="table">Table</h2>
 
-<table>  
-<tbody>  
-<tr>  
-<th>Table Header 1</th>  
-<th>Table Header 2</th>  
-<th>Table Header 3</th>  
-</tr>  
-<tr>  
-<td>Division 1</td>  
-<td>Division 2</td>  
-<td>Division 3</td>  
-</tr>  
-<tr class="even">  
-<td>Division 1</td>  
-<td>Division 2</td>  
-<td>Division 3</td>  
-</tr>  
-<tr>  
-<td>Division 1</td>  
-<td>Division 2</td>  
-<td>Division 3</td>  
-</tr>  
-</tbody>  
+<table>
+<tbody>
+<tr>
+<th>Table Header 1</th>
+<th>Table Header 2</th>
+<th>Table Header 3</th>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+</tr>
+<tr class="even">
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+</tr>
+<tr>
+<td>Division 1</td>
+<td>Division 2</td>
+<td>Division 3</td>
+</tr>
+</tbody>
 </table>
 
 <hr />
@@ -136,11 +128,13 @@
 
 <p>Code can be presented inline, like <code>&lt;?php bloginfo('stylesheet_url'); ?&gt;</code>, or within a <code>&lt;pre&gt;</code> block. Because we have more specific typographic needs for code, we’ll specify Consolas and Monaco ahead of the browser-defined monospace font.</p>
 
-<figure class="highlight"><pre><code class="language-css" data-lang="css"><span class="nf">#container</span> <span class="p">{</span>
-    <span class="k">float</span><span class="o">:</span> <span class="k">left</span><span class="p">;</span>
-    <span class="k">margin</span><span class="o">:</span> <span class="m">0</span> <span class="m">-240px</span> <span class="m">0</span> <span class="m">0</span><span class="p">;</span>
-    <span class="k">width</span><span class="o">:</span> <span class="m">100%</span><span class="p">;</span>
-<span class="p">}</span></code></pre></figure>
+{% highlight css %}
+#container {
+    float: left;
+    margin: 0 -240px 0 0;
+    width: 100%;
+}
+{% endhighlight %}
 
 <hr />
 
@@ -185,108 +179,108 @@ The <u>u element</u> example</p>
 
 <h2 id="forms">Forms</h2>
 
-<form>  
-<fieldset>  
-<legend>Inputs as descendents of labels (form legend)</legend>  
-<label>  
-<b>Text input</b>  
-<input type="text" value="default value">  
-</label>  
-<label>  
-<b>Email input</b>  
-<input type="email">  
-</label>  
-<label>  
-<b>Search input</b>  
-<input type="search">  
-</label>  
-<label>  
-<b>Tel input</b>  
-<input type="tel">  
-</label>  
-<label>  
-<b>URL input</b>  
-<input type="url" placeholder="http://">  
-</label>  
-<label>  
-<b>Password input</b>  
-<input type="password" value="password">  
-</label>  
-<label>  
-<b>File input</b>  
-<input type="file">  
-</label>  
-<label>  
-<b>Radio input</b>  
-<input type="radio" name="rad">  
-</label>  
-<label>  
-<b>Checkbox input</b>  
-<input type="checkbox">  
-</label>  
-<label>  
-<input type="radio" name="rad"> Radio input  
-</label>  
-<label>  
-<input type="checkbox"> Checkbox input  
-</label>  
-<label>  
-<b>Select field</b>  
-<select>  
-<option>Option 01</option>  
-<option>Option 02</option>  
-</select>  
-</label>  
-<label>  
-<b>Textarea</b>  
-<textarea cols="30" rows="5" >Textarea text</textarea>  
-</label>  
-</fieldset> 
+<form>
+<fieldset>
+<legend>Inputs as descendents of labels (form legend)</legend>
+<label>
+<b>Text input</b>
+<input type="text" value="default value">
+</label>
+<label>
+<b>Email input</b>
+<input type="email">
+</label>
+<label>
+<b>Search input</b>
+<input type="search">
+</label>
+<label>
+<b>Tel input</b>
+<input type="tel">
+</label>
+<label>
+<b>URL input</b>
+<input type="url" placeholder="http://">
+</label>
+<label>
+<b>Password input</b>
+<input type="password" value="password">
+</label>
+<label>
+<b>File input</b>
+<input type="file">
+</label>
+<label>
+<b>Radio input</b>
+<input type="radio" name="rad">
+</label>
+<label>
+<b>Checkbox input</b>
+<input type="checkbox">
+</label>
+<label>
+<input type="radio" name="rad"> Radio input
+</label>
+<label>
+<input type="checkbox"> Checkbox input
+</label>
+<label>
+<b>Select field</b>
+<select>
+<option>Option 01</option>
+<option>Option 02</option>
+</select>
+</label>
+<label>
+<b>Textarea</b>
+<textarea cols="30" rows="5" >Textarea text</textarea>
+</label>
+</fieldset>
 
-<fieldset>  
-<legend>Clickable inputs and buttons</legend>  
-<input type="image" src="http://placekitten.com/90/24" alt="Image (input)">  
-<input type="reset" value="Reset (input)">  
-<input type="button" value="Button (input)">  
-<input type="submit" value="Submit (input)">  
-<button type="reset">Reset (button)</button>  
-<button type="button">Button (button)</button>  
-<button type="submit">Submit (button)</button>  
-</fieldset> 
+<fieldset>
+<legend>Clickable inputs and buttons</legend>
+<input type="image" src="http://placekitten.com/90/24" alt="Image (input)">
+<input type="reset" value="Reset (input)">
+<input type="button" value="Button (input)">
+<input type="submit" value="Submit (input)">
+<button type="reset">Reset (button)</button>
+<button type="button">Button (button)</button>
+<button type="submit">Submit (button)</button>
+</fieldset>
 
-<fieldset id="boxsize">  
-<legend>box-sizing tests</legend>  
-<div><input type="text" value="text"></div>  
-<div><input type="email" value="email"></div>  
-<div><input type="search" value="search"></div>  
-<div><input type="url" value="http://example.com"></div>  
-<div><input type="password" value="password"></div> 
+<fieldset id="boxsize">
+<legend>box-sizing tests</legend>
+<div><input type="text" value="text"></div>
+<div><input type="email" value="email"></div>
+<div><input type="search" value="search"></div>
+<div><input type="url" value="http://example.com"></div>
+<div><input type="password" value="password"></div>
 
-<div><input type="color" value="#000000"></div>  
-<div><input type="number" value="5"></div>  
-<div><input type="range" value="10"></div>  
-<div><input type="date" value="1970-01-01"></div>  
-<div><input type="month" value="1970-01"></div>  
-<div><input type="week" value="1970-W01"></div>  
-<div><input type="time" value="18:23"></div>  
-<div><input type="datetime" value="1970-01-01T00:00:00Z"></div>  
-<div><input type="datetime-local" value="1970-01-01T00:00"></div> 
+<div><input type="color" value="#000000"></div>
+<div><input type="number" value="5"></div>
+<div><input type="range" value="10"></div>
+<div><input type="date" value="1970-01-01"></div>
+<div><input type="month" value="1970-01"></div>
+<div><input type="week" value="1970-W01"></div>
+<div><input type="time" value="18:23"></div>
+<div><input type="datetime" value="1970-01-01T00:00:00Z"></div>
+<div><input type="datetime-local" value="1970-01-01T00:00"></div>
 
-<div><input type="radio"></div>  
-<div><input type="checkbox"></div> 
+<div><input type="radio"></div>
+<div><input type="checkbox"></div>
 
-<div><select><option>Option 01</option><option>Option 02</option></select></div>  
-<div><textarea cols="30" rows="5" >Textarea text</textarea></div> 
+<div><select><option>Option 01</option><option>Option 02</option></select></div>
+<div><textarea cols="30" rows="5" >Textarea text</textarea></div>
 
-<div><input type="image" src="http://placekitten.com/90/24" alt="Image (input)"></div>  
-<div><input type="reset" value="Reset (input)"></div>  
-<div><input type="button" value="Button (input)"></div>  
-<div><input type="submit" value="Submit (input)"></div> 
+<div><input type="image" src="http://placekitten.com/90/24" alt="Image (input)"></div>
+<div><input type="reset" value="Reset (input)"></div>
+<div><input type="button" value="Button (input)"></div>
+<div><input type="submit" value="Submit (input)"></div>
 
-<div><button type="reset">Reset (button)</button></div>  
-<div><button type="button">Button (button)</button></div>  
-<div><button type="submit">Submit (button)</button></div>  
-</fieldset>  
+<div><button type="reset">Reset (button)</button></div>
+<div><button type="button">Button (button)</button></div>
+<div><button type="submit">Submit (button)</button></div>
+</fieldset>
 </form>
 
 <hr />
@@ -351,12 +345,12 @@ Spinner.prototype.draw = function() {
   c.beginPath();
   c.arc(this.x, this.y, littleCircle, 0, TWO_PI);
   c.fill();
-  c.closePath(); 
+  c.closePath();
 }
 c.setup = function() {
   spinner = new Spinner();
   spinner.setup();
-} 
+}
 c.update = function() {
   spinner.update();
   hue = ++hue % 360;
@@ -366,16 +360,10 @@ c.draw = function() {
   c.fillStyle = bg;
   c.fillRect(0,0,c.width,c.height);
 }
-</code></pre>  
+</code></pre>
 
-<p>See the Pen <a href='http://codepen.io/rglazebrook/pen/bcqhe/'>Simple Rotating Spinner</a> by Rob Glazebrook (<a href='http://codepen.io/rglazebrook'>@rglazebrook</a>) on <a href='http://codepen.io'>CodePen</a>.</p>  
+<p>See the Pen <a href='http://codepen.io/rglazebrook/pen/bcqhe/'>Simple Rotating Spinner</a> by Rob Glazebrook (<a href='http://codepen.io/rglazebrook'>@rglazebrook</a>) on <a href='http://codepen.io'>CodePen</a>.</p>
 
 <p></div><script async src="//codepen.io/assets/embed/ei.js"></script></p>
 
 <p>Isn't it beautiful.</p>
-	  ]]></description>
-	</item>
-
-
-</channel>
-</rss>
