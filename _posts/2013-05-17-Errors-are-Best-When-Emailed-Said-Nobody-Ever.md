@@ -3,6 +3,7 @@ layout: post
 cover: 'assets/images/covers/cover4.jpg'
 title:  Errors are Best When Emailed... Said Nobody Ever
 date:   2013-05-17
+location: Minneapolis, MN, USA
 tags: Talks
 subclass: 'post tag-Talks'
 navigation: True

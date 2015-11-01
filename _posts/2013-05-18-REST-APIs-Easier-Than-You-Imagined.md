@@ -3,6 +3,7 @@ layout: post
 cover: 'assets/images/covers/http-verbs.png'
 cover_blur: true
 title:  'REST API''s: Easier Than You Imagined'
+location: Minneapolis, MN, USA
 date:   2013-05-18
 tags: Talks
 subclass: 'post tag-Talks'
