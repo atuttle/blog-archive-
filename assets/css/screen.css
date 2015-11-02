@@ -551,7 +551,6 @@ body.nav-opened .site-wrapper {
 /* Big cover image on the home page */
 .main-header {
     position: relative;
-    display: table;
     width: 100%;
     height: 100vh;
     margin-bottom: 5rem;
@@ -559,6 +558,12 @@ body.nav-opened .site-wrapper {
     background: #222 no-repeat center center;
     background-size: cover;
     overflow: hidden;
+}
+.main-header .dimmer {
+    display: table;
+    background-color: rgba(0,0,0,0.2);
+    height: 100%;
+    width: 100%;
 }
 
 .main-header .inner {
@@ -1701,6 +1706,8 @@ body:not(.post-template) .post-title {
         height: auto;
         min-height: 240px;
         height: 60vh;
+    }
+    .main-header .dimmer {
         padding: 15% 0;
     }
 

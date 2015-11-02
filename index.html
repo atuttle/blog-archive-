@@ -10,21 +10,22 @@ current: home
 <!-- The tag above means - insert everything in this file into the [body] of the default.hbs template -->
 
 <!-- The big featured header  -->
-<header class="main-header {% if page.cover %}"
-        style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
-    <nav class="main-nav overlay clearfix">
-        {% if site.logo %}<a class="blog-logo" href="{{ site.baseurl }}" title="{{ site.name }}" style="font-size:1.5em">{{ site.logo }}</a>{% endif %}
-        {% if page.navigation %}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {% endif %}
-    </nav>
-    <div class="vertical" style="background-color: rgba(0,0,0,0.2);">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{ site.name }}</h1>
-            <h2 class="page-description">{{ site.description }}</h2>
+<header class="main-header {% if page.cover %}" style="background-image: url({{ site.baseurl }}{{ page.cover }}) {% else %}no-cover{% endif %}">
+    <div class="dimmer">
+        <nav class="main-nav overlay clearfix">
+            {% if site.logo %}<a class="blog-logo" href="{{ site.baseurl }}" title="{{ site.name }}" style="font-size:1.5em">{{ site.logo }}</a>{% endif %}
+            {% if page.navigation %}
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+            {% endif %}
+        </nav>
+        <div class="vertical">
+            <div class="main-header-content inner">
+                <h1 class="page-title">{{ site.name }}</h1>
+                <h2 class="page-description">{{ site.description }}</h2>
+            </div>
         </div>
+        <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
     </div>
-    <a class="scroll-down icon-arrow-left" href="#content" data-offset="-45"><span class="hidden">Scroll Down</span></a>
 </header>
 
 <!-- The main content area on the homepage -->
