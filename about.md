@@ -15,6 +15,8 @@ He wishes that modern American culture didn't make it necessary to say this, but
 <br/>[<i class="fa fa-twitter"></i> AdamTuttle][tw]
 <br/> [<i class="fa fa-youtube-play"></i> fusiongrokker][yt]
 
+![Balloon Skydive full size](/assets/images/adam@3x.jpg)
+
 ### Life Story, abridged version
 
 I'm Adam. I work for [AlumnIQ][iq] (formerly CounterMarch Systems), and work from home full time on a geographically distributed, 100% remote team. I live near Philadelphia, PA, USA. I make web and mobile stuff... Mostly I make the AlumnIQ family of products, but we do _a lot of things_ in the Higher Education space.
