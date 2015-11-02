@@ -1,4 +1,4 @@
-# Blog: adamtuttle.codes
+# Blog: [adamtuttle.codes](http://adamtuttle.codes)
 
 This repository is the code that makes my blog (Jekyll powered) work. The blog entries are found in the `_posts` folder.
 
