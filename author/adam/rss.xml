@@ -65,44 +65,6 @@
 	  ]]></description>
 	</item>
 
-	<item>
-	  <title>REST API's: Easier Than You Imagined</title>
-	  <link>//rest-apis-easier-than-you-imagined</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2013-05-18T00:00:00-04:00</pubDate>
-	  <guid>//rest-apis-easier-than-you-imagined</guid>
-	  <description><![CDATA[
-	     <script async class="speakerdeck-embed" data-id="f65000247d8f4b2389d3bec57c711c9e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
-
-<p>Taffy has changed a fair amount, and for the better, since its release 2.5 years ago. It&#39;s also now used in production on Adobe ColdFusion and Railo every day of the year. It&#39;s baked into Slatwall, the open source eCommerce plugin for Mura. It&#39;s used by an augmented reality iPhone application to send data and photos between phones and servers.</p>
-
-<p>And still, it&#39;s the easiest, fastest way to get the job done from a CFML platform; and I&#39;d like to help you get started writing API&#39;s today.</p>
-
-<p>This session will teach you the basics of REST, as well as everything you need to know to get started writing REST API&#39;s with Taffy. From &quot;what&#39;s an HTTP verb?&quot; to Dependency Injection, to Uploading Files, and everywhere in between. We&#39;ll also cover adding an API to an existing application because as we all know, starting from scratch is not often a privilege of which we get the pleasure.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Errors are Best When Emailed... Said Nobody Ever</title>
-	  <link>//errors-are-best-when-emailed-said-nobody-ever</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2013-05-17T00:00:00-04:00</pubDate>
-	  <guid>//errors-are-best-when-emailed-said-nobody-ever</guid>
-	  <description><![CDATA[
-	     <script async class="speakerdeck-embed" data-id="6142a1bd3e2b408786cf9c508c953d5c" data-ratio="1.33333333333333" src="https://speakerdeck.com/assets/embed.js"></script>
-
-<p>Exceptions happen. Bugless code is a myth.</p>
-
-<p>I hope I don&#39;t have to convince many people that sending every exception via email is not the greatest idea since sliced bread. &quot;Sure, it sucks... But what else can I do?&quot; would be a natural response. I&#39;ve been there. How else can you keep track of exactly what&#39;s going wrong in your application? How else will you be alerted when something goes wrong?</p>
-
-<p>For many of you, email probably plays the role of courier between your application and your bug database (JIRA, Bugzilla, etc). But that&#39;s not what email was intended for, and to be honest, it&#39;s a poor tool for the job, so it does a crappy job.</p>
-
-<p>The truth is that there are better options, but nobody can blame you for not knowing about them... Until now. I&#39;m going to show you the two most popular options available for CF, how to use them to get useful analytical data back about your application&#39;s health, or lack thereof, and how you can extend the concept beyond just your CFML. And the real surprise is that it&#39;s easy.</p>
-
-	  ]]></description>
-	</item>
-
 
 </channel>
 </rss>

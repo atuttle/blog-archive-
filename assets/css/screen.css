@@ -1281,7 +1281,7 @@ body:not(.post-template) .post-title {
    ========================================================================== */
 
 .post-head.main-header {
-    height: 35vh;
+    height: 45vh;
     min-height: 180px;
 }
 
