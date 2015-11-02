@@ -7,7 +7,9 @@ navigation: True
 current: about
 ---
 
-Adam Tuttle is a coder, thinker, tweeter, and dad from just outside Philadelphia, PA, USA. As CTO and Lead Engineer for [AlumnIQ][iq] he is responsible for shaping and building the technology that is revolutionizing Higher Education Advancement and Alumni Relations. He's also a skydiving bum trapped in a working man's body.
+Adam Tuttle is a coder, thinker, tweeter, and dad from just outside Philadelphia, PA, USA. As CTO and Lead Engineer for [AlumnIQ][iq] he is responsible for shaping and building technology that aims to revolutionize Higher Education Advancement and Alumni Relations. He's also a skydiving bum trapped in a working man's body.
+
+He wishes that modern American culture didn't make it necessary to say this, but here it is anyway: _Opinions expressed on this blog are those of the author, and the author alone._
 
 [<i class="fa fa-github-alt"></i> atuttle][gh]
 <br/>[<i class="fa fa-twitter"></i> AdamTuttle][tw]
