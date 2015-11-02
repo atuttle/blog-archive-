@@ -251,6 +251,17 @@ a:hover {
     color: #111;
 }
 
+.post-content a {
+    color: orangered;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+.post-content a:hover {
+    color: white;
+    background-color: orangered;
+}
+
 p, ul, ol, dl {
     -webkit-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
     -moz-font-feature-settings: 'liga' 1, 'onum' 1, 'kern' 1;
