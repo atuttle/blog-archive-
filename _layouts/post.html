@@ -70,7 +70,7 @@ class: 'post-template'
                 {% endif %}
                 <div class="author-meta">
                     <div style="margin-bottom:10px">
-                        <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}">{{ page.date | date_to_string }}</time>
+                        <time class="post-date" datetime="{{ page.date | date:'%Y-%m-%d' }}"><i class="fa fa-calendar-o"></i> {{ page.date | date_to_string }}</time>
                         <!-- [[tags prefix=" on "]] -->
                         {% if page.tags.size > 0 %}
                         on
