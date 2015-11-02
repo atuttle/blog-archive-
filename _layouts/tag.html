@@ -22,22 +22,24 @@ current: tag
 
 <!-- If we have a tag cover, display that - else blog cover - else nothing -->
 <header class="main-header tag-head {% if page.cover %}" style="background-image: url({{ site.baseurl }}{% if new_cover %}{{ new_cover }}{% else %}{{ page.cover }}{% endif%}) {% else %}no-cover{% endif %}">
-    <nav class="main-nav overlay clearfix">
-        {% if page.logo %}<a class="blog-logo" href="{{ site.baseurl }}"><img src="{{ site.baseurl }}{{ page.logo }}" alt="Blog Logo" /></a>{% endif %}
-        {% if page.navigation %}
-            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
-        {% endif %}
-    </nav>
-    <div class="vertical">
-        <div class="main-header-content inner">
-            <h1 class="page-title">{{ page.tag | capitalize }}</h1>
-            <h2 class="page-description">
-            {% if tag_description %}
-                {{ tag_description }}
-            {% elsif page.tag %}
-			    A {{ paginator.total_posts }}-post collection
+    <div class="dimmer">
+        <nav class="main-nav overlay clearfix">
+            {% if site.logo %}<a class="blog-logo" href="{{ site.baseurl }}" title="{{ site.name }}" style="font-size:1.5em">{{ site.logo }}</a>{% endif %}
+            {% if page.navigation %}
+                <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
             {% endif %}
-            </h2>
+        </nav>
+        <div class="vertical">
+            <div class="main-header-content inner">
+                <h2 class="page-description">
+                    {% if tag_description %}
+                        {{ tag_description }}
+                    {% elsif page.tag %}
+                        {{ paginator.total_posts }} entries tagged
+                    {% endif %}
+                </h2>
+                <h1 class="page-title">{{ page.tag | capitalize }}</h1>
+            </div>
         </div>
     </div>
 </header>
