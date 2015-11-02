@@ -1261,29 +1261,9 @@ body:not(.post-template) .post-title {
     color: #dd4b39;
 }
 
-/* responsive iframes */
-.responsive_iframe_4x3 {
-    position: relative;
-    padding-top: 75%;
+.speakerdeck-iframe {
+    margin-bottom: 3rem !important;
 }
-.responsive_iframe_16x9 {
-    position: relative;
-    padding-top: 56.25%;
-}
-.responsive_iframe {
-    position: relative;
-    padding-top: 56.25%;
-}
-.responsive_iframe iframe
-,.responsive_iframe_4x3 iframe
-,.responsive_iframe_16x9 iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
 
 /* ==========================================================================
    6. Author profile
