@@ -5,7 +5,7 @@ title: A Full and Comprehensive Style Test
 date:   2014-09-27 10:18:00
 tags: test content
 subclass: 'post tag-test tag-content'
-categories: 'casper'
+categories: 'adam'
 navigation: True
 logo: 'assets/images/ghost.png'
 ---

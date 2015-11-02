@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: 'adam'
 cover: 'assets/images/covers/http-verbs.png'
 cover_blur: true
 title:  'REST API''s: Easier Than You Imagined'

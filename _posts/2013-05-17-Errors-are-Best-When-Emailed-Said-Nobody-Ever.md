@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: 'adam'
 cover: 'assets/images/covers/dylan-no-stress.png'
 title:  Errors are Best When Emailed... Said Nobody Ever
 date:   2013-05-17

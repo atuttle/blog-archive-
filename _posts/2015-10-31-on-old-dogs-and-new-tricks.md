@@ -1,5 +1,6 @@
 ---
 layout: post
+categories: 'adam'
 cover: 'assets/images/covers/cover4.jpg'
 title:  On Old Dogs and New Tricks
 date:   2015-10-31 23:59:59
