@@ -1159,6 +1159,7 @@ body:not(.post-template) .post-title {
    text column to break out. */
 .post-content img {
     display: block;
+    border-radius: 4px;
     max-width: 126%;
     height: auto;
     padding: 0.6em 0;
