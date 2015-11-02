@@ -5,9 +5,9 @@ cover_blur: true
 title:  'REST API''s: Easier Than You Imagined'
 location: Minneapolis, MN, USA
 date:   2013-05-18
-tags: Talks
-subclass: 'post tag-Talks'
-navigation: True
+tags: Talks Taffy REST
+subclass: 'post'
+navigation: true
 ---
 
 <script async class="speakerdeck-embed" data-id="f65000247d8f4b2389d3bec57c711c9e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
