@@ -14,12 +14,13 @@ image: 'assets/images/adam@2x.jpg'
 # Jykell configuration
 markdown: redcarpet
 highlighter: pygments
-paginate: 5
+paginate: 10
 language: 'en-us'
 short_url: 'github.com/atuttle/blog'
 google_analytics: 'todo'
 disqus: username
-baseurl: /jasper/
+baseurl: /
+link_base: ''
 
 # Permalinks
 permalink: /:title

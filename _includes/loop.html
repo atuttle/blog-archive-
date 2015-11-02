@@ -17,7 +17,7 @@
     {% for post in paginator.posts %}
     <article class="post">
         <header class="post-header">
-            <h2 class="post-title"><a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></h2>
+            <h2 class="post-title"><a href="{{ site.link_base }}{{ post.url }}">{{ post.title }}</a></h2>
         </header>
         <footer class="post-meta">
             <!-- [[tags prefix=" on "]] -->
