@@ -34,7 +34,7 @@ A few short years ago (a lifetime, on the internet), I would have been shocked t
 
 I'm not heralding ColdFusion, here. I've been working with the platform for more than a decade now and I'm pretty sick of it, to be honest. As a former ColdFusion Product Manager once told me, "You don't really know a programming language unless you can name 10 things you hate about it." By that measure, I'd estimate that I know CFML really, _really_, _**really**_ well.
 
-Whatever your opinion of ColdFusion, it is undeniably changing. The next version is on the horizon. They're in private beta (to which I declined to participate); and I would wager public beta is closer than most people would think.
+Whatever your opinion of ColdFusion, it is undeniably changing. The next version is on the horizon. They're in private beta (in which I declined to participate); and I would wager public beta is closer than most people would think.
 
 _Everything old is new again._
 
