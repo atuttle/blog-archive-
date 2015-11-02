@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- [[! Document Settings ]] -->
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+
+    <!-- [[! Page Meta ]] -->
+    <title>On Old Dogs and New Tricks</title>
+    <meta name="description" content="Eat. Code. Skydive. - It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski" />
+
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+
+    <!-- [[! Styles'n'Scripts ]] -->
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+
+    <!-- [[! Ghost outputs important style and meta data with this tag ]] -->
+        <link rel="canonical" href="/" />
+    <meta name="referrer" content="origin" />
+    <link rel="next" href="/page2/" />
+
+    <meta property="og:site_name" content="Eat. Code. Skydive." />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Eat. Code. Skydive." />
+    <meta property="og:description" content="It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski" />
+    <meta property="og:url" content="/" />
+    <meta property="og:image" content="/assets/images/covers/cover1.jpg" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Eat. Code. Skydive." />
+    <meta name="twitter:description" content="It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski" />
+    <meta name="twitter:url" content="/" />
+    <meta name="twitter:image:src" content="/assets/images/covers/cover1.jpg" />
+
+    <script type="application/ld+json">
+{
+    "@context": "http://schema.org",
+    "@type": "Website",
+    "publisher": "Finding The Way Home",
+    "url": "/",
+    "image": "/assets/images/covers/cover1.jpg",
+    "description": "It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski"
+}
+    </script>
+
+    <meta name="generator" content="Jekyll 3.0.0" />
+    <link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="/rss.xml" />
+
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- [[! Everything else gets inserted here ]] -->
+        <!-- < default -->
+
+<!-- The comment above "< default" means - insert everything in this file into -->
+    <!-- the [body] of the default.hbs template, which contains our header/footer. -->
+
+<!-- Everything inside the #post tags pulls data from the post -->
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/cover4.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post tag-CFML">
+
+        <header class="post-header">
+            <h1 class="post-title">On Old Dogs and New Tricks</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-10-31">31 Oct 2015</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/CFML'>Cfml</a>,
+                    
+                
+                    
+                       <a href='/tag/React'>React</a>,
+                    
+                
+                    
+                       <a href='/tag/Static'>Static</a>,
+                    
+                
+                    
+                       <a href='/tag/Jekyll'>Jekyll</a>,
+                    
+                
+                    
+                       <a href='/tag/GitHub'>Github</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>Consider the following code. This isn&#39;t an exercise in figuring out what something does, or how to do it, so I&#39;ll just tell you: it updates a list of items (e.g. user input) so that all items in the list are quoted with single-quotes. If it finds them, it strips out double quotes, too (only if both open and close quotes exist).</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;foo,&#39;bar&#39;,&quot;&quot;baz&quot;&quot;,qux&quot;</span><span class="p">;</span>
+
+<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
+  <span class="p">.</span><span class="nx">listToArray</span><span class="p">()</span>
+<span class="hll">  <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
+</span>    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">){</span>
+      <span class="nx">item</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span> <span class="nx">item</span><span class="p">.</span><span class="nx">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="p">);</span> <span class="c1">//chop trailing &quot;</span>
+      <span class="nx">item</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span> <span class="nx">item</span><span class="p">.</span><span class="nx">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="p">);</span> <span class="c1">//chop leading &quot;</span>
+      <span class="k">return</span> <span class="s2">&quot;&#39;#item#&#39;&quot;</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="s2">&quot;&#39;#item#&#39;&quot;</span><span class="p">;</span>
+  <span class="p">})</span>
+  <span class="p">.</span><span class="nx">toList</span><span class="p">();</span>
+</code></pre></div>
+<p>Would it surprise you to find out that this code is CMFL?</p>
+
+<p>A few short years ago (a lifetime, on the internet), I would have been shocked to see this and learn that it is, indeed, ColdFusion code. It&#39;s very <a href="https://en.wikipedia.org/wiki/ECMAScript">ECMAScripty</a>, it&#39;s functional, and it uses some of the language trimmings modern modern languages love: map and reduce. <code>array.toList()</code> is really just a reducer, if you think about it.</p>
+
+<p>I&#39;m not heralding ColdFusion, here. I&#39;ve been working with the platform for more than a decade now and I&#39;m pretty sick of it, to be honest. As a former ColdFusion Product Manager once told me, &quot;You don&#39;t really know a programming language unless you can name 10 things you hate about it.&quot; By that measure, I&#39;d estimate that I know CFML really, <em>really</em>, <em><strong>really</strong></em> well.</p>
+
+<p>Whatever your opinion of ColdFusion, it is undeniably changing. The next version is on the horizon. They&#39;re in private beta (to which I declined to participate); and I would wager public beta is closer than most people would think.</p>
+
+<p><em>Everything old is new again.</em></p>
+
+<p>Me, too.</p>
+
+<p>I&#39;ll be 35 in April. While technically not even half way through my career (assuming I retire at 65), 35 feels kind of &quot;old&quot; in tech. I&#39;ve gone from being one of the hungry young guys that&#39;s eager to replace the stagnant developers that came before me, to one of those old kodgers that&#39;s unsettled (even if just a little bit) by new JS frameworks coming out every week.</p>
+
+<p>For the last few years my developer career has started to stagnate. I decided not to speak at any conferences in 2015; in part to give myself a break from the crazy amount of work that I put into a presentation that I give only once or twice, but also in part to find out if I would miss it. (I do.) I haven&#39;t learned anything new &mdash; nothing big, at least. I haven&#39;t grown.</p>
+
+<p>I learned the fundamentals of Node.js at the end of 2014, and have been using them to my great advantage since, but that was the last time I truly learned something new. I&#39;ve been heads-down working on <a href="http://www.alumniq.com">AlumnIQ</a>, doing the occasional freelance gig, and somehow this has filled my time. As an ambitious person, it seems weird to me to have been able to go an entire year without any major changes (never mind the fact that I bought a new house and moved in the middle of the summer, and I&#39;m a Cub Scout leader now). In some ways I was sating my need for growth by solving hard problems with boring tech.</p>
+
+<p>It makes for (very) brief periods of excitement&mdash;problem solved! hooray! 🎉🍻&mdash;interspersed with lots of headaches and hair pulling. By contrast, when learning a new piece of technology, every time you master another bit of it you&#39;re rewarded with endorphins for having learned something new and exciting.</p>
+
+<p>The first step is admitting you have a problem.</p>
+
+<p>In the last two weeks, I&#39;ve started learning <a href="https://facebook.github.io/react/">React</a> and really making an effort to learn <a href="https://babeljs.io/docs/learn-es2015/">ES2015</a> (I&#39;ve only dabbled until now). I haven&#39;t combined the two yet. I don&#39;t yet understand ES2015 well enough to be able to look at it and understand how it works instantly, like I can with ES5. I&#39;m also very interested in the static-website-generator craze. In fact I&#39;m writing this blog post as my first new entry to a <a href="https://jekyllrb.com/">Jekyll</a> blog that I intend to host via <a href="https://pages.github.com/">GitHub Pages</a>.</p>
+
+<p>2016 will be a high-growth year for me. That&#39;s my goal. I guess I&#39;m a little early for the New Years Resolution party, but planning ahead is a good way to set myself up for success, right?</p>
+
+<p>Now if you&#39;ll excuse me, I have some React components to write.</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/author/adam" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2015-10-31"><i class="fa fa-calendar-o"></i> 31 Oct 2015</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/CFML'>Cfml</a>,
+                            
+                        
+                            
+                               <a href='/tag/React'>React</a>,
+                            
+                        
+                            
+                               <a href='/tag/Static'>Static</a>,
+                            
+                        
+                            
+                               <a href='/tag/Jekyll'>Jekyll</a>,
+                            
+                        
+                            
+                               <a href='/tag/GitHub'>Github</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Pennsylvania, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/"> github.com/atuttle/blog</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=On Old Dogs and New Tricks&amp;url=http://github.com/atuttle/blog//on-old-dogs-and-new-tricks"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://github.com/atuttle/blog//on-old-dogs-and-new-tricks"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://github.com/atuttle/blog//on-old-dogs-and-new-tricks"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/http-verbs.png)" href="//rest-apis-easier-than-you-imagined">
+            <section class="post">
+                <h2>REST API's: Easier Than You Imagined</h2>
+                <p><script async class="speakerdeck-embed" data-id="f65000247d8f4b2389d3bec57c711c9e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script> <p>Taffy has changed a fair amount, and for the...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <!-- [[! Ghost outputs important scripts and data with this tag ]] -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- [[! The main JavaScript file for Casper ]] -->
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    <!-- Add Google Analytics  -->
+        <!-- Google Analytics Tracking code -->
+     <script>
+	    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+	    ga('create', 'todo', 'auto');
+	    ga('send', 'pageview');
+
+     </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0"
+  xmlns:content="http://purl.org/rss/1.0/modules/content/"
+  xmlns:dc="http://purl.org/dc/elements/1.1/"
+  xmlns:itunes="http://www.itunes.com/dtds/podcast-1.0.dtd"
+  xmlns:trackback="http://madskills.com/public/xml/rss/module/trackback/">
+  <channel>
+    <title>Eat. Code. Skydive.</title>
+    <link>http://github.com/atuttle/blog/</link>
+    <description>It's one thing to write code. It's another to humanize&lt;br&gt;technology so it serves a purpose in people's lives.&lt;br&gt;&amp;mdash; Luke Wroblewski</description>
+    <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
+    <item>
+      <title>On Old Dogs and New Tricks</title>
+      <link>http://github.com/atuttle/blog//on-old-dogs-and-new-tricks</link>
+      <description>Consider the following code. This isn't an exercise in figuring out what something does, or how to do it, so I'll just tell you: it updates a list of items (e.g. user input) so that all items in the list are quoted with single-quotes. If it finds them, it strips out double quotes, too (only if both open and close quotes exist).
+
+[ecma]: https://en.wikipedia.org/wiki/ECMAScript
+[iq]: http://www.alumniq.com
+[react]: https://facebook.github.io/react/
+[es2015]: https://babeljs.io/docs/learn-es2015/
+[jekyll]: https://jekyllrb.com/
+[ghpages]: https://pages.github.com/</description>
+      <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
+      <dc:date>2015-10-31T19:59:59-04:00</dc:date>
+    </item>
+    <item>
+      <title>REST API's: Easier Than You Imagined</title>
+      <link>http://github.com/atuttle/blog//rest-apis-easier-than-you-imagined</link>
+      <description>&lt;script async class=&quot;speakerdeck-embed&quot; data-id=&quot;f65000247d8f4b2389d3bec57c711c9e&quot; data-ratio=&quot;1.33333333333333&quot; src=&quot;//speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+
+</description>
+      <pubDate>Sat, 18 May 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-05-18T00:00:00-04:00</dc:date>
+    </item>
+    <item>
+      <title>Errors are Best When Emailed... Said Nobody Ever</title>
+      <link>http://github.com/atuttle/blog//errors-are-best-when-emailed-said-nobody-ever</link>
+      <description>&lt;script async class=&quot;speakerdeck-embed&quot; data-id=&quot;6142a1bd3e2b408786cf9c508c953d5c&quot; data-ratio=&quot;1.33333333333333&quot; src=&quot;https://speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
+
+</description>
+      <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-05-17T00:00:00-04:00</dc:date>
+    </item>
+    <dc:date>2015-10-31T19:59:59-04:00</dc:date>
+  </channel>
+</rss>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://github.com/atuttle/blog/</link>
+   <description>It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>REST API's: Easier Than You Imagined</title>
+	  <link>//rest-apis-easier-than-you-imagined</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2013-05-18T00:00:00-04:00</pubDate>
+	  <guid>//rest-apis-easier-than-you-imagined</guid>
+	  <description><![CDATA[
+	     <script async class="speakerdeck-embed" data-id="f65000247d8f4b2389d3bec57c711c9e" data-ratio="1.33333333333333" src="//speakerdeck.com/assets/embed.js"></script>
+
+<p>Taffy has changed a fair amount, and for the better, since its release 2.5 years ago. It&#39;s also now used in production on Adobe ColdFusion and Railo every day of the year. It&#39;s baked into Slatwall, the open source eCommerce plugin for Mura. It&#39;s used by an augmented reality iPhone application to send data and photos between phones and servers.</p>
+
+<p>And still, it&#39;s the easiest, fastest way to get the job done from a CFML platform; and I&#39;d like to help you get started writing API&#39;s today.</p>
+
+<p>This session will teach you the basics of REST, as well as everything you need to know to get started writing REST API&#39;s with Taffy. From &quot;what&#39;s an HTTP verb?&quot; to Dependency Injection, to Uploading Files, and everywhere in between. We&#39;ll also cover adding an API to an existing application because as we all know, starting from scratch is not often a privilege of which we get the pleasure.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
