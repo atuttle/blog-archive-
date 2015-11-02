@@ -30,7 +30,7 @@ x = x
 
 Would it surprise you to find out that this code is CMFL?
 
-A few short years ago (a lifetime, on the internet), I would have been shocked to see this and learn that it is, indeed, ColdFusion code. It's very [ECMAscript][ecma]y, it's functional, and it uses some of the language trimmings modern modern languages love: map and reduce. `array.toList()` is really just a reducer, if you think about it.
+A few short years ago (a lifetime, on the internet), I would have been shocked to see this and learn that it is, indeed, ColdFusion code. It's very [ECMAscripty][ecma], it's functional, and it uses some of the language trimmings modern modern languages love: map and reduce. `array.toList()` is really just a reducer, if you think about it.
 
 I'm not heralding ColdFusion, here. I've been working with the platform for more than a decade now and I'm pretty sick of it, to be honest. As a former ColdFusion Product Manager once told me, "You don't really know a programming language unless you can name 10 things you hate about it." By that measure, I'd estimate that I know CFML really, _really_, _**really**_ well.
 
