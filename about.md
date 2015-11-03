@@ -1,41 +1,39 @@
 ---
 layout: page
-cover: 'assets/images/adam@3x.jpg'
-title: Adam Tuttle
+cover: 'assets/images/covers/moss.jpg'
+title: Adam Tuttle, human extraordinaire
 class: 'post'
 navigation: True
 current: about
 ---
 
-Adam Tuttle is a coder, thinker, tweeter, and dad from just outside Philadelphia, PA, USA. As CTO and Lead Engineer for [AlumnIQ][iq] he is responsible for shaping and building technology that aims to revolutionize Higher Education Advancement and Alumni Relations. He's also a skydiving bum trapped in a working man's body.
+I'm a coder, systems thinker, speaker, human interface designer &mdash; and fortunately enough, temporary collection of stardust in the approximate shape of a human being &mdash; living in the suburbs of the suburbs (that's not a typo) of Philadelphia, PA.
 
-He wishes that modern American culture didn't make it necessary to say this, but here it is anyway: _Opinions expressed on this blog are those of the author, and the author alone._
+You can connect with me [on GitHub][gh], [on Twitter][tw], [on YouTube][yt], and [on GoodReads][gr].
 
-[<i class="fa fa-github-alt"></i> atuttle][gh]
-<br/>[<i class="fa fa-twitter"></i> AdamTuttle][tw]
-<br/> [<i class="fa fa-youtube-play"></i> fusiongrokker][yt]
+I joined [AlumnIQ][iq] as employee #2 in 2012, where I have become the CTO and Lead developer, shaping and building technology that aims to revolutionize Higher Education Advancement and Alumni Relations. In my time here, I've helped grow the company from two people to _**three**_. (I hope to be able to update that with a more impressive number as time goes on.)
 
-![Balloon Skydive full size](/assets/images/adam@3x.jpg)
+I work from home on a geographically distributed, 100% remote team, which means I get the privilege of making breakfast and lunch 3+ days a week for my two children. I have a strange addiction to collecting board games even though we don't play them very much. I make some pretty killer pizza from scratch, if I do say so myself.
 
-### Life Story, abridged version
+I'm also a skydiving bum trapped in a working man's body.
 
-I'm Adam. I work for [AlumnIQ][iq] (formerly CounterMarch Systems), and work from home full time on a geographically distributed, 100% remote team. I live near Philadelphia, PA, USA. I make web and mobile stuff... Mostly I make the AlumnIQ family of products, but we do _a lot of things_ in the Higher Education space.
+![My first hot air balloon skydive](/assets/images/about/balloon_jump.jpg)
 
-When I'm not behind a keyboard, I enjoy skydiving, snowboarding, traveling, board games and video games, camping, hiking, canoeing, and fishing. My wife and I have two children, a dog, a cat, and a small collection of hermit crabs.
+I love traveling, whether it be to attend or speak at an event, or vacationing. I've lived on all three Continental American coasts, and [The Azores][azores]. My dog is named after a character from Futurama. I've called 911 in emergency situations twice in my life. One of them was for my brother. I swam a mile, camped in deep snow, hiked some parts of the Appalachain Trail and different parts of Redwood National and State Parks. I've never been to the Grand Canyon. I remember attending 6 different schools up to and including high school, but it might have been more. I can tie a bowline knot with one hand. My favorite author is Bill Bryson, but paradoxically my favorite book genre is science fiction.
 
-I've lived on all three US coasts, and briefly in [The Azores][azores], Portugal. I got my first computer when I was nine years old, circa 1990. When Windows 3.11 was released in 1992, my dad got me a 486-66 and set it up to play a clip of the Pink Floyd song _Welcome to the Machine_ so that it sang "Welcome my son. Welcome... to... the machine" as it was booting. (Somehow a 5 minute boot didn't seem so slow back then.) I was doomed. From that point on, computers became the focus of my life.
+Speaking of books, I wrote and self-published [a book about designing REST APIs pragmatically][restassured] &mdash; and I did it over the course of two weeks, after work. If you use or build APIs, it would probably interest you. You can read the first chapter for free, and if you decide not to buy it we can still be friends.
 
-I learned software development by teaching myself Visual Basic from a few books when I was around 12 years old and have never stopped coding. Between school, work, and hobby, I've had occasion to dabble in C/C++, Java/JSP, Perl, Natural, PHP, Python, and Ruby. These days my bread and butter are JavaScript, CFML, HTML, and LESS/CSS. I've had various computer-related jobs, running the gamut from server sales, colocation and management, ISP Sales & Support, LAN and WAN tech support, and eventually landing at software development using ColdFusion 4.5; right around the same time I was taking my first programming courses in High School.
+Want to chat? [Email me][email]. Or ask on my AMA ([Ask Me Anything][ama]), if it's something others might be interested to read. I am also available to hire on an ad-hoc basis [for mentoring on coding and other topics][mentor].
 
-During my senior year of college I did a one year internship at [Perdue Farms][perdue], and then worked there for a year full time after graduation, programming in a mainframe environment. After the "big company" experience I decided that I would be happier working for a smaller, more progressive company that was willing to ride a little closer to the bleeding edge of technology; and I found myself at E-Tech Solutions, based in West Chester, PA. I worked there for a year and a half before we were acquired by [Perficient][perficient], where I worked for another year and a half before the itch to change things around flared up again. After that I worked at [Wharton Computing's Learning Lab][LL] for almost exactly 3 years, developing and maintaining business simulations and serious games.
-
-Then I got an offer I couldn't refuse, and now I find myself working from home full time, with some of my best friends, doing stuff that I love. If this isn't a dream job, I don't know what is.
+![A stony beach near the Ring of Kerry, Ireland](/assets/images/about/stone_beach.jpg)
 
 [iq]: http://www.alumniq.com
-[perdue]: http://www.perdue.com/
-[perficient]: https://www.perficient.com/
-[LL]: https://www.wharton.upenn.edu/
 [gh]: https://github.com/atuttle
 [tw]: https://twitter.com/adamtuttle
 [yt]: https://www.youtube.com/user/fusiongrokker/videos
+[gr]: https://www.goodreads.com/author/show/7514385.Adam_Tuttle
 [azores]: https://www.google.com/maps/@38.6903073,-27.9664891,8.98z
+[restassured]: http://www.restassuredbook.com
+[email]: mailto:adam@fusiongrokker.com
+[ama]: https://github.com/atuttle/ama
+[mentor]: https://www.codementor.io/adamtuttle
