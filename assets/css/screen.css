@@ -1159,10 +1159,10 @@ body:not(.post-template) .post-title {
    text column to break out. */
 .post-content img {
     display: block;
-    border-radius: 4px;
+    border-radius: 6px;
     max-width: 126%;
     height: auto;
-    padding: 0.6em 0;
+    padding: 0;
     /* Centers an image by (1) pushing its left edge to the
        center of its container and (2) shifting the entire image
        in the opposite direction by half its own width.
