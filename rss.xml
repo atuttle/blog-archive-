@@ -8,7 +8,16 @@
     <title>Eat. Code. Skydive.</title>
     <link>http://github.com/atuttle/blog/</link>
     <description>It's one thing to write code. It's another to humanize&lt;br&gt;technology so it serves a purpose in people's lives.&lt;br&gt;&amp;mdash; Luke Wroblewski</description>
-    <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
+    <pubDate>Wed, 04 Nov 2015 03:30:00 -0500</pubDate>
+    <item>
+      <title>Soliciting Extra-Life Donations for Childrens Hospital of Philadelphia!</title>
+      <link>http://github.com/atuttle/blog//extra-life-2015</link>
+      <description>I know this is terribly last minute, but I've been swamped with deadlines and such and haven't had any time to actively hype my Extra Life campaign this year. _And it's happening this weekend!_
+
+[extralife]: http://www.extra-life.org/</description>
+      <pubDate>Wed, 04 Nov 2015 03:30:00 -0500</pubDate>
+      <dc:date>2015-11-04T03:30:00-05:00</dc:date>
+    </item>
     <item>
       <title>On Old Dogs and New Tricks</title>
       <link>http://github.com/atuttle/blog//on-old-dogs-and-new-tricks</link>
@@ -23,6 +32,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-10-31T19:59:59-04:00</dc:date>
+    <dc:date>2015-11-04T03:30:00-05:00</dc:date>
   </channel>
 </rss>

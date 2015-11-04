@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://github.com/atuttle/blog/</link>
+   <description>It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Soliciting Extra-Life Donations for Childrens Hospital of Philadelphia!</title>
+	  <link>//extra-life-2015</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2015-11-04T03:30:00-05:00</pubDate>
+	  <guid>//extra-life-2015</guid>
+	  <description><![CDATA[
+	     <p>I know this is terribly last minute, but I&#39;ve been swamped with deadlines and such and haven&#39;t had any time to actively hype my Extra Life campaign this year. <em>And it&#39;s happening this weekend!</em></p>
+
+<p>Starting early in the morning on Saturday, November 7th (US-Eastern) I&#39;ll begin a 24 hour marathon of games of all types. Video games, Board games, card games, dice games. Maybe even some other tabletop gaming if I can arrange some friends to get together in time.</p>
+
+<p>For the uninitiated, <a href="http://www.extra-life.org/">Extra Life</a> is a charity that collects money for Children&#39;s Miracle Network Hospitals, whose mission is to provide care for children, regardless of their families ability to pay for it.</p>
+
+<p>Kids with cancer, or heart issues, or that were in car accidents. The list goes on and on and on.</p>
+
+<p><img src="/assets/images/posts/2015/dylan-xbox.jpg" alt="My son Dylan playing xbox with me"></p>
+
+<p>They deserve our support and our help! And they&#39;re in my back yard. I play for the Children&#39;s Hospital of Philadelphia (CHOP), but there are CMN Hospitals all over the world. There&#39;s probably one near you too.</p>
+
+<h2>What I&#39;m doing for your money</h2>
+
+<p>How does it work? Well, I usually compare it to the ACS Relay For Life, except instead of walking in circles for 24 hours we&#39;re playing games &mdash; of all varieties. The header image is of my brothers and I (and my son) playing some Rock Band during my 2013 marathon. Video games are a big part of it for most people, but I usually try to get my whole family involved by playing board and card games too.</p>
+
+<p><img src="/assets/images/posts/2015/robot-turtles.jpg" alt="Robot Turtles, playing with my kids!"></p>
+
+<p>Just like Relay for Life, it all hinges on soliciting donations from friends. <em><strong>Friends like you</strong>.</em> Would you be so kind as to donate a few dollars to help sick kids? I&#39;m attempting to raise $1,024 this year, and I could really use your help. I greatly appreciate every donation, no matter how small; but more importantly, it goes directly to helping sick kids get the medical care that they need.</p>
+
+<iframe src="http://www.extra-life.org/index.cfm?fuseaction=widgets.300x250thermo&participantID=148892" width="302" height="252" frameborder="0" scrolling="no" style="margin: 0 auto 3rem"><a href="http://www.extra-life.org/index.cfm?fuseaction=donorDrive.participant&participantID=148892">Make a Donation!</a></iframe>
+
+<p>What do you say? Let&#39;s help some kids!</p>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/ZS7WRl7N1Ig" frameborder="0" allowfullscreen></iframe>
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/2_sLlWO_v24" frameborder="0" allowfullscreen></iframe>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
