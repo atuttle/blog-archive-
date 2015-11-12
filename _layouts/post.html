@@ -88,7 +88,7 @@ class: 'post-template'
                     {% else %}
                         {% if site.location %}<span class="author-location icon-location"> {{ site.location }}</span>{% endif %}
                     {% endif %}
-                    {% if site.url %}<span class="author-link icon-link"><a href="{{ site.url }}"> {{ site.short_url }}</a></span>{% endif %}
+                    {% if site.repo_url %}<span class="author-link icon-link"><a href="{{ site.repo_url }}">{{ site.repo_url_display }}</a></span>{% endif %}
                 </div>
             </section>
 

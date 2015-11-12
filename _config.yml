@@ -1,14 +1,16 @@
 # Website info
 name: 'Eat. Code. Skydive.'
-description: "It's one thing to write code. It's another to humanize<br>technology so it serves a purpose in people's lives.<br>&mdash; Luke Wroblewski"
+description: "It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski"
 logo: '🍴 💻 🚁'
+url: 'http://adamtuttle.codes'
+repo_url: 'http://github.com/atuttle/blog/'
+repo_url_display: 'github.com/atuttle/blog/'
 
 # Author's info
 author: 'Adam Tuttle'
 username: adam
 bio: 'A skydiving bum trapped in a working man''s body'
 location: 'Pennsylvania, USA'
-url: 'http://github.com/atuttle/blog/'
 image: 'assets/images/adam@2x.jpg'
 
 # Jykell configuration
