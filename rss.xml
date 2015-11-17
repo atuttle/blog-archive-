@@ -8,7 +8,17 @@
     <title>Eat. Code. Skydive.</title>
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
-    <pubDate>Thu, 12 Nov 2015 03:30:00 -0500</pubDate>
+    <pubDate>Tue, 17 Nov 2015 11:30:00 -0500</pubDate>
+    <item>
+      <title>Three Reasons We Went Solar (and You Should Too!)</title>
+      <link>http://adamtuttle.codes/three-reasons-we-went-solar-and-you-should-too</link>
+      <description>Last June, I called my buddy Mike and told him I wanted to go solar. We were about to move into our new house and I wanted him to look at the roof on Google Maps to confirm it would be worth installing solar panels. At the time he was a salesman (he's since been promoted) for [Solar City][ref], and I know he'll always be honest with me even when he's trying to sell me something.
+
+[ref]: https://share.solarcity.com/adamtuttle
+[states]: http://www.solarcity.com/company/contractor-licenses</description>
+      <pubDate>Tue, 17 Nov 2015 11:30:00 -0500</pubDate>
+      <dc:date>2015-11-17T11:30:00-05:00</dc:date>
+    </item>
     <item>
       <title>Extra Life 2015 Recap</title>
       <link>http://adamtuttle.codes/extra-life-2015-recap</link>
@@ -45,6 +55,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-11-12T03:30:00-05:00</dc:date>
+    <dc:date>2015-11-17T11:30:00-05:00</dc:date>
   </channel>
 </rss>
