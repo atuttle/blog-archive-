@@ -23,7 +23,7 @@ Here's our electric consumption compared with our solar production for yesterday
 
 ![Our solar production vs power consumption for Nov 16th](/assets/images/posts/2015/solar-usage.png)
 
-Here, then, are the very first three reasons that come to mind that I wanted to go solar, and you should too:
+Here, then, are the very first three reasons that come to mind when asked why I wanted to go solar, and you should too:
 
 ## 1: It's good for the planet!
 
