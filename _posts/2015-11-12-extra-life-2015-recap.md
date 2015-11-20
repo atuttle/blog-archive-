@@ -3,6 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/the-cake-is-a-lie.jpg'
 title: 'Extra Life 2015 Recap'
+summary: "THANK YOU! Also, what happened during my Extra Life gaming marathon."
 date: 2015-11-12 08:30:00
 tags: Charity Extra-Life Gaming
 subclass: 'post'

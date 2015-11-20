@@ -3,6 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/boston-terrier.jpg'
 title:  On Old Dogs and New Tricks
+summary: "I've gone from being one of the hungry young guys that's eager to replace the stagnant developers that came before me, to one of those old kodgers that's unsettled (even if just a little bit) by new JS frameworks coming out every week."
 date:   2015-10-31 23:59:59
 tags: CFML React Static Jekyll GitHub
 subclass: 'post tag-CFML'

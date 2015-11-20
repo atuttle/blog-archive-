@@ -4,7 +4,7 @@ categories: 'adam'
 cover: 'assets/images/covers/solar-install.jpg'
 cover_blur: false
 title:  'Three Reasons We Went Solar (and You Should Too!)'
-summary: 'And the good news is it''s unbelievably easy, and the savings are real.'
+summary: "And the good news is it's unbelievably easy, and the savings are real."
 location: Coatesville, PA, USA
 date:   2015-11-17 11:30
 tags: Solar SolarCity
