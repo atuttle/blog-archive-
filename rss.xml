@@ -11,7 +11,7 @@
     <pubDate>Tue, 17 Nov 2015 11:30:00 -0500</pubDate>
     <item>
       <title>Three Reasons We Went Solar (and You Should Too!)</title>
-      <link>http://adamtuttle.codes/three-reasons-we-went-solar-and-you-should-too</link>
+      <link>http://adamtuttle.codes/three-reasons-we-went-solar-and-you-should-too/</link>
       <description>Last June, I called my buddy Mike and told him I wanted to go solar. We were about to move into our new house and I wanted him to look at the roof on Google Maps to confirm it would be worth installing solar panels. At the time he was a salesman (he's since been promoted) for [Solar City][ref], and I know he'll always be honest with me even when he's trying to sell me something.
 
 [ref]: https://share.solarcity.com/adamtuttle
@@ -21,7 +21,7 @@
     </item>
     <item>
       <title>Extra Life 2015 Recap</title>
-      <link>http://adamtuttle.codes/extra-life-2015-recap</link>
+      <link>http://adamtuttle.codes/extra-life-2015-recap/</link>
       <description>_Thank you._ Wow.
 
 [1]: http://adamtuttle.codes/extra-life-2015/
@@ -34,7 +34,7 @@
     </item>
     <item>
       <title>Soliciting Extra-Life Donations for Childrens Hospital of Philadelphia!</title>
-      <link>http://adamtuttle.codes/extra-life-2015</link>
+      <link>http://adamtuttle.codes/extra-life-2015/</link>
       <description>I know this is terribly last minute, but I've been swamped with deadlines and such and haven't had any time to actively hype my Extra Life campaign this year. _And it's happening this weekend!_
 
 [extralife]: http://www.extra-life.org/</description>
@@ -43,7 +43,7 @@
     </item>
     <item>
       <title>On Old Dogs and New Tricks</title>
-      <link>http://adamtuttle.codes/on-old-dogs-and-new-tricks</link>
+      <link>http://adamtuttle.codes/on-old-dogs-and-new-tricks/</link>
       <description>Consider the following code. This isn't an exercise in figuring out what something does, or how to do it, so I'll just tell you: it updates a list of items (e.g. user input) so that all items in the list are quoted with single-quotes. If it finds them, it strips out double quotes, too (only if both open and close quotes exist).
 
 [ecma]: https://en.wikipedia.org/wiki/ECMAScript

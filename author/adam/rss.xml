@@ -13,10 +13,10 @@
    
 	<item>
 	  <title>Three Reasons We Went Solar (and You Should Too!)</title>
-	  <link>//three-reasons-we-went-solar-and-you-should-too</link>
+	  <link>//three-reasons-we-went-solar-and-you-should-too/</link>
 	  <author>Adam Tuttle</author>
 	  <pubDate>2015-11-17T11:30:00-05:00</pubDate>
-	  <guid>//three-reasons-we-went-solar-and-you-should-too</guid>
+	  <guid>//three-reasons-we-went-solar-and-you-should-too/</guid>
 	  <description><![CDATA[
 	     <p>Last June, I called my buddy Mike and told him I wanted to go solar. We were about to move into our new house and I wanted him to look at the roof on Google Maps to confirm it would be worth installing solar panels. At the time he was a salesman (he&#39;s since been promoted) for <a href="https://share.solarcity.com/adamtuttle">Solar City</a>, and I know he&#39;ll always be honest with me even when he&#39;s trying to sell me something.</p>
 
@@ -125,10 +125,10 @@
 
 	<item>
 	  <title>Extra Life 2015 Recap</title>
-	  <link>//extra-life-2015-recap</link>
+	  <link>//extra-life-2015-recap/</link>
 	  <author>Adam Tuttle</author>
 	  <pubDate>2015-11-12T03:30:00-05:00</pubDate>
-	  <guid>//extra-life-2015-recap</guid>
+	  <guid>//extra-life-2015-recap/</guid>
 	  <description><![CDATA[
 	     <p><em>Thank you.</em> Wow.</p>
 
@@ -207,10 +207,10 @@
 
 	<item>
 	  <title>Soliciting Extra-Life Donations for Childrens Hospital of Philadelphia!</title>
-	  <link>//extra-life-2015</link>
+	  <link>//extra-life-2015/</link>
 	  <author>Adam Tuttle</author>
 	  <pubDate>2015-11-04T03:30:00-05:00</pubDate>
-	  <guid>//extra-life-2015</guid>
+	  <guid>//extra-life-2015/</guid>
 	  <description><![CDATA[
 	     <p>I know this is terribly last minute, but I&#39;ve been swamped with deadlines and such and haven&#39;t had any time to actively hype my Extra Life campaign this year. <em>And it&#39;s happening this weekend!</em></p>
 
@@ -247,10 +247,10 @@
 
 	<item>
 	  <title>On Old Dogs and New Tricks</title>
-	  <link>//on-old-dogs-and-new-tricks</link>
+	  <link>//on-old-dogs-and-new-tricks/</link>
 	  <author>Adam Tuttle</author>
 	  <pubDate>2015-10-31T19:59:59-04:00</pubDate>
-	  <guid>//on-old-dogs-and-new-tricks</guid>
+	  <guid>//on-old-dogs-and-new-tricks/</guid>
 	  <description><![CDATA[
 	     <p>Consider the following code. This isn&#39;t an exercise in figuring out what something does, or how to do it, so I&#39;ll just tell you: it updates a list of items (e.g. user input) so that all items in the list are quoted with single-quotes. If it finds them, it strips out double quotes, too (only if both open and close quotes exist).</p>
 <div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;foo,&#39;bar&#39;,&quot;&quot;baz&quot;&quot;,qux&quot;</span><span class="p">;</span>
