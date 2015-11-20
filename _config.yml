@@ -23,7 +23,7 @@ highlighter: pygments
 paginate: 10
 language: 'en-us'
 short_url: 'github.com/atuttle/blog'
-#google_analytics: 'todo'
+google_analytics: 'UA-2284831-10'
 disqus: username
 baseurl: /
 fullurl: 'http://adamtuttle.codes/'
