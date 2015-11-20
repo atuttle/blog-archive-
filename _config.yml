@@ -5,13 +5,17 @@ logo: '🍴 💻 🚁'
 url: 'http://adamtuttle.codes'
 repo_url: 'http://github.com/atuttle/blog/'
 repo_url_display: 'github.com/atuttle/blog/'
+copyright: '2015 Adam Tuttle'
+rss_post_limit: 30
 
 # Author's info
 author: 'Adam Tuttle'
 username: adam
+twitter: '@AdamTuttle'
 bio: 'A skydiving bum trapped in a working man''s body'
 location: 'Pennsylvania, USA'
 image: 'assets/images/adam@2x.jpg'
+main_cover: 'assets/images/covers/back-tracking.jpg'
 
 # Jykell configuration
 markdown: redcarpet
@@ -19,14 +23,15 @@ highlighter: pygments
 paginate: 10
 language: 'en-us'
 short_url: 'github.com/atuttle/blog'
-google_analytics: 'todo'
+#google_analytics: 'todo'
 disqus: username
 baseurl: /
 fullurl: 'http://adamtuttle.codes/'
+fullurl_unslashed: 'http://adamtuttle.codes'
 link_base: ''
 
 # Permalinks
-permalink: /:title
+permalink: /:title/
 # permalink: /author/:username
 # permalink: /tag/:tag
 
