@@ -12,6 +12,58 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Modern Cache Busting for the Platforms of Yesteryear</title>
+	  <link>//modern-cache-busting-for-the-platforms-of-yeasteryear/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2015-11-25T11:30:00-05:00</pubDate>
+	  <guid>//modern-cache-busting-for-the-platforms-of-yeasteryear/</guid>
+	  <description><![CDATA[
+	     <p>If you work with a platform born in the last 5-10 years, chances are pretty good you&#39;ve got something like the <a href="http://guides.rubyonrails.org/asset_pipeline.html">Rails asset pipeline</a> to take care of stuff like this for you. But if your platform of choice (or in my case this time... platform of consequence) doesn&#39;t handle it for you, you may be wondering how best to integrate cache busting into your application.</p>
+
+<p>The application I&#39;m working on is built on ColdFusion, and it doesn&#39;t do this job for me. There are a lot of things I wish CF did that it doesn&#39;t, and when appropriate I solve these problems with a Grunt task. This application has a dozen or so different grunt tasks. Today I added cache busting, and I thought I&#39;d share the process with you. It took me a few minutes of noodling about the best way to <em>automate</em> the process to land on this solution.</p>
+
+<p>Typically, the most basic cache busting is done by appending a query string to the request and changing that query string when you know that the file has changed:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css?bust_cache=123&quot;</span> <span class="nt">/&gt;</span>
+</code></pre></div>
+<p>I knew I wanted something that didn&#39;t require every developer on the team to have to know and remember to update a version number in the layout file any time they made a CSS change. Since we&#39;re already using Grunt to compile our LESS into CSS, it made sense to find a way to build it into that process, thus nothing new for the team to remember.</p>
+
+<p>The first step was to register a new Grunt task to create my cache-busting value. I went with an MD5 hash of the current time, but there are lots of other alternative approaches you can employ. Another popular one is to MD5 hash the entire file.</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;cache-bust-admin&#39;</span><span class="p">,</span> <span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
+    <span class="kd">var</span> <span class="nx">newHash</span> <span class="o">=</span> <span class="nx">md5</span><span class="p">(</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">().</span><span class="nx">getTime</span><span class="p">().</span><span class="nx">toString</span><span class="p">()</span> <span class="p">);</span>
+    <span class="nx">fs</span><span class="p">.</span><span class="nx">writeFileSync</span><span class="p">(</span><span class="s1">&#39;./cache-admin.md5&#39;</span><span class="p">,</span> <span class="nx">newHash</span><span class="p">,</span> <span class="s1">&#39;utf8&#39;</span><span class="p">);</span>
+<span class="p">});</span>
+</code></pre></div>
+<p>With this added to my Gruntfile, I added my new task to the task-set that&#39;s run automatically when LESS files change:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="p">,</span><span class="nx">watch</span><span class="o">:</span> <span class="p">{</span>
+    <span class="nx">less_admin</span><span class="o">:</span> <span class="p">{</span>
+        <span class="nx">files</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;www/admin/assets/css/*.*&#39;</span><span class="p">,</span><span class="s1">&#39;www/admin/assets/less/**&#39;</span><span class="p">]</span>
+        <span class="p">,</span><span class="nx">tasks</span><span class="o">:</span> <span class="p">[</span><span class="s1">&#39;css:admin&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+
+<span class="hll"><span class="nx">grunt</span><span class="p">.</span><span class="nx">registerTask</span><span class="p">(</span><span class="s1">&#39;css:admin&#39;</span><span class="p">,</span> <span class="p">[</span><span class="s1">&#39;less:admin&#39;</span><span class="p">,</span><span class="s1">&#39;cache-bust-admin&#39;</span><span class="p">]);</span>
+</span></code></pre></div>
+<p>Now, every time the CSS updates, <code>cache-admin.md5</code> updates too. The next step is to load it into my application, and then reference it from my layout. In my <code>Application.cfc</code> file:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="kd">function</span> <span class="nx">onApplicationStart</span><span class="p">(){</span>
+    <span class="cm">/* ... */</span>
+
+<span class="hll">    <span class="nx">application</span><span class="p">.</span><span class="nx">cache_hash</span> <span class="o">=</span> <span class="nx">fileRead</span><span class="p">(</span>
+</span><span class="hll">        <span class="nx">expandPath</span><span class="p">(</span><span class="s1">&#39;../../cache-admin.md5&#39;</span><span class="p">)</span>
+</span><span class="hll">        <span class="p">,</span> <span class="s2">&quot;utf-8&quot;</span>
+</span><span class="hll">    <span class="p">);</span>
+</span><span class="p">}</span>
+</code></pre></div>
+<p>And the layout:</p>
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;cfoutput&gt;</span>
+    <span class="nt">&lt;link</span> <span class="na">rel=</span><span class="s">&quot;stylesheet&quot;</span> <span class="na">href=</span><span class="s">&quot;style.css?cache=#application.cache_hash#&quot;</span> <span class="nt">/&gt;</span>
+<span class="nt">&lt;/cfoutput&gt;</span>
+</code></pre></div>
+<p>Every time we reinitialize our application &ndash; part of an automated deploy &ndash; it will read the contents of the <code>cache-admin.md5</code> file and store it in memory; then use that value to ensure css is always updated in the browser, while maintaining aggressive cacheing.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Three Reasons We Went Solar (and You Should Too!)</title>
 	  <link>//three-reasons-we-went-solar-and-you-should-too/</link>
 	  <author>Adam Tuttle</author>

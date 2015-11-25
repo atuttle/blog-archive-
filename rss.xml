@@ -9,7 +9,16 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Tue, 17 Nov 2015 11:30:00 -0500</pubDate>
+    <pubDate>Wed, 25 Nov 2015 11:30:00 -0500</pubDate>
+    <item>
+      <title>Modern Cache Busting for the Platforms of Yesteryear</title>
+      <link>http://adamtuttle.codes/modern-cache-busting-for-the-platforms-of-yeasteryear/</link>
+      <description>If you work with a platform born in the last 5-10 years, chances are pretty good you've got something like the [Rails asset pipeline][rap] to take care of stuff like this for you. But if your platform of choice (or in my case this time... platform of consequence) doesn't handle it for you, you may be wondering how best to integrate cache busting into your application.
+
+[rap]: http://guides.rubyonrails.org/asset_pipeline.html</description>
+      <pubDate>Wed, 25 Nov 2015 11:30:00 -0500</pubDate>
+      <dc:date>2015-11-25T11:30:00-05:00</dc:date>
+    </item>
     <item>
       <title>Three Reasons We Went Solar (and You Should Too!)</title>
       <link>http://adamtuttle.codes/three-reasons-we-went-solar-and-you-should-too/</link>
@@ -56,6 +65,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-11-17T11:30:00-05:00</dc:date>
+    <dc:date>2015-11-25T11:30:00-05:00</dc:date>
   </channel>
 </rss>
