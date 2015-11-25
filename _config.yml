@@ -25,7 +25,7 @@ language: 'en-us'
 short_url: 'github.com/atuttle/blog'
 google_analytics: 'UA-2284831-10'
 disqus: username
-baseurl: /
+baseurl: '/'
 fullurl: 'http://adamtuttle.codes/'
 fullurl_unslashed: 'http://adamtuttle.codes'
 link_base: ''
