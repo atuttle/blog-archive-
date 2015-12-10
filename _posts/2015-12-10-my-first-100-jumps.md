@@ -4,7 +4,7 @@ categories: 'adam'
 cover: 'assets/images/covers/jump24.jpg'
 cover_blur: false
 title:  'My First 100 Jumps'
-summary: ""
+summary: "A video compilation from my first 100 skydives"
 location: Coatesville, PA, USA
 date:   2015-12-10 14:30
 tags: skydiving video
