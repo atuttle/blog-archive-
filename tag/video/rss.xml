@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://adamtuttle.codes</link>
+   <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>My First 100 Jumps</title>
+	  <link>//my-first-100-jumps/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2015-12-10T14:30:00-05:00</pubDate>
+	  <guid>//my-first-100-jumps/</guid>
+	  <description><![CDATA[
+	     <p>Just shy of two weeks ago I completed my 100th skydive, which was a huge accomplishment for me. It took me around 18 months to collect that many (not counting the 15 year layoff between jumps #1 and #2).</p>
+
+<p>This isn&#39;t some sort of brag: 100 is only a drop in the bucket in the average skydiving career. People that work in the sport can get thousands of jumps in a year. Most active hobbyist jumpers these days don&#39;t have much trouble getting 100+ in a year; and in fact I&#39;m hoping to come close to that for calendar year 2016, but for {reasons} I am not able to jump as often as I&#39;d like. Also, there are additional restrictions while you&#39;re a student, which I was from May (#2) to August 2014 (#25), resulting in reduced jump numbers.</p>
+
+<p>Let&#39;s be honest: I&#39;d jump twenty times every day if I could, so there&#39;s probably no reasonable amount that will satisfy the &quot;as much as I&#39;d like&quot; criteria.</p>
+
+<p>Anyway, here is a compilation of some of the video from my first 100 jumps.</p>
+
+<iframe width="1280" height="720" src="https://www.youtube.com/embed/51kxI9zvauI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
+
+<p>Jump #100 is not included in the compilation because nobody on the jump had a camera. C&#39;est la vie.</p>
+
+<p>For those of you wondering, in the USA you&#39;re not allowed to wear a camera until around 200 jumps. There are more rules and it gets more technical than that, but we&#39;ll just leave it at: wearing a camera is something I still have to look forward to, not something I can do yet.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

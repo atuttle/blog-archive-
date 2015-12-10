@@ -9,7 +9,16 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Wed, 25 Nov 2015 11:30:00 -0500</pubDate>
+    <pubDate>Thu, 10 Dec 2015 14:30:00 -0500</pubDate>
+    <item>
+      <title>My First 100 Jumps</title>
+      <link>http://adamtuttle.codes/my-first-100-jumps/</link>
+      <description>Just shy of two weeks ago I completed my 100th skydive, which was a huge accomplishment for me. It took me around 18 months to collect that many (not counting the 15 year layoff between jumps #1 and #2).
+
+</description>
+      <pubDate>Thu, 10 Dec 2015 14:30:00 -0500</pubDate>
+      <dc:date>2015-12-10T14:30:00-05:00</dc:date>
+    </item>
     <item>
       <title>Modern Cache Busting for the Platforms of Yesteryear</title>
       <link>http://adamtuttle.codes/modern-cache-busting-for-the-platforms-of-yeasteryear/</link>
@@ -65,6 +74,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-11-25T11:30:00-05:00</dc:date>
+    <dc:date>2015-12-10T14:30:00-05:00</dc:date>
   </channel>
 </rss>
