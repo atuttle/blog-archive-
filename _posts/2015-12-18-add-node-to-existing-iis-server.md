@@ -28,7 +28,7 @@ Next, we need to setup a virtual Server Farm (Microsoft's vocabulary, not mine).
 
 ![Create a new server farm](/assets/images/posts/2015/iis-node-create-server-farm.png)
 
-Give your server a name &ndash; anything will do &ndash; I named mine `localhost`. Make sure to check the `online` box. Click the `Next` button, and enter `127.0.0.1`  as the server address. Again, check the `online` box and enable `Advanced settings...`. Expand the newly available advanced settings, and change the http port to match the port your node web app will listen to.
+Give your server farm a name &ndash; anything will do &ndash; I named mine `localhost`. Make sure to check the `online` box. Click the `Next` button, and enter `127.0.0.1`  as the server address. Again, check the `online` box and enable `Advanced settings...`. Expand the newly available advanced settings, and change the http port to match the port your node web app will listen to.
 
 If your node app is using express and binds to port 3000 like so: `app.listen(3000)`, then you'll enter port 3000 for the `httpPort` row.
 
