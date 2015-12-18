@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Expose Node.js on an IIS Server by Reverse Proxying With ARR</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Expose Node.js on an IIS Server by Reverse Proxying With ARR" />
+<meta property="og:description" content="When you have a Windows + IIS server and you want to add Node.js support without disrupting the existing IIS websites" />
+<meta property="og:url" content="http://adamtuttle.codes/add-node-to-existing-iis-server/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/waves-on-rocks.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="Expose Node.js on an IIS Server by Reverse Proxying With ARR" />
+<meta name="twitter:description" content="When you have a Windows + IIS server and you want to add Node.js support without disrupting the existing IIS websites" />
+<meta name="twitter:url" content="http://adamtuttle.codes/add-node-to-existing-iis-server/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/waves-on-rocks.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/add-node-to-existing-iis-server/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/waves-on-rocks.jpg"
+  ,"description": "When you have a Windows + IIS server and you want to add Node.js support without disrupting the existing IIS websites"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/waves-on-rocks.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Expose Node.js on an IIS Server by Reverse Proxying With ARR</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2015-12-18">18 Dec 2015</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/Windows'>Windows</a>,
+                    
+                
+                    
+                       <a href='/tag/IIS'>Iis</a>,
+                    
+                
+                    
+                       <a href='/tag/Node.js'>Node.js</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>Here&#39;s something I&#39;ve wanted to be able to do for a long time now: I have a Windows server, running IIS and a dozen or so websites on various technologies like PHP, CFML, and ASP.NET. I&#39;d like to add node.js support to that mix without disrupting any of the existing websites.</p>
+
+<p><strong>Last night I finally figured out how!</strong> It was the result of a lot of google searches and trial-and-error, so I&#39;m no expert on the settings I&#39;ll be showing here, but it definitely works. <em>Have you got a better method? Please <a href="https://twitter.com/adamtuttle">hit me up on twitter!</a></em></p>
+
+<p>Granted: Windows is not an ideal environment to host node apps, but you can still get a lot done with it, so you might as well know how to use what&#39;s at your disposal.</p>
+
+<h2>Let&#39;s do it!</h2>
+
+<p>First things first, you need to be running IIS7 or later, and you need to <a href="http://www.iis.net/downloads/microsoft/application-request-routing">install Application Request Routing (ARR)</a>.</p>
+
+<p>Then, you need your server to accept network connections for your desired hostname. Add a website as you normally would, binding the hostname to the desired IP address:</p>
+
+<p><img src="/assets/images/posts/2015/iis-node-website.png" alt="Configure the website as you normally would"></p>
+
+<p>Next, we need to setup a virtual Server Farm (Microsoft&#39;s vocabulary, not mine). After you&#39;ve installed ARR, you should have a new section in the sidebar of IIS labeled <strong>Server Farms</strong>. Right click that and choose <strong>Create Server Farm</strong>.</p>
+
+<p><img src="/assets/images/posts/2015/iis-node-create-server-farm.png" alt="Create a new server farm"></p>
+
+<p>Give your server a name &ndash; anything will do &ndash; I named mine <code>localhost</code>. Make sure to check the <code>online</code> box. Click the <code>Next</code> button, and enter <code>127.0.0.1</code>  as the server address. Again, check the <code>online</code> box and enable <code>Advanced settings...</code>. Expand the newly available advanced settings, and change the http port to match the port your node web app will listen to.</p>
+
+<p>If your node app is using express and binds to port 3000 like so: <code>app.listen(3000)</code>, then you&#39;ll enter port 3000 for the <code>httpPort</code> row.</p>
+
+<p><img src="/assets/images/posts/2015/iis-node-farm-settings.png" alt="Server farm settings"></p>
+
+<p>Click the <code>Finish</code> button and then <em>decline</em> the offer to add Rewrite Rules automatically (click the <code>No</code> button).</p>
+
+<p>Select your new Farm in the sidebar, and you should be presented with a list of options like this:</p>
+
+<p><img src="/assets/images/posts/2015/iis-node-farm-tiles.png" alt="Server farm tiles"></p>
+
+<p>Open the <code>Caching</code> options and disable disk cache. This is one of those things that I don&#39;t know is strictly necessary for my goal of running Node, but I saw it recommended in a blog post somewhere (regarding ASP.NET sites using Linq), and it&#39;s working for me, so why not?</p>
+
+<p>Then go into <code>Routing Rules</code> and select <code>URL Rewrite...</code> from the actions panel on the right. After you do this, you should notice that the Server object in the left panel has become selected, rather than your server farm. This is expected: the change you&#39;re making will apply to the whole server.</p>
+
+<p>You shouldn&#39;t have any rules configured yet, but if you do, edit it &ndash; otherwise create one. Use these settings:</p>
+
+<ul>
+<li>Change <code>Regular Expressions</code> to <code>Wildcards</code></li>
+<li>Enter <code>*</code> for the pattern</li>
+<li>Add a new condition
+
+<ul>
+<li>Condition input: <code>{HTTP_HOST}</code> (I had trouble with this at first and it <em>may</em> have been because I copy/pasted that string in. I recommend typing it manually. There should be autocomplete to help.)</li>
+<li>Check: <code>Matches the pattern</code></li>
+<li>Pattern: The hostname of the website you want to be bound to your node app. For this example I&#39;m using <code>www.hooli.xyz</code>.</li>
+</ul></li>
+<li>Change Action Type to: <code>Route to server farm</code> and select the server farm you created for your node app</li>
+</ul>
+
+<p><img src="/assets/images/posts/2015/iis-node-rewrite-config.png" alt="Rewrite settings"></p>
+
+<p>Now start up your node app and load the domain in your browser. It should all be configured and working!</p>
+
+<p>If you want to spin up more node apps, they&#39;ll need to listen on a different port, and you&#39;ll want to add more Server Farms and routing rules to route requests to a specific farm based on the <code>{HTTP_HOST}</code> value.</p>
+
+<h2>Where to go from here</h2>
+
+<p>In theory it should be easy to take this a step further and run multiple node processes for the same app that listen on different ports, and use IIS as a load balancer between them. Perhaps a topic for a future blog entry.</p>
+
+<h2>Shortfalls</h2>
+
+<p>Coming from a background like CFML or PHP where the app server is (typically) shared by all websites I sometimes found myself wishing for a simpler connection process, but then I would remember that separation of processes is a strength, not a weakness. If one website falls over, none of the others are necessarily affected. Still, it would be nice if it was less work to add a new node-powered website.</p>
+
+<h2>What did I get wrong?</h2>
+
+<p>I&#39;m probably jinxing it by referencing <a href="https://meta.wikimedia.org/wiki/Cunningham%27s_Law">Cunningham&#39;s Law</a>; but here goes anyway. &quot;The best way to get the right answer on the Internet is not to ask a question, it&#39;s to post the wrong answer.&quot;</p>
+
+<p>Are you dying to point out how horribly wrong I am? <a href="https://twitter.com/adamtuttle">Please tweet at me!</a></p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2015-12-18"><i class="fa fa-calendar-o"></i> 18 Dec 2015</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/Windows'>Windows</a>,
+                            
+                        
+                            
+                               <a href='/tag/IIS'>Iis</a>,
+                            
+                        
+                            
+                               <a href='/tag/Node.js'>Node.js</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Pennsylvania, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Expose Node.js on an IIS Server by Reverse Proxying With ARR&amp;url=http://adamtuttle.codes/add-node-to-existing-iis-server/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/add-node-to-existing-iis-server/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/add-node-to-existing-iis-server/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/jump24.jpg)" href="/my-first-100-jumps/">
+            <section class="post">
+                <h2>My First 100 Jumps</h2>
+                <p><p>Just shy of two weeks ago I completed my 100th skydive, which was a huge...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>

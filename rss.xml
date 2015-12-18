@@ -9,7 +9,18 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Thu, 10 Dec 2015 14:30:00 -0500</pubDate>
+    <pubDate>Fri, 18 Dec 2015 03:00:00 -0500</pubDate>
+    <item>
+      <title>Expose Node.js on an IIS Server by Reverse Proxying With ARR</title>
+      <link>http://adamtuttle.codes/add-node-to-existing-iis-server/</link>
+      <description>Here's something I've wanted to be able to do for a long time now: I have a Windows server, running IIS and a dozen or so websites on various technologies like PHP, CFML, and ASP.NET. I'd like to add node.js support to that mix without disrupting any of the existing websites.
+
+[twitter]: https://twitter.com/adamtuttle
+[arr]: http://www.iis.net/downloads/microsoft/application-request-routing
+[cl]: https://meta.wikimedia.org/wiki/Cunningham%27s_Law</description>
+      <pubDate>Fri, 18 Dec 2015 03:00:00 -0500</pubDate>
+      <dc:date>2015-12-18T03:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>My First 100 Jumps</title>
       <link>http://adamtuttle.codes/my-first-100-jumps/</link>
@@ -74,6 +85,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-12-10T14:30:00-05:00</dc:date>
+    <dc:date>2015-12-18T03:00:00-05:00</dc:date>
   </channel>
 </rss>
