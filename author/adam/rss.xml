@@ -36,7 +36,7 @@
 
 <p><img src="/assets/images/posts/2015/iis-node-create-server-farm.png" alt="Create a new server farm"></p>
 
-<p>Give your server a name &ndash; anything will do &ndash; I named mine <code>localhost</code>. Make sure to check the <code>online</code> box. Click the <code>Next</code> button, and enter <code>127.0.0.1</code>  as the server address. Again, check the <code>online</code> box and enable <code>Advanced settings...</code>. Expand the newly available advanced settings, and change the http port to match the port your node web app will listen to.</p>
+<p>Give your server farm a name &ndash; anything will do &ndash; I named mine <code>localhost</code>. Make sure to check the <code>online</code> box. Click the <code>Next</code> button, and enter <code>127.0.0.1</code>  as the server address. Again, check the <code>online</code> box and enable <code>Advanced settings...</code>. Expand the newly available advanced settings, and change the http port to match the port your node web app will listen to.</p>
 
 <p>If your node app is using express and binds to port 3000 like so: <code>app.listen(3000)</code>, then you&#39;ll enter port 3000 for the <code>httpPort</code> row.</p>
 
