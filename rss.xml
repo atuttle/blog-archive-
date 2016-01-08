@@ -9,7 +9,47 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Fri, 18 Dec 2015 03:00:00 -0500</pubDate>
+    <pubDate>Fri, 08 Jan 2016 08:30:00 -0500</pubDate>
+    <item>
+      <title>Welcome to OSX, 2016 Edition</title>
+      <link>http://adamtuttle.codes/welcome-to-osx-2016-edition/</link>
+      <description>Recently a friend told me that he had switched to a Mac full time and asked if I had any advice for software, or just in terms of general usage. I would have swarn that I already had a blog post on the topic that I wanted to link to him (outdated though it may be), but try as I might I couldn't find it. So here we go, I'm starting from scratch!
+
+[tcmd]: http://www.ghisler.com/
+[pathfinder]: http://www.cocoatech.com/pathfinder/
+[totalfinder]: http://totalfinder.binaryage.com/
+[totalterminal]: http://totalterminal.binaryage.com/
+[iterm]: https://www.iterm2.com/
+[totalspaces]: http://totalspaces.binaryage.com/
+[expose]: http://fusiongrokker.com/post/what-i-hate-about-osx-lion-s-mission-control
+[omz]: http://ohmyz.sh/
+[sublime]: http://www.sublimetext.com/3
+[atom]: https://atom.io/
+[keymap]: http://fusiongrokker.com/post/my-sublime-keymap-common-kb-shortcuts
+[sql]: http://www.sequelpro.com/
+[blog]: https://github.com/atuttle/blog
+[node]: https://nodejs.org/
+[cache]: http://adamtuttle.codes/modern-cache-busting-for-the-platforms-of-yeasteryear/
+[nws]: https://github.com/knpwrs/nws
+[transmit]: https://panic.com/transmit/
+[rdp]: https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12
+[virtualbox]: https://www.virtualbox.org/wiki/Downloads
+[sourcetree]: https://www.sourcetreeapp.com/
+[1p]: https://agilebits.com/onepassword
+[backblaze]: https://www.backblaze.com/
+[sunrise]: https://calendar.sunrise.am/
+[todoist]: https://en.todoist.com/
+[write]: http://writeapp.net/mac/
+[libre]: https://www.libreoffice.org/
+[notoo]: http://www.theguardian.com/technology/askjack/2015/sep/03/switch-openoffice-libreoffice-or-microsoft-office
+[finalcut]: http://www.apple.com/final-cut-pro/
+[vlc]: http://www.videolan.org/vlc/index.html
+[dix]: http://www.derlien.com/
+[flux]: https://justgetflux.com/
+[twitter]: https://twitter.com/adamtuttle</description>
+      <pubDate>Fri, 08 Jan 2016 08:30:00 -0500</pubDate>
+      <dc:date>2016-01-08T08:30:00-05:00</dc:date>
+    </item>
     <item>
       <title>Expose Node.js on an IIS Server by Reverse Proxying With ARR</title>
       <link>http://adamtuttle.codes/add-node-to-existing-iis-server/</link>
@@ -85,6 +125,6 @@
       <pubDate>Sat, 31 Oct 2015 19:59:59 -0400</pubDate>
       <dc:date>2015-10-31T19:59:59-04:00</dc:date>
     </item>
-    <dc:date>2015-12-18T03:00:00-05:00</dc:date>
+    <dc:date>2016-01-08T08:30:00-05:00</dc:date>
   </channel>
 </rss>

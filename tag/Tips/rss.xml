@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://adamtuttle.codes</link>
+   <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Welcome to OSX, 2016 Edition</title>
+	  <link>//welcome-to-osx-2016-edition/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-01-08T08:30:00-05:00</pubDate>
+	  <guid>//welcome-to-osx-2016-edition/</guid>
+	  <description><![CDATA[
+	     <p>Recently a friend told me that he had switched to a Mac full time and asked if I had any advice for software, or just in terms of general usage. I would have swarn that I already had a blog post on the topic that I wanted to link to him (outdated though it may be), but try as I might I couldn&#39;t find it. So here we go, I&#39;m starting from scratch!</p>
+
+<h2>Fundamental Improvements: TotalFinder, iTerm2, and TotalSpaces</h2>
+
+<p>I find the default experience with Finder to be grating. In my Windows days I used <a href="http://www.ghisler.com/">TotalCommander</a> almost exclusively to deal with the File System, and I had memorized tons of keyboard shortcuts to the point where I almost never needed the mouse. There exists a similar app for OSX, called <a href="http://www.cocoatech.com/pathfinder/">Path Finder</a>, <em>which I don&#39;t use.</em> I first stumbled on Path Finder before I was really able to afford spending a bunch of money on apps like that (I bought my first Mac, a base-model 12&quot; macbook, refurbished, on Black Friday). In the interim I started using a free app that made my terminal into a Visor (more on that next), and then later the same developer introduced <a href="http://totalfinder.binaryage.com/">TotalFinder</a>.</p>
+
+<p>I can&#39;t say enough good things about TotalFinder: Almost everything that gets on my nerves about the default Finder melts away with TF. I use it as a Visor (pops up from the bottom of my screen when I hit a global keyboard shortcut), frequently use the &quot;dual mode&quot; of side-by-side finders, love the Chrome tabs, and I&#39;m <em>so</em> happy to be able to force folders to sort to the top. There are many more features, but even just those alone are worth the $9 license to me.</p>
+
+<p>Now back to that Terminal visor. BinaryAge, developers of TotalFinder, also had a free product called <a href="http://totalterminal.binaryage.com/">TotalTerminal</a> (no longer actively developed and not compatible with OSX 10.11+) which, for me, harkened back to my days playing the original Quake. With my global keyboard shortcut <code>ctrl+`</code>, an always-available terminal window would slide down from the top of the screen to await my commands. Very handy. For reasons surrounding Zsh and Oh-my-zsh, I&#39;ve abandoned the default OSX terminal app in favor of <a href="https://www.iterm2.com/">iTerm2</a>, which is much more customizable and also supports the Visor feature.</p>
+
+<p>I have <code>alt+&grave;</code> configured as my Finder visor shortcut, and <code>ctrl+&grave;</code> for my terminal. That&#39;s the &quot;back-tick&quot; or &quot;grave&quot; character &ndash; the one above my TAB key and what you get if you omit the Shift key when typing <code>~</code>. These two things are core to the way I work on my laptop, and being on a machine without them slows me down and trips me up significantly.</p>
+
+<p>I also use <a href="http://totalspaces.binaryage.com/">TotalSpaces</a>, though I flip between phases where I prefer everything to have its own space and everything in one space with just <code>cmd+tab</code> to switch between them. Currently the latter. Regardless, TotalSpaces is worth $9 to get back the awesome Exposé functionality from the days before Lion. <a href="http://fusiongrokker.com/post/what-i-hate-about-osx-lion-s-mission-control">I really hate Mission Control</a>.</p>
+
+<h2>Developer Stuff</h2>
+
+<p>In my terminal, I prefer to use Zsh with <a href="http://ohmyz.sh/">Oh-my-zsh</a>. There are dozens of great plugins and even more themes to choose from.</p>
+
+<p>I write my code in <a href="http://www.sublimetext.com/3">Sublime Text 3</a>, and also keep my eye on <a href="https://atom.io/">Atom</a> though the plugin ecosystem is still too lacking to make it my daily driver. I have already documented <a href="http://fusiongrokker.com/post/my-sublime-keymap-common-kb-shortcuts">my sublime keymap</a> pretty thoroughly. Plugins, all available through package control:</p>
+
+<ul>
+<li>AdvancedNewFile</li>
+<li>AutoFileName</li>
+<li>AutoSpell</li>
+<li>Babel</li>
+<li>Babel snippets</li>
+<li>ColdFusion (sigh)</li>
+<li>Color Highlighter</li>
+<li>GitGutter</li>
+<li>GutterColor</li>
+<li>Indent XML</li>
+<li>JavaScriptNext - ES6 Syntax</li>
+<li>JSCS-Formatter</li>
+<li>JSHint Gutter</li>
+<li>LESS</li>
+<li>Material Theme</li>
+<li>Number King</li>
+<li>Package Control</li>
+<li>React Templates</li>
+<li>ReactJS Snippets</li>
+<li>SideBarEnhancements</li>
+<li>SublimeLinter</li>
+<li>SublimeLinter-jscs</li>
+</ul>
+
+<p>I also write my blog posts in Sublime using Markdown. It&#39;s all <a href="https://github.com/atuttle/blog">hosted on GitHub</a>, actually. For managing MySQL databases (local and remote) I use <a href="http://www.sequelpro.com/">Sequel Pro</a>.</p>
+
+<p>Pretty much everything else that I use near-daily is <a href="https://nodejs.org/">Node.js</a> and node modules. I currently use Grunt pretty heavily to do LESS, Handlebars.js, and Browserify compiling, along with a few other things (sourcemaps, <a href="http://adamtuttle.codes/modern-cache-busting-for-the-platforms-of-yeasteryear/">cache busting</a>, etc); but I see myself moving toward Gulp/Webpack in the future. Just need time to learn them. If you just need to stand up a quick basic static-file web server in a random directory, I like <a href="https://github.com/knpwrs/nws">nws</a>.</p>
+
+<p>Do enough Node stuff and eventually you&#39;ll run into native modules that require compiling locally on your system. That, or if you do any iOS development at all (even with PhoneGap), you&#39;re going to need XCode. Better to just bite the bullet early and install it / update it as needed through the App Store.</p>
+
+<p>On the off chance that you need an (S)FTP/S3 client, <a href="https://panic.com/transmit/">Transmit</a> is pretty good.</p>
+
+<p><a href="https://itunes.apple.com/us/app/microsoft-remote-desktop/id715768417?mt=12">Microsoft Remote Desktop</a> is actually reasonably good for managing a few windows boxes remotely. And if you need to test something in Internet Explorer, you can get free virtual machines for most flavors from <a href="https://dev.windows.com/en-us/microsoft-edge/tools/vms/mac/">modern.ie</a>. I use <a href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a> for my VM&#39;s.</p>
+
+<p>Most of the time I do my Git work in the terminal, but occasionally I&#39;ll want a GUI for block-level staging or history browsing. In those cases I like <a href="https://www.sourcetreeapp.com/">SourceTree</a>.</p>
+
+<p>I use Keynote for presentations where I won&#39;t be doing any live code demos, or various web presentation frameworks when I am.</p>
+
+<h2>Other Great Stuff</h2>
+
+<p>You <em>will not find a better password manager</em> than <a href="https://agilebits.com/onepassword">1Password</a>. Fast, secure, and beautiful to boot. Integrates really well with major browsers and has system keyboard shortcuts for quick access. They even have an Android Keyboard that makes accessing your passwords on the go a snap. I bought a family license and forced it on my wife and mom, too. When my kids are old enough to start having passwords for stuff, they&#39;ll be forced into it too.</p>
+
+<p>All of the computers in my house backup to <a href="https://www.backblaze.com/">Backblaze</a>.</p>
+
+<p>For email, I&#39;ve tried a bunch over the years. None are ever as good as straight up webmail. That said, <em>all</em> of my email is through Google Mail. If you have a work Exchange server or something, I can understand why you would want a local native client. I just don&#39;t have a recommendation for you.</p>
+
+<p>I have access to somewhere between half a dozen and a dozen calendars, and coordinating them can be a real pain. I really like <a href="https://calendar.sunrise.am/">Sunrise Calendar</a> and was deeply saddened to hear that they were aqui-hired and will be shutting down the public facing options eventually.</p>
+
+<p>For a basic running todo list I use <a href="https://en.todoist.com/">Todoist</a>. I tried premium but didn&#39;t feel the added features were worth it to me. For taking notes, I like <a href="http://writeapp.net/mac/">Write</a>. I sync them with DropBox so that they are also available on my iPod and iPad.</p>
+
+<p>I use <a href="https://www.libreoffice.org/">LibreOffice</a> for office documents. Whatever you do, <a href="http://www.theguardian.com/technology/askjack/2015/sep/03/switch-openoffice-libreoffice-or-microsoft-office">don&#39;t use OpenOffice</a>!</p>
+
+<p>If I need to record some or all of my screen, I always use QuickTime Player (should come on your Mac). I don&#39;t do a ton of video editing yet, so iMovie is still sufficient for my needs. I see <a href="http://www.apple.com/final-cut-pro/">FinalCut</a> in my future, though. Just like Windows, the best video player is <a href="http://www.videolan.org/vlc/index.html">VLC</a> hands down.</p>
+
+<p>Need to figure out what&#39;s eating up so much disk space? Try <a href="http://www.derlien.com/">Disk Inventory X</a>.</p>
+
+<p>I don&#39;t have any scientific data to back this up, but subjectively I feel like my eyes are <em>way</em> less strained working on the computer late at night with <a href="https://justgetflux.com/">Flux</a>. It reddens (de-blues?) your screen more as more time passes after sunset.</p>
+
+<p>Have you got more great app suggestions? <a href="https://twitter.com/adamtuttle">Let me know what they are!</a></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>
