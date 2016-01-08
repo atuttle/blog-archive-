@@ -3,7 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/macbook-in-the-dark.jpg'
 title:  'Welcome to OSX, 2016 Edition'
-summary: "Adam forgot to write a post summary here to show up on social sites. Whoops!"
+summary: "A collection of tools I use to customize my Mac, and be productive as a web developer on a day to day basis."
 date:   2016-01-08 13:30:00
 tags: OSX Tips
 subclass: 'post'
