@@ -3,7 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/technology-music-sound-audio.jpg'
 title:  'The Right Tool for the Job: Success Notifications'
-summary: ""
+summary: "Adam Tuttle attempts to convince you to send yourself less email."
 date:   2016-03-14 09:30:00
 tags: Email Best-Practices
 subclass: 'post'
