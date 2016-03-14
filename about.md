@@ -13,7 +13,9 @@ You can connect with me [on GitHub][gh], [on Twitter][tw], [on YouTube][yt], and
 
 I joined [AlumnIQ][iq] as employee #2 in 2012, where I have become the CTO and Lead developer, shaping and building technology that aims to revolutionize Higher Education Advancement and Alumni Relations. In my time here, I've helped grow the company from two people to _**three**_. (I hope to be able to update that with a more impressive number as time goes on.)
 
-I work from home on a geographically distributed, 100% remote team, which means I get the privilege of making breakfast and lunch 3+ days a week for my two children. I have a strange addiction to collecting board games even though we don't play them very much. I make some pretty killer pizza from scratch, if I do say so myself.
+I work from home on a geographically distributed, 100% remote team, which means that on most days I get the privilege of making breakfast and lunch for my two children. I have a strange addiction to collecting board games even though we don't play them as much as I'd like. I make some pretty killer pizza from scratch, if I do say so myself.
+
+![Fig &amp; Proscioutto Pizza!](/assets/images/about/pizza.jpg)
 
 I'm also a skydiving bum trapped in a working man's body.
 
@@ -34,6 +36,6 @@ Want to chat? [Email me][email]. Or ask on my AMA ([Ask Me Anything][ama]), if i
 [gr]: https://www.goodreads.com/author/show/7514385.Adam_Tuttle
 [azores]: https://www.google.com/maps/@38.6903073,-27.9664891,8.98z
 [restassured]: http://www.restassuredbook.com
-[email]: mailto:adam@fusiongrokker.com
+[email]: mailto:adamtuttlecodes@gmail.com
 [ama]: https://github.com/atuttle/ama
 [mentor]: https://www.codementor.io/adamtuttle
