@@ -9,7 +9,18 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Mon, 14 Mar 2016 05:30:00 -0400</pubDate>
+    <pubDate>Wed, 20 Apr 2016 10:00:00 -0400</pubDate>
+    <item>
+      <title>&quot;Fork Me on GitHub&quot; Stickers</title>
+      <link>http://adamtuttle.codes/fork-me-stickers/</link>
+      <description>I have been going a little sticker-crazy lately, and I decided I wanted a &quot;Fork Me&quot; sticker, ala GitHub's [Fork Me ribbons][github-ribbons] (pro-tip: use [these retina-friendly ones instead][retina-ribbons]) that are common for OSS developers to put onto their websites or their project websites. I couldn't find one anywhere, so I made one, and now you too can emblazon your favorite things with a &quot;Fork Me&quot; ribbon sticker.
+
+[sticker]: https://www.stickermule.com/marketplace/11734-fork-me
+[github-ribbons]: https://github.com/blog/273-github-ribbons
+[retina-ribbons]: https://github.com/aral/fork-me-on-github-retina-ribbons</description>
+      <pubDate>Wed, 20 Apr 2016 10:00:00 -0400</pubDate>
+      <dc:date>2016-04-20T10:00:00-04:00</dc:date>
+    </item>
     <item>
       <title>The Right Tool for the Job: Success Notifications</title>
       <link>http://adamtuttle.codes/the-right-tool-success-notifications/</link>
@@ -143,6 +154,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-03-14T05:30:00-04:00</dc:date>
+    <dc:date>2016-04-20T10:00:00-04:00</dc:date>
   </channel>
 </rss>

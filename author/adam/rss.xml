@@ -12,6 +12,22 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>"Fork Me on GitHub" Stickers</title>
+	  <link>//fork-me-stickers/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-04-20T10:00:00-04:00</pubDate>
+	  <guid>//fork-me-stickers/</guid>
+	  <description><![CDATA[
+	     <p>I have been going a little sticker-crazy lately, and I decided I wanted a &quot;Fork Me&quot; sticker, ala GitHub&#39;s <a href="https://github.com/blog/273-github-ribbons">Fork Me ribbons</a> (pro-tip: use <a href="https://github.com/aral/fork-me-on-github-retina-ribbons">these retina-friendly ones instead</a>) that are common for OSS developers to put onto their websites or their project websites. I couldn&#39;t find one anywhere, so I made one, and now you too can emblazon your favorite things with a &quot;Fork Me&quot; ribbon sticker.</p>
+
+<p><a href="https://www.stickermule.com/marketplace/11734-fork-me"><img src="/assets/images/posts/2016/fork-me-screen-shot.png" alt="Fork Me ribbon sticker now available on StickerMule!"></a></p>
+
+<p align="center"><a href="https://www.stickermule.com/marketplace/11734-fork-me">Click here to get yours!</a></p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>The Right Tool for the Job: Success Notifications</title>
 	  <link>//the-right-tool-success-notifications/</link>
 	  <author>Adam Tuttle</author>
@@ -570,26 +586,6 @@
 <p>2016 will be a high-growth year for me. That&#39;s my goal. I guess I&#39;m a little early for the New Years Resolution party, but planning ahead is a good way to set myself up for success, right?</p>
 
 <p>Now if you&#39;ll excuse me, I have some React components to write.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Errors are Best When Emailed... Said Nobody Ever</title>
-	  <link>//errors-are-best-when-emailed-said-nobody-ever/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2013-05-17T00:00:00-04:00</pubDate>
-	  <guid>//errors-are-best-when-emailed-said-nobody-ever/</guid>
-	  <description><![CDATA[
-	     <script async class="speakerdeck-embed" data-id="6142a1bd3e2b408786cf9c508c953d5c" data-ratio="1.33333333333333" src="https://speakerdeck.com/assets/embed.js"></script>
-
-<p>Exceptions happen. Bugless code is a myth.</p>
-
-<p>I hope I don&#39;t have to convince many people that sending every exception via email is not the greatest idea since sliced bread. &quot;Sure, it sucks... But what else can I do?&quot; would be a natural response. I&#39;ve been there. How else can you keep track of exactly what&#39;s going wrong in your application? How else will you be alerted when something goes wrong?</p>
-
-<p>For many of you, email probably plays the role of courier between your application and your bug database (JIRA, Bugzilla, etc). But that&#39;s not what email was intended for, and to be honest, it&#39;s a poor tool for the job, so it does a crappy job.</p>
-
-<p>The truth is that there are better options, but nobody can blame you for not knowing about them... Until now. I&#39;m going to show you the two most popular options available for CF, how to use them to get useful analytical data back about your application&#39;s health, or lack thereof, and how you can extend the concept beyond just your CFML. And the real surprise is that it&#39;s easy.</p>
 
 	  ]]></description>
 	</item>
