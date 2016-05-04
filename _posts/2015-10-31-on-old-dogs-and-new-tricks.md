@@ -41,7 +41,7 @@ _Everything old is new again._
 
 Me, too.
 
-I'll be 35 in April. While technically not even half way through my career (assuming I retire at 65), 35 feels kind of "old" in tech. I've gone from being one of the hungry young guys that's eager to replace the stagnant developers that came before me, to one of those old kodgers that's unsettled (even if just a little bit) by new JS frameworks coming out every week.
+I'll be 34 in April. While technically not even half way through my career (assuming I retire at 65), 34 feels kind of "old" in tech. I've gone from being one of the hungry young guys that's eager to replace the stagnant developers that came before me, to one of those old kodgers that's unsettled (even if just a little bit) by new JS frameworks coming out every week.
 
 For the last few years my developer career has started to stagnate. I decided not to speak at any conferences in 2015; in part to give myself a break from the crazy amount of work that I put into a presentation that I give only once or twice, but also in part to find out if I would miss it. (I do.) I haven't learned anything new &mdash; nothing big, at least. I haven't grown.
 
