@@ -9,7 +9,18 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Wed, 20 Apr 2016 10:00:00 -0400</pubDate>
+    <pubDate>Thu, 05 May 2016 12:30:00 -0400</pubDate>
+    <item>
+      <title>Cobblers Children Syndrome</title>
+      <link>http://adamtuttle.codes/cobblers-children-syndrome/</link>
+      <description>My old blog at [fusiongrokker.com](http://fusiongrokker.com) was recently offline for more than 230 consecutive hours. Partly, the hosting company is to blame for this. I pay them for a service: A server, connected to the internet, with electricity; and this service was not being properly provided. But partly it is my own fault too.
+
+[trope]: http://tvtropes.org/pmwiki/pmwiki.php/Main/TheCobblersChildrenHaveNoShoes
+[10k]: https://xkcd.com/1053/
+[restassured]: http://www.restassuredbook.com</description>
+      <pubDate>Thu, 05 May 2016 12:30:00 -0400</pubDate>
+      <dc:date>2016-05-05T12:30:00-04:00</dc:date>
+    </item>
     <item>
       <title>&quot;Fork Me on GitHub&quot; Stickers</title>
       <link>http://adamtuttle.codes/fork-me-stickers/</link>
@@ -154,6 +165,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-04-20T10:00:00-04:00</dc:date>
+    <dc:date>2016-05-05T12:30:00-04:00</dc:date>
   </channel>
 </rss>

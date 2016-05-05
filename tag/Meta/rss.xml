@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://adamtuttle.codes</link>
+   <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Cobblers Children Syndrome</title>
+	  <link>//cobblers-children-syndrome/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-05-05T12:30:00-04:00</pubDate>
+	  <guid>//cobblers-children-syndrome/</guid>
+	  <description><![CDATA[
+	     <p>My old blog at <a href="http://fusiongrokker.com">fusiongrokker.com</a> was recently offline for more than 230 consecutive hours. Partly, the hosting company is to blame for this. I pay them for a service: A server, connected to the internet, with electricity; and this service was not being properly provided. But partly it is my own fault too.</p>
+
+<p>230 hours is nine and a half days. At what point should I have decided to give up on them coming back online (after my numerous support tickets and phone calls went unanswered) and restored my website onto a new web host from my most recent backups? Well, before you can answer that question it&#39;s important to note that I didn&#39;t have backups. At least nothing recent.</p>
+
+<p>Oops.</p>
+
+<p>Fortunately, the server is back online now. Yes, I immediately made a backup of both the database and the files for the website. Fortunately, it&#39;s not changing in any meaningful way. Maybe a stray comment or two on old articles. Nothing I&#39;ll be overly worried about losing. And I intend to get it all converted over to this new blog eventually, with proper redirection from the old URLs. Eventually.</p>
+
+<p>Eventually. That&#39;s the word that got me into trouble in the first place. Cobbler&#39;s Children Syndrome.</p>
+
+<blockquote>
+<p>The cobbler&#39;s children have no shoes</p>
+</blockquote>
+
+<p>This is a <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/TheCobblersChildrenHaveNoShoes">common trope</a> that most people have probably heard of. On the off chance that you&#39;re one of today&#39;s <a href="https://xkcd.com/1053/">lucky 10,000</a>, it goes something like this: The cobbler, who makes shoes for a living &mdash;for some combination of reasons&mdash; doesn&#39;t provide shoes for her own children.</p>
+
+<p>And it&#39;s not that big of a deal, most of the time. You can walk around most areas barefoot without too much trouble, aside from stores that won&#39;t let you in without shoes. But the problem with this mentality is that it fails you when you&#39;re desperate. When you find yourself facing a road litered with shards of glass and no choice but to cross it. You&#39;ll be cursing your former self for not investing in some shoes.</p>
+
+<p>So it was with my blog&#39;s backups. Of course I had backups of <em>important</em> stuff. Things that <em>make me money</em>, like <a href="http://www.restassuredbook.com">my book</a> and websites I&#39;ve made for freelance clients. At face value, my personal blog didn&#39;t sound so important. <em>I&#39;ll get to it eventually</em>, I&#39;d think to myself.</p>
+
+<p>Eight years later... that didn&#39;t work out so well for me.</p>
+
+<p>I have no idea how much google-juice those old blog entries lost in the 9.5+ days they were offline, but it was definitely non-zero. I had friends tell me that they couldn&#39;t even find my blog in google search results if they were specifically searching for it. Crap.</p>
+
+<p><img src="/assets/images/posts/2016/just_do_it.gif" alt="just do it"></p>
+
+<p>So now it&#39;s a priority. Which is to say that it&#39;s been prioritized, somewhere near, but not at the top of, my list. I do have to keep doing things that pay the bills first. But after those, this is uh, one of, my top priorities.</p>
+
+<p>There are a lot of things that we as software developers are prone to let slide like this. Version controlling tiny little side projects is another example. And there&#39;s only one appropriate response when addressing these questions in your head. There&#39;s really no other answer you can give.</p>
+
+<p>Just do it.</p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

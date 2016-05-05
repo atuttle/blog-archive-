@@ -12,6 +12,48 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>Cobblers Children Syndrome</title>
+	  <link>//cobblers-children-syndrome/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-05-05T12:30:00-04:00</pubDate>
+	  <guid>//cobblers-children-syndrome/</guid>
+	  <description><![CDATA[
+	     <p>My old blog at <a href="http://fusiongrokker.com">fusiongrokker.com</a> was recently offline for more than 230 consecutive hours. Partly, the hosting company is to blame for this. I pay them for a service: A server, connected to the internet, with electricity; and this service was not being properly provided. But partly it is my own fault too.</p>
+
+<p>230 hours is nine and a half days. At what point should I have decided to give up on them coming back online (after my numerous support tickets and phone calls went unanswered) and restored my website onto a new web host from my most recent backups? Well, before you can answer that question it&#39;s important to note that I didn&#39;t have backups. At least nothing recent.</p>
+
+<p>Oops.</p>
+
+<p>Fortunately, the server is back online now. Yes, I immediately made a backup of both the database and the files for the website. Fortunately, it&#39;s not changing in any meaningful way. Maybe a stray comment or two on old articles. Nothing I&#39;ll be overly worried about losing. And I intend to get it all converted over to this new blog eventually, with proper redirection from the old URLs. Eventually.</p>
+
+<p>Eventually. That&#39;s the word that got me into trouble in the first place. Cobbler&#39;s Children Syndrome.</p>
+
+<blockquote>
+<p>The cobbler&#39;s children have no shoes</p>
+</blockquote>
+
+<p>This is a <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/TheCobblersChildrenHaveNoShoes">common trope</a> that most people have probably heard of. On the off chance that you&#39;re one of today&#39;s <a href="https://xkcd.com/1053/">lucky 10,000</a>, it goes something like this: The cobbler, who makes shoes for a living &mdash;for some combination of reasons&mdash; doesn&#39;t provide shoes for her own children.</p>
+
+<p>And it&#39;s not that big of a deal, most of the time. You can walk around most areas barefoot without too much trouble, aside from stores that won&#39;t let you in without shoes. But the problem with this mentality is that it fails you when you&#39;re desperate. When you find yourself facing a road litered with shards of glass and no choice but to cross it. You&#39;ll be cursing your former self for not investing in some shoes.</p>
+
+<p>So it was with my blog&#39;s backups. Of course I had backups of <em>important</em> stuff. Things that <em>make me money</em>, like <a href="http://www.restassuredbook.com">my book</a> and websites I&#39;ve made for freelance clients. At face value, my personal blog didn&#39;t sound so important. <em>I&#39;ll get to it eventually</em>, I&#39;d think to myself.</p>
+
+<p>Eight years later... that didn&#39;t work out so well for me.</p>
+
+<p>I have no idea how much google-juice those old blog entries lost in the 9.5+ days they were offline, but it was definitely non-zero. I had friends tell me that they couldn&#39;t even find my blog in google search results if they were specifically searching for it. Crap.</p>
+
+<p><img src="/assets/images/posts/2016/just_do_it.gif" alt="just do it"></p>
+
+<p>So now it&#39;s a priority. Which is to say that it&#39;s been prioritized, somewhere near, but not at the top of, my list. I do have to keep doing things that pay the bills first. But after those, this is uh, one of, my top priorities.</p>
+
+<p>There are a lot of things that we as software developers are prone to let slide like this. Version controlling tiny little side projects is another example. And there&#39;s only one appropriate response when addressing these questions in your head. There&#39;s really no other answer you can give.</p>
+
+<p>Just do it.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>"Fork Me on GitHub" Stickers</title>
 	  <link>//fork-me-stickers/</link>
 	  <author>Adam Tuttle</author>
@@ -532,60 +574,6 @@
 <iframe width="560" height="315" src="https://www.youtube.com/embed/ZS7WRl7N1Ig" frameborder="0" allowfullscreen></iframe>
 
 <iframe width="560" height="315" src="https://www.youtube.com/embed/2_sLlWO_v24" frameborder="0" allowfullscreen></iframe>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>On Old Dogs and New Tricks</title>
-	  <link>//on-old-dogs-and-new-tricks/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2015-10-31T19:59:59-04:00</pubDate>
-	  <guid>//on-old-dogs-and-new-tricks/</guid>
-	  <description><![CDATA[
-	     <p>Consider the following code. This isn&#39;t an exercise in figuring out what something does, or how to do it, so I&#39;ll just tell you: it updates a list of items (e.g. user input) so that all items in the list are quoted with single-quotes. If it finds them, it strips out double quotes, too (only if both open and close quotes exist).</p>
-<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">x</span> <span class="o">=</span> <span class="s2">&quot;foo,&#39;bar&#39;,&quot;&quot;baz&quot;&quot;,qux&quot;</span><span class="p">;</span>
-
-<span class="nx">x</span> <span class="o">=</span> <span class="nx">x</span>
-  <span class="p">.</span><span class="nx">listToArray</span><span class="p">()</span>
-<span class="hll">  <span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">item</span><span class="p">){</span>
-</span>    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">&amp;&amp;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">)</span> <span class="k">return</span> <span class="nx">item</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span> <span class="o">&amp;&amp;</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">==</span> <span class="s1">&#39;&quot;&#39;</span><span class="p">){</span>
-      <span class="nx">item</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">left</span><span class="p">(</span> <span class="nx">item</span><span class="p">.</span><span class="nx">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="p">);</span> <span class="c1">//chop trailing &quot;</span>
-      <span class="nx">item</span> <span class="o">=</span> <span class="nx">item</span><span class="p">.</span><span class="nx">right</span><span class="p">(</span> <span class="nx">item</span><span class="p">.</span><span class="nx">len</span><span class="p">()</span><span class="o">-</span><span class="mi">1</span> <span class="p">);</span> <span class="c1">//chop leading &quot;</span>
-      <span class="k">return</span> <span class="s2">&quot;&#39;#item#&#39;&quot;</span><span class="p">;</span>
-    <span class="p">}</span>
-    <span class="k">return</span> <span class="s2">&quot;&#39;#item#&#39;&quot;</span><span class="p">;</span>
-  <span class="p">})</span>
-  <span class="p">.</span><span class="nx">toList</span><span class="p">();</span>
-</code></pre></div>
-<p>Would it surprise you to find out that this code is CMFL?</p>
-
-<p>A few short years ago (a lifetime, on the internet), I would have been shocked to see this and learn that it is, indeed, ColdFusion code. It&#39;s very <a href="https://en.wikipedia.org/wiki/ECMAScript">ECMAScripty</a>, it&#39;s functional, and it uses some of the language trimmings modern modern languages love: map and reduce. <code>array.toList()</code> is really just a reducer, if you think about it.</p>
-
-<p>I&#39;m not heralding ColdFusion, here. I&#39;ve been working with the platform for more than a decade now and I&#39;m pretty sick of it, to be honest. As a former ColdFusion Product Manager once told me, &quot;You don&#39;t really know a programming language unless you can name 10 things you hate about it.&quot; By that measure, I&#39;d estimate that I know CFML really, <em>really</em>, <em><strong>really</strong></em> well.</p>
-
-<p>Whatever your opinion of ColdFusion, it is undeniably changing. The next version is on the horizon. They&#39;re in private beta (in which I declined to participate); and I would wager public beta is closer than most people would think.</p>
-
-<p><em>Everything old is new again.</em></p>
-
-<p>Me, too.</p>
-
-<p>I&#39;ll be 34 in April. While technically not even half way through my career (assuming I retire at 65), 34 feels kind of &quot;old&quot; in tech. I&#39;ve gone from being one of the hungry young guys that&#39;s eager to replace the stagnant developers that came before me, to one of those old kodgers that&#39;s unsettled (even if just a little bit) by new JS frameworks coming out every week.</p>
-
-<p>For the last few years my developer career has started to stagnate. I decided not to speak at any conferences in 2015; in part to give myself a break from the crazy amount of work that I put into a presentation that I give only once or twice, but also in part to find out if I would miss it. (I do.) I haven&#39;t learned anything new &mdash; nothing big, at least. I haven&#39;t grown.</p>
-
-<p>I learned the fundamentals of Node.js at the end of 2014, and have been using them to my great advantage since, but that was the last time I truly learned something new. I&#39;ve been heads-down working on <a href="http://www.alumniq.com">AlumnIQ</a>, doing the occasional freelance gig, and somehow this has filled my time. As an ambitious person, it seems weird to me to have been able to go an entire year without any major changes (never mind the fact that I bought a new house and moved in the middle of the summer, and I&#39;m a Cub Scout leader now). In some ways I was sating my need for growth by solving hard problems with boring tech.</p>
-
-<p>It makes for (very) brief periods of excitement&mdash;problem solved! hooray! 🎉🍻&mdash;interspersed with lots of headaches and hair pulling. By contrast, when learning a new piece of technology, every time you master another bit of it you&#39;re rewarded with endorphins for having learned something new and exciting.</p>
-
-<p>The first step is admitting you have a problem.</p>
-
-<p>In the last two weeks, I&#39;ve started learning <a href="https://facebook.github.io/react/">React</a> and really making an effort to learn <a href="https://babeljs.io/docs/learn-es2015/">ES2015</a> (I&#39;ve only dabbled until now). I haven&#39;t combined the two yet. I don&#39;t yet understand ES2015 well enough to be able to look at it and understand how it works instantly, like I can with ES5. I&#39;m also very interested in the static-website-generator craze. In fact I&#39;m writing this blog post as my first new entry to a <a href="https://jekyllrb.com/">Jekyll</a> blog that I intend to host via <a href="https://pages.github.com/">GitHub Pages</a>.</p>
-
-<p>2016 will be a high-growth year for me. That&#39;s my goal. I guess I&#39;m a little early for the New Years Resolution party, but planning ahead is a good way to set myself up for success, right?</p>
-
-<p>Now if you&#39;ll excuse me, I have some React components to write.</p>
 
 	  ]]></description>
 	</item>
