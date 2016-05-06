@@ -9,7 +9,7 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Thu, 05 May 2016 12:30:00 -0400</pubDate>
+    <pubDate>Thu, 05 May 2016 00:00:00 -0400</pubDate>
     <item>
       <title>Cobblers Children Syndrome</title>
       <link>http://adamtuttle.codes/cobblers-children-syndrome/</link>
@@ -18,8 +18,8 @@
 [trope]: http://tvtropes.org/pmwiki/pmwiki.php/Main/TheCobblersChildrenHaveNoShoes
 [10k]: https://xkcd.com/1053/
 [restassured]: http://www.restassuredbook.com</description>
-      <pubDate>Thu, 05 May 2016 12:30:00 -0400</pubDate>
-      <dc:date>2016-05-05T12:30:00-04:00</dc:date>
+      <pubDate>Thu, 05 May 2016 00:00:00 -0400</pubDate>
+      <dc:date>2016-05-05T00:00:00-04:00</dc:date>
     </item>
     <item>
       <title>&quot;Fork Me on GitHub&quot; Stickers</title>
@@ -165,6 +165,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-05-05T12:30:00-04:00</dc:date>
+    <dc:date>2016-05-05T00:00:00-04:00</dc:date>
   </channel>
 </rss>
