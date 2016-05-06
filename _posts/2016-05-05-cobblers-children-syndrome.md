@@ -3,7 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/shoes.jpg'
 cover_blur: true
-title:  'Cobbler's Children Syndrome'
+title:  'Cobbler''s Children Syndrome'
 summary: "Or, why my old website was offline for 230 hours"
 location: Coatesville, PA, USA
 date:   2016-05-05 12:30
