@@ -9,7 +9,18 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Thu, 05 May 2016 12:30:00 -0400</pubDate>
+    <pubDate>Mon, 27 Jun 2016 09:00:00 -0400</pubDate>
+    <item>
+      <title>TIL: Adding an SSL Cert to the JVM Inside a Docker Image</title>
+      <link>http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/</link>
+      <description>I've been playing with Docker lately for a bunch of reasons, but topping that list is that it's everything I ever wanted out of Vagrant, and then some. (And what better thing to do on a camping trip after the kids are tucked into bed?) In some ways, the Dockerfile syntax is what I wish the Vagrantfile syntax was (shell script instead of Ruby). Anyway, here's a solution to an interesting problem I ran into today.
+
+[mailgun]: https://mailgun.com/app/dashboard
+[lucee]: http://lucee.org/
+[rg]: http://ryanguill.com/</description>
+      <pubDate>Mon, 27 Jun 2016 09:00:00 -0400</pubDate>
+      <dc:date>2016-06-27T09:00:00-04:00</dc:date>
+    </item>
     <item>
       <title>Cobbler's Children Syndrome</title>
       <link>http://adamtuttle.codes/cobblers-children-syndrome/</link>
@@ -165,6 +176,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-05-05T12:30:00-04:00</dc:date>
+    <dc:date>2016-06-27T09:00:00-04:00</dc:date>
   </channel>
 </rss>

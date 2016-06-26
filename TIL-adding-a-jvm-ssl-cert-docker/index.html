@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Cobbler's Children Syndrome</title>
+    <title>TIL: Adding an SSL Cert to the JVM Inside a Docker Image</title>
     <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
     <meta name="HandheldFriendly" content="true" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,27 +18,27 @@
 
 <meta property="og:site_name" content="Eat. Code. Skydive." />
 <meta property="og:type" content="website" />
-<meta property="og:title" content="Cobbler's Children Syndrome" />
-<meta property="og:description" content="Or, why my old website was offline for 230 hours" />
-<meta property="og:url" content="http://adamtuttle.codes/cobblers-children-syndrome/" />
-<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/shoes.jpg" />
+<meta property="og:title" content="TIL: Adding an SSL Cert to the JVM Inside a Docker Image" />
+<meta property="og:description" content="Adam's been playing with Docker and had some trouble figuring out a cert issue, so he's blogging the solution for future googlers." />
+<meta property="og:url" content="http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/literal-code-camp.jpg" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:site" content="@AdamTuttle" />
 <meta name="twitter:creator" content="@AdamTuttle" />
-<meta name="twitter:title" content="Cobbler's Children Syndrome" />
-<meta name="twitter:description" content="Or, why my old website was offline for 230 hours" />
-<meta name="twitter:url" content="http://adamtuttle.codes/cobblers-children-syndrome/" />
-<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/shoes.jpg" />
+<meta name="twitter:title" content="TIL: Adding an SSL Cert to the JVM Inside a Docker Image" />
+<meta name="twitter:description" content="Adam's been playing with Docker and had some trouble figuring out a cert issue, so he's blogging the solution for future googlers." />
+<meta name="twitter:url" content="http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/literal-code-camp.jpg" />
 
 <script type="application/ld+json">
 {
   "@context": "http://schema.org"
   ,"@type": "Website"
   ,"publisher": "Adam Tuttle"
-  ,"url": "http://adamtuttle.codes/cobblers-children-syndrome/"
-  ,"image": "http://adamtuttle.codes/assets/images/covers/shoes.jpg"
-  ,"description": "Or, why my old website was offline for 230 hours"
+  ,"url": "http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/literal-code-camp.jpg"
+  ,"description": "Adam's been playing with Docker and had some trouble figuring out a cert issue, so he's blogging the solution for future googlers."
 }
 </script>
 
@@ -78,7 +78,7 @@
 <!-- #post -->
 
 <header class="main-header post-head ">
-    <div class="cover-blur" style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/shoes.jpg)" >&nbsp;</div>
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/literal-code-camp.jpg)" >&nbsp;</div>
     <nav class="main-nav  overlay  clearfix">
         <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
         
@@ -92,15 +92,15 @@
     <article class="post">
 
         <header class="post-header">
-            <h1 class="post-title">Cobbler's Children Syndrome</h1>
+            <h1 class="post-title">TIL: Adding an SSL Cert to the JVM Inside a Docker Image</h1>
             <section class="post-meta">
-                <time class="post-date" datetime="2016-05-05">05 May 2016</time>
+                <time class="post-date" datetime="2016-06-27">27 Jun 2016</time>
                 <!-- [[tags prefix=" on "]] -->
                 
                 on
                 
                     
-                       <a href='/tag/Meta'>Meta</a>
+                       <a href='/tag/Docker'>Docker</a>
                     
                 
                 
@@ -109,37 +109,21 @@
 
         <section class="post-content">
 
-            <p>My old blog at <a href="http://fusiongrokker.com">fusiongrokker.com</a> was recently offline for more than 230 consecutive hours. Partly, the hosting company is to blame for this. I pay them for a service: A server, connected to the internet, with electricity; and this service was not being properly provided. But partly it is my own fault too.</p>
+            <p>I&#39;ve been playing with Docker lately for a bunch of reasons, but topping that list is that it&#39;s everything I ever wanted out of Vagrant, and then some. (And what better thing to do on a camping trip after the kids are tucked into bed?) In some ways, the Dockerfile syntax is what I wish the Vagrantfile syntax was (shell script instead of Ruby). Anyway, here&#39;s a solution to an interesting problem I ran into today.</p>
 
-<p>230 hours is nine and a half days. At what point should I have decided to give up on them coming back online (after my numerous support tickets and phone calls went unanswered) and restored my website onto a new web host from my most recent backups? Well, before you can answer that question it&#39;s important to note that I didn&#39;t have backups. At least nothing recent.</p>
+<p>I need to make HTTP requests to the <a href="https://mailgun.com/app/dashboard">mailgun</a> API and their certificate isn&#39;t valid given the JVM cert store that I&#39;m inheriting in my Docker image. Of course, I just need to download and import the certificate, but it took me a little while to wrap my mind around the idiomatic Docker way of doing this.</p>
 
-<p>Oops.</p>
+<p>After some hints from <a href="http://ryanguill.com/">Ryan</a> (to whom I owe cases and cases of beer for similarly helpful advice), and a little more googling and trial and error, this is what I came up with. In my Dockerfile, I&#39;ve added:</p>
+<div class="highlight"><pre><code class="language-Dockerfile" data-lang="Dockerfile">COPY ./res/mailgun.net.crt /opt/lucee/
+<span class="k">ENV</span> LUCEE_CACERTS /opt/lucee/server/lucee-server/context/security/cacerts
+<span class="k">RUN</span> keytool -noprompt -storepass password_here -import -alias mailgun -keystore <span class="k">${</span><span class="nv">LUCEE_CACERTS</span><span class="k">}</span> -file /opt/lucee/mailgun.net.crt
+</code></pre></div>
+<p>After copying my downloaded mailgun certificate file into the Docker image, I use the <code>keytool</code> command with options <code>-noprompt -storepass</code> to import it without prompting me for the store password.</p>
 
-<p>Fortunately, the server is back online now. Yes, I immediately made a backup of both the database and the files for the website. Fortunately, it&#39;s not changing in any meaningful way. Maybe a stray comment or two on old articles. Nothing I&#39;ll be overly worried about losing. And I intend to get it all converted over to this new blog eventually, with proper redirection from the old URLs. Eventually.</p>
-
-<p>Eventually. That&#39;s the word that got me into trouble in the first place. Cobbler&#39;s Children Syndrome.</p>
-
-<blockquote>
-<p>The cobbler&#39;s children have no shoes</p>
-</blockquote>
-
-<p>This is a <a href="http://tvtropes.org/pmwiki/pmwiki.php/Main/TheCobblersChildrenHaveNoShoes">common trope</a> that most people have probably heard of. On the off chance that you&#39;re one of today&#39;s <a href="https://xkcd.com/1053/">lucky 10,000</a>, it goes something like this: The cobbler, who makes shoes for a living &mdash;for some combination of reasons&mdash; doesn&#39;t provide shoes for her own children.</p>
-
-<p>And it&#39;s not that big of a deal, most of the time. You can walk around most areas barefoot without too much trouble, aside from stores that won&#39;t let you in without shoes. But the problem with this mentality is that it fails you when you&#39;re desperate. When you find yourself facing a road litered with shards of glass and no choice but to cross it. You&#39;ll be cursing your former self for not investing in some shoes.</p>
-
-<p>So it was with my blog&#39;s backups. Of course I had backups of <em>important</em> stuff. Things that <em>make me money</em>, like <a href="http://www.restassuredbook.com">my book</a> and websites I&#39;ve made for freelance clients. At face value, my personal blog didn&#39;t sound so important. <em>I&#39;ll get to it eventually</em>, I&#39;d think to myself.</p>
-
-<p>Eight years later... that didn&#39;t work out so well for me.</p>
-
-<p>I have no idea how much google-juice those old blog entries lost in the 9.5+ days they were offline, but it was definitely non-zero. I had friends tell me that they couldn&#39;t even find my blog in google search results if they were specifically searching for it. Crap.</p>
-
-<p><img src="/assets/images/posts/2016/just_do_it.gif" alt="just do it"></p>
-
-<p>So now it&#39;s a priority. Which is to say that it&#39;s been prioritized, somewhere near, but not at the top of, my list. I do have to keep doing things that pay the bills first. But after those, this is uh, one of, my top priorities.</p>
-
-<p>There are a lot of things that we as software developers are prone to let slide like this. Version controlling tiny little side projects is another example. And there&#39;s only one appropriate response when addressing these questions in your head. There&#39;s really no other answer you can give.</p>
-
-<p>Just do it.</p>
+<p>As a refresher, to find all <code>cacerts</code> files on your (linux) machine, try this:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">find / -iname &#39;cacerts&#39;
+</code></pre></div>
+<p>This will list all files named cacerts on the system. In my Docker image, there were 4. I picked the one associated with <a href="http://lucee.org/">Lucee</a> because that&#39;s the app server I&#39;m working with in this case, but it&#39;s possible that importing to the JVM&#39;s store could have worked too. I just got lucky on my first guess, so I stopped there.</p>
 
 
         </section>
@@ -163,19 +147,19 @@
                 
                 <div class="author-meta">
                     <div style="margin-bottom:10px">
-                        <time class="post-date" datetime="2016-05-05"><i class="fa fa-calendar-o"></i> 05 May 2016</time>
+                        <time class="post-date" datetime="2016-06-27"><i class="fa fa-calendar-o"></i> 27 Jun 2016</time>
                         <!-- [[tags prefix=" on "]] -->
                         
                         on
                         
                             
-                               <a href='/tag/Meta'>Meta</a>
+                               <a href='/tag/Docker'>Docker</a>
                             
                         
                         
                     </div>
                     
-                        <span class="author-location icon-location"> Coatesville, PA, USA</span>
+                        <span class="author-location icon-location"> A campground near Coatesville, PA, USA</span>
                     
                     <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
                 </div>
@@ -185,15 +169,15 @@
 
             <section class="share">
                 <h4>Share this post</h4>
-                <a class="icon-twitter" href="http://twitter.com/share?text=Cobbler's Children Syndrome&amp;url=http://adamtuttle.codes/cobblers-children-syndrome/"
+                <a class="icon-twitter" href="http://twitter.com/share?text=TIL: Adding an SSL Cert to the JVM Inside a Docker Image&amp;url=http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/"
                     onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
                     <span class="hidden">Twitter</span>
                 </a>
-                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/cobblers-children-syndrome/"
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/"
                     onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
                     <span class="hidden">Facebook</span>
                 </a>
-                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/cobblers-children-syndrome/"
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/"
                    onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
                     <span class="hidden">Google+</span>
                 </a>
@@ -212,20 +196,13 @@
 
     <!-- [[! next_post ]] -->
     
-        <a class="read-next-story " style="background-image: url(/assets/images/covers/literal-code-camp.jpg)" href="/TIL-adding-a-jvm-ssl-cert-docker/">
-            <section class="post">
-                <h2>TIL: Adding an SSL Cert to the JVM Inside a Docker Image</h2>
-                <p>I've been playing with Docker lately for a bunch of reasons, but topping that list...</p>
-            </section>
-        </a>
-    
     <!-- [[! /next_post ]] -->
     <!-- [[! prev_post ]] -->
     
-        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/laptop-stickers.jpg)" href="/fork-me-stickers/">
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/shoes.jpg)" href="/cobblers-children-syndrome/">
             <section class="post">
-                <h2>"Fork Me on GitHub" Stickers</h2>
-                <p><p>I have been going a little sticker-crazy lately, and I decided I wanted a &quot;Fork...</p>
+                <h2>Cobbler's Children Syndrome</h2>
+                <p><p>My old blog at <a href="http://fusiongrokker.com">fusiongrokker.com</a> was recently offline for more than 230 consecutive hours....</p>
             </section>
         </a>
     
