@@ -20,7 +20,7 @@
 	  <description><![CDATA[
 	     <p>I&#39;ve been playing with Docker lately for a bunch of reasons, but topping that list is that it&#39;s everything I ever wanted out of Vagrant, and then some. (And what better thing to do on a camping trip after the kids are tucked into bed?) In some ways, the Dockerfile syntax is what I wish the Vagrantfile syntax was (shell script instead of Ruby). Anyway, here&#39;s a solution to an interesting problem I ran into today.</p>
 
-<p>I need to make HTTP requests to the <a href="https://mailgun.com/app/dashboard">mailgun</a> API and their certificate isn&#39;t valid given the JVM cert store that I&#39;m inheriting in my Docker image. Of course, I just need to download and import the certificate, but it took me a little while to wrap my mind around the idiomatic Docker way of doing this.</p>
+<p>I need to make HTTP requests to the <a href="https://mailgun.com/app/dashboard">mailgun</a> API and their certificate isn&#39;t valid given the JVM cert store that I&#39;m inheriting in my Docker image. Of course, I just need to <a href="http://stackoverflow.com/a/36427118/751">download and import the certificate</a><sup>[1]</sup>, but it took me a little while to wrap my mind around the idiomatic Docker way of doing this.</p>
 
 <p>After some hints from <a href="http://ryanguill.com/">Ryan</a> (to whom I owe cases and cases of beer for similarly helpful advice), and a little more googling and trial and error, this is what I came up with. In my Dockerfile, I&#39;ve added:</p>
 <div class="highlight"><pre><code class="language-Dockerfile" data-lang="Dockerfile">COPY ./res/mailgun.net.crt /opt/lucee/
@@ -33,6 +33,10 @@
 <div class="highlight"><pre><code class="language-text" data-lang="text">find / -iname &#39;cacerts&#39;
 </code></pre></div>
 <p>This will list all files named cacerts on the system. In my Docker image, there were 4. I picked the one associated with <a href="http://lucee.org/">Lucee</a> because that&#39;s the app server I&#39;m working with in this case, but it&#39;s possible that importing to the JVM&#39;s store could have worked too. I just got lucky on my first guess, so I stopped there.</p>
+
+<hr>
+
+<p><small>1: On OSX I was able to download the certificate with Firefox following <a href="http://stackoverflow.com/a/36427118/751">these instructions</a>, and while I did select the &quot;der&quot; export type, it saved as a .crt file. Java did not complain about importing this file.</small></p>
 
 	  ]]></description>
 	</item>
