@@ -14,7 +14,7 @@ navigation: true
 
 I've been playing with Docker lately for a bunch of reasons, but topping that list is that it's everything I ever wanted out of Vagrant, and then some. (And what better thing to do on a camping trip after the kids are tucked into bed?) In some ways, the Dockerfile syntax is what I wish the Vagrantfile syntax was (shell script instead of Ruby). Anyway, here's a solution to an interesting problem I ran into today.
 
-I need to make HTTP requests to the [mailgun][mailgun] API and their certificate isn't valid given the JVM cert store that I'm inheriting in my Docker image. Of course, I just need to download and import the certificate, but it took me a little while to wrap my mind around the idiomatic Docker way of doing this.
+I need to make HTTP requests to the [mailgun][mailgun] API and their certificate isn't valid given the JVM cert store that I'm inheriting in my Docker image. Of course, I just need to [download and import the certificate][cert]<sup>\[1\]</sup>, but it took me a little while to wrap my mind around the idiomatic Docker way of doing this.
 
 After some hints from [Ryan][rg] (to whom I owe cases and cases of beer for similarly helpful advice), and a little more googling and trial and error, this is what I came up with. In my Dockerfile, I've added:
 
@@ -34,6 +34,10 @@ find / -iname 'cacerts'
 
 This will list all files named cacerts on the system. In my Docker image, there were 4. I picked the one associated with [Lucee][lucee] because that's the app server I'm working with in this case, but it's possible that importing to the JVM's store could have worked too. I just got lucky on my first guess, so I stopped there.
 
+---
+<small>1: On OSX I was able to download the certificate with Firefox following [these instructions][cert], and while I did select the "der" export type, it saved as a .crt file. Java did not complain about importing this file.</small>
+
 [mailgun]: https://mailgun.com/app/dashboard
 [lucee]: http://lucee.org/
 [rg]: http://ryanguill.com/
+[cert]: http://stackoverflow.com/a/36427118/751
