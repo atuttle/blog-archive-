@@ -9,7 +9,17 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Mon, 27 Jun 2016 09:00:00 -0400</pubDate>
+    <pubDate>Thu, 07 Jul 2016 08:15:00 -0400</pubDate>
+    <item>
+      <title>I Think Donald Trump Is an Idiot, but That Doesn't Mean I Think You Are</title>
+      <link>http://adamtuttle.codes/trump-is-an-idiot-but-you-arent/</link>
+      <description>There are a few moments in my life where I feel like I have truly grown as a person. Usually when I learn something profound and it sinks in immediately, and it's like a lightbulb has lit up over my head. I can think of at least two such moments that happened when I re-watched The West Wing early this year.
+
+[yt]: https://www.youtube.com/watch?v=cI9HhNjXLu4
+[transcript]: http://www.westwingtranscripts.com/search.php?flag=getTranscript&amp;id=29</description>
+      <pubDate>Thu, 07 Jul 2016 08:15:00 -0400</pubDate>
+      <dc:date>2016-07-07T08:15:00-04:00</dc:date>
+    </item>
     <item>
       <title>TIL: Adding an SSL Cert to the JVM Inside a Docker Image</title>
       <link>http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/</link>
@@ -177,6 +187,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-06-27T09:00:00-04:00</dc:date>
+    <dc:date>2016-07-07T08:15:00-04:00</dc:date>
   </channel>
 </rss>
