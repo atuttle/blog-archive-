@@ -3,7 +3,7 @@ layout: post
 categories: 'adam'
 cover: 'assets/images/covers/trump.jpg'
 title: "I Think Donald Trump Is an Idiot, but That Doesn't Mean I Think You Are"
-summary: "The West Wing teaches Adam a lesson about humanity in the face of devisive issues."
+summary: "The West Wing teaches Adam a lesson about humanity in the face of divisive issues."
 date: 2016-07-07 12:15:00
 tags: Philosophy Politics
 subclass: 'post'
@@ -76,7 +76,7 @@ And here's a transcript from [WestWingTranscripts.com][transcript]:
 > **JOSH:**
 > Thanks for coming by.
 
-With the benefit of hindsight I can say that on many occasions in my life I've thought about specific people as the embodiment of their position on a devisive issue: abortion, gun control, religious freedom, and yes, sexual equality.
+With the benefit of hindsight I can say that on many occasions in my life I've thought about specific people as the embodiment of their position on a divisive issue: abortion, gun control, religious freedom, and yes, sexual equality.
 
 When you are hyper focused on a single issue, especially when thinking about someone else, it becomes easy to forget about everything other than that issue; just as Josh Lyman did in the scene transcribed above. But we are all people. Human beings. With an infinite number of thoughts and emotions and desires and needs all struggling to find a place in our priorities. None of us does a perfect job of balancing those out; we all just do the best that we can with the information we've got at the time.
 
