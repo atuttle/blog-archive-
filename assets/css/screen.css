@@ -1157,7 +1157,7 @@ body:not(.post-template) .post-title {
 
 /* Keep images centered, and allow images wider than the main
    text column to break out. */
-.post-content img {
+.post-content img, .post-content video {
     display: block;
     border-radius: 6px;
     max-width: 126%;
@@ -1559,7 +1559,7 @@ body:not(.post-template) .post-title {
 
 .twitter-tweet.twitter-tweet-rendered {
     margin-left: 50%;
-    transform: translate(-50%);
+    transform: translate(-50%) !important;
 }
 
 

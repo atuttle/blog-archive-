@@ -9,7 +9,29 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Thu, 07 Jul 2016 08:15:00 -0400</pubDate>
+    <pubDate>Tue, 06 Sep 2016 05:00:00 -0400</pubDate>
+    <item>
+      <title>My Experience With AWS Reserved EC2 Instances and Deploying Docker in Production</title>
+      <link>http://adamtuttle.codes/AWS-Reserved-and-Docker-in-production/</link>
+      <description>This is going to be more field-notes than how-to, but when I tweeted about how I had such an easy experience getting some Docker containers running in production I had several people express interest in reading about my experiences, so here we are.
+
+[playing]: http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/
+[devo]: http://www.devobjective.com/
+[cfml-slack]: http://cfml-slack.herokuapp.com/
+[compose]: https://docs.docker.com/compose/
+[mariadb-docker]: https://hub.docker.com/_/mariadb/
+[mahk]: http://www.compoundtheory.com/
+[awscli]: https://aws.amazon.com/cli/
+[dms]: http://adamtuttle.codes/the-right-tool-success-notifications/
+[ecs]: https://aws.amazon.com/ecs/
+[install-docker]: https://docs.docker.com/engine/installation/linux/ubuntulinux/
+[compose-ubuntu]: https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04
+[nginx]: https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts
+[proxy]: https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-14-04-droplet
+[tz]: https://youtu.be/-5wpm-gesOY</description>
+      <pubDate>Tue, 06 Sep 2016 05:00:00 -0400</pubDate>
+      <dc:date>2016-09-06T05:00:00-04:00</dc:date>
+    </item>
     <item>
       <title>I Think Donald Trump Is an Idiot, but That Doesn't Mean I Think You Are</title>
       <link>http://adamtuttle.codes/trump-is-an-idiot-but-you-arent/</link>
@@ -187,6 +209,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-07-07T08:15:00-04:00</dc:date>
+    <dc:date>2016-09-06T05:00:00-04:00</dc:date>
   </channel>
 </rss>

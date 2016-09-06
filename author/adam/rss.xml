@@ -12,6 +12,233 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>My Experience With AWS Reserved EC2 Instances and Deploying Docker in Production</title>
+	  <link>//AWS-Reserved-and-Docker-in-production/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-09-06T05:00:00-04:00</pubDate>
+	  <guid>//AWS-Reserved-and-Docker-in-production/</guid>
+	  <description><![CDATA[
+	     <p>This is going to be more field-notes than how-to, but when I tweeted about how I had such an easy experience getting some Docker containers running in production I had several people express interest in reading about my experiences, so here we are.</p>
+
+<p>The backstory is that I had one app in particular that was on a terrible, terrible web host (like really, the worst) &ndash;and it was for a paid client, at that&ndash; so when the host spent more time offline than online in June, and ignored my numerous support tickets, I decided to take my money elsewhere. The app happened to be a fairly simple website for a non-profit organization, with a members-only area, a way to pay dues and register for events, and a few other odds and ends. On the host-that-shall-remain-nameless this app was running on Adobe ColdFusion 10, and using a local MariaDB. I am not willing to pay the price Adobe charges for their AMIs long term, so I knew I had to convert to Lucee.</p>
+
+<p>Having recently attended the <a href="http://www.devobjective.com/">dev.Objective()</a> conference and subsequently been <a href="http://adamtuttle.codes/TIL-adding-a-jvm-ssl-cert-docker/">playing with Docker</a> I decided I would use it to develop the necessary changes. It really made getting a development environment up and running terribly easy. In fact, I&#39;ve made it this far in my life without <em>properly</em> learning how to install and configure Tomcat, why start now?</p>
+
+<p>And truly, that&#39;s the best part about all of this: <strong>Standing on the shoulders of giants.</strong> My most sincere thanks go to the Lucee team, in particular Geoff Bowers who manages their docker images. Also many thanks to the fine folks in the #lucee and #docker channels on the <a href="http://cfml-slack.herokuapp.com/">CFML Slack</a> who helped me through issues as they would come up.</p>
+
+<p><video src="/assets/images/posts/2016/first-water-landing-720p.webm" controls>
+    Sorry, your browser doesn't support embedded videos,
+    but don't worry, you can <a href="/assets/images/posts/2016/first-water-landing-720p.webm">download it</a>
+    and watch it with your favorite video player!
+</video></p>
+
+<p>Right, so after a month of evenings and weekends toiling away at the code changes, I got my local docker container for my app into good shape. I also managed to get a separate container up with MariaDB and network the two together. It worked, but it wasn&#39;t pretty. I had a series of shell scripts to stand it up and hold it together, but nothing I would want to use in production. Most importantly, I had no idea how I would make the DB survive a container restart (it was building from scratch on every start).</p>
+
+<p>For the former problem (my poorly written shell scripts) <a href="https://docs.docker.com/compose/">docker-compose</a> came to the rescue, and for the latter (DB data storage) all I had to do was RTFM. Compose makes it easy to define a set of containers that need to be started and networked together, and manage them. And <a href="https://hub.docker.com/_/mariadb/">the MariaDB docker image docs</a> literally have a heading, &quot;Where to Store Data.&quot;</p>
+
+<p>I&#39;m not going to spell out how those things work in detail, but here&#39;s my <code>docker-compose.yml</code> file:</p>
+<div class="highlight"><pre><code class="language-yaml" data-lang="yaml"><span class="l-Scalar-Plain">version</span><span class="p-Indicator">:</span> <span class="s">&#39;2&#39;</span>
+<span class="l-Scalar-Plain">services</span><span class="p-Indicator">:</span>
+  <span class="l-Scalar-Plain">web</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">container_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">myapp_web</span>
+    <span class="l-Scalar-Plain">restart</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">always</span>
+    <span class="l-Scalar-Plain">build</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">./</span>
+    <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="s">&quot;8888:80&quot;</span>
+    <span class="l-Scalar-Plain">volumes</span><span class="p-Indicator">:</span>
+<span class="hll">    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">./:/var/www/myapp</span>
+</span>    <span class="l-Scalar-Plain">links</span><span class="p-Indicator">:</span>
+<span class="hll">    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">db:myapp_db</span>
+</span>    <span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">TZ</span><span class="p-Indicator">:</span> <span class="s">&#39;America/New_York&#39;</span>
+  <span class="l-Scalar-Plain">db</span><span class="p-Indicator">:</span>
+    <span class="l-Scalar-Plain">container_name</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">myapp_db</span>
+    <span class="l-Scalar-Plain">restart</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">always</span>
+    <span class="l-Scalar-Plain">image</span><span class="p-Indicator">:</span> <span class="l-Scalar-Plain">mariadb:latest</span>
+    <span class="l-Scalar-Plain">ports</span><span class="p-Indicator">:</span>
+    <span class="p-Indicator">-</span> <span class="s">&quot;6633:3306&quot;</span>
+    <span class="l-Scalar-Plain">volumes</span><span class="p-Indicator">:</span>
+<span class="hll">    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">./database:/var/lib/mysql</span>
+</span><span class="hll">    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">./res/create-database.sql:/docker-entrypoint-initdb.d/create-databse.sql</span>
+</span><span class="hll">    <span class="p-Indicator">-</span> <span class="l-Scalar-Plain">./res/myapp.sql:/docker-entrypoint-initdb.d/myapp.sql</span>
+</span>    <span class="l-Scalar-Plain">environment</span><span class="p-Indicator">:</span>
+        <span class="l-Scalar-Plain">TZ</span><span class="p-Indicator">:</span> <span class="s">&#39;America/New_York&#39;</span>
+        <span class="l-Scalar-Plain">MYSQL_ROOT_PASSWORD</span><span class="p-Indicator">:</span> <span class="s">&#39;godmode&#39;</span>
+</code></pre></div>
+<p>I&#39;ve highlighted a few of the interesting bits:</p>
+
+<ul>
+<li><code>./:/var/www/myapp</code> &mdash; mount the current directory into the into the container as a volume at <code>/var/www/myapp</code>, so that code changes I make on my laptop (because that&#39;s where I have my editor open) are immediately visible in the container.</li>
+<li><code>db:myapp_db</code> &mdash; from inside the <strong>web</strong> container, make the <strong>db</strong> container available as hostname <code>myapp_db</code>
+
+<ul>
+<li>Not pictured: My Application.cfc has a datasource configured with the following connectionString: <code>&#39;jdbc:mysql://myapp_db:3306/myapp?...&#39;</code>, so you can see that you simply access the linked docker container by hostname.</li>
+</ul></li>
+<li>mount three volumes for the db container:
+
+<ul>
+<li><code>./database:/var/lib/mysql</code> uses the local <strong>database</strong> folder as the storage location for all of the data that MariaDB will create. (Starts out empty)</li>
+<li><code>./res/create-database.sql:/docker-entrypoint-initdb.d/create-databse.sql</code> is a script that MariaDB will run on startup if it hasn&#39;t already created any databases (appears to be first-run). In this script I create my database and setup the website user account and privileges. After the first time the container is run, when there is data in the <strong>database</strong> folder, this file will be ignored.</li>
+<li><code>./res/myapp.sql:/docker-entrypoint-initdb.d/myapp.sql</code> will run after <code>create-database.sql</code> and is just the most recent production mysqldump prepended with <code>use myapp;</code>. After the first time the container is run, when there is data in the <strong>database</strong> folder, this file will be ignored.</li>
+</ul></li>
+</ul>
+
+<p>With those two problems solved, I moved on to thinking about how to manage all of this. I settled on a Makefile because I knew it would work both on my local Mac and on Ubuntu, where this will ultimately live. (Credit to <a href="http://www.compoundtheory.com/">Mark Mandel</a> for the idea to use Make in the first place. Smart dude.) Here&#39;s my Makefile:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="hll"><span class="nv">file_date</span> <span class="o">=</span> <span class="k">$(</span>shell date +%Y-%m-%d<span class="k">)</span>
+</span>
+default:
+    docker ps
+
+db-backup:
+<span class="hll">    tar czf myapp_db.<span class="k">$(</span>file_date<span class="k">)</span>.tar.gz database
+</span><span class="hll">    aws s3 cp myapp_db.<span class="k">$(</span>file_date<span class="k">)</span>.zip s3://myapp/backups/ <span class="o">&amp;&amp;</span> rm -f myapp_db.<span class="k">$(</span>file_date<span class="k">)</span>.zip
+</span><span class="hll">    curl https://nosnch.in/my-secret-key
+</span>
+build:
+    docker-compose up -d --build
+
+up:
+    docker-compose up -d
+
+bash:
+    docker <span class="nb">exec</span> -it myapp_web /bin/bash
+
+logs:
+    docker-compose logs -f
+</code></pre></div>
+<p>Probably the most interesting part of this is the <code>db-backup</code> target. This Makefile is to be used outside of the container, so what this target does is gzip up a copy of the <strong>database</strong> folder and push it into Amazon S3 using their <a href="https://aws.amazon.com/cli/">AWS CLI</a>. Lastly it notifies <a href="http://adamtuttle.codes/the-right-tool-success-notifications/">Dead Man&#39;s Snitch</a> that the backup has run so that I can sleep soundly. Should we ever need to restore the database, it should be as simple as unzipping the appropriate backup file into the database folder and starting the container.</p>
+
+<p><img src="/assets/images/posts/2016/sit-flying-1.jpg" alt="Nginx welcome screen"></p>
+
+<h3>All Problems Solved. Time to Go to Production!</h3>
+
+<p>I spent a lot of time over the last month thinking about this. Despite being interested in Google&#39;s cloud offerings, I had already sold my client on AWS so I knew I was going to be hosting it there. But should I use their <a href="https://aws.amazon.com/ecs/">EC2 Container Service</a>? If not that, then what? I am aware of Kubernetes but suspect it would be easier to use on Google&#39;s cloud than Amazon&#39;s. Mostly this whole config was just a big question mark for me.</p>
+
+<p>One thing I did know is that scaling is <em>just not an issue</em>. This app will only ever need one container and that&#39;s it. I don&#39;t need a cluster, I just need something that will restart it on the off chance the process dies. (That&#39;s what <code>restart: always</code> does in docker-compose, by the way.) So while it would be fun to run some sort of clustered setup, it would be the very definition of overkill.</p>
+
+<p>For that reason, I decided to go with a standard vanilla Ubuntu AMI, on which I installed Git, Docker, and the AWS CLI. Because of the agreement I negotiated with my client, I knew I wanted a <code>3-year-reserved-full-upfront</code> EC2 instance, to save money over the on-demand prices. I&#39;ve used EC2 before, but never reserved instances, so that was another question mark. Like many things AWS, it makes sense once you understand how it works but was not immediately obvious without reading the documentation very carefully.</p>
+
+<h4>Getting a Reserved EC2 Instance</h4>
+
+<p>Reserved instances are kind of funny. When you buy it, you&#39;re not buying an EC2 instance: You&#39;re buying the contract to host an EC2 instance of a certain type, for a certain time period, in a certain location. For example, a <code>t2.large</code> for three years in <code>us-east-1d</code>. The clock starts ticking as soon as the payment form is submitted, so if it were to take a week for you to stand that instance up, you just donated a week&#39;s hosting costs to Amazon. Be ready to start that instance before you submit your payment so that you can switch tabs and start it immediately.</p>
+
+<p>The Reserved Instance contracts (I&#39;m just calling them contracts, I don&#39;t know if there&#39;s a more official nomenclature) are sold on a sort of marketplace. I had heard that if you buy 3 years but end up wanting to terminate early, you&#39;re allowed to sell the remainder on the marketplace &mdash; I just didn&#39;t know how or where to do that. When I was searching for my contract, I only found one option to buy from &quot;3rd party&quot; rather than Amazon.</p>
+
+<p>From there, it works just like any other EC2 instance: save your key file and then connect to the server with SSH: <code>ssh -i ~/.ssh/my_server-root.pem ubuntu@ec2-{my-ip-address}.compute-1.amazonaws.com</code>.</p>
+
+<h3>Setting up My Server</h3>
+
+<p>The first thing I needed to do was <a href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">install Docker on Ubuntu</a>, which was pretty straight-forward:</p>
+
+<p>All of the below commands are taken from the above Docker on Ubuntu link, after parsing out which commands were necessary for Ubuntu 14.04 Trusty. If you&#39;re on a different version, make sure to follow the right docs. And I&#39;m probably running <code>apt-get update</code> more than is strictly necessary, but it was repeated in the guide and I didn&#39;t see any harm in running it again, so I just followed instructions. (Standing on the shoulders of giants, remember?)</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>uname -r
+3.13.0-95-generic
+</code></pre></div>
+<p>Great news! I&#39;m on a recent enough kernel!</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>sudo apt-get install apt-transport-https ca-certificates
+<span class="nv">$ </span>sudo apt-key adv --keyserver hkp://p80.pool.sks-keyservers.net:80 --recv-keys 58118E89F3A912897C070ADBF76221572C52609D
+<span class="nv">$ </span>sudo <span class="nb">echo</span> <span class="s2">&quot;deb https://apt.dockerproject.org/repo ubuntu-trusty main&quot;</span> &gt; /etc/apt/sources.list.d/docker.list
+<span class="nv">$ </span>sudo apt-get update
+<span class="nv">$ </span>apt-cache policy docker-engine
+<span class="nv">$ </span>sudo apt-get install linux-image-extra-<span class="k">$(</span>uname -r<span class="k">)</span> linux-image-extra-virtual
+<span class="nv">$ </span>sudo apt-get install docker-engine
+<span class="nv">$ </span>sudo service docker start
+<span class="nv">$ </span>sudo docker run hello-world
+</code></pre></div>
+<p>Also from that guide:</p>
+
+<blockquote>
+<p>For [Ubuntu] 14.10 and below the above installation method automatically configures upstart to start the docker daemon on boot</p>
+</blockquote>
+
+<p>... Nice! One less thing to figure out. At this point I was thinking something like, &quot;So the Docker daemon will autostart, but how am I going to make sure my containers autostart, too?&quot; Spoiler alert: I restarted my instance with the containers running and when everything came back up they were brought up too. 👌</p>
+
+<p>At this point I&#39;ve got Docker running but no docker-compose. Coming from a Mac I was surprised they didn&#39;t come bundled together. I was even more surprised that compose wasn&#39;t available through apt. Fortunately it was easy enough to google up some instructions on <a href="https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-14-04">installing docker-compose on Ubuntu 14.04</a>.</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="hll"><span class="nv">$ </span>sudo usermod -aG docker <span class="k">$(</span>whoami<span class="k">)</span>
+</span><span class="nv">$ </span>sudo apt-get -y install python-pip
+<span class="nv">$ </span>sudo pip install docker-compose
+<span class="hll"><span class="nv">$ </span>which docker-compose <span class="o">&amp;&amp;</span> docker-compose --version
+</span></code></pre></div>
+<p>The <code>usermod</code> line adds the current user (ubuntu) to the <code>docker</code> group, which prevents the need to use sudo every time I want to run a docker command. The last line shows where the compose executable is found and prints its version, just to confirm that all is well.</p>
+
+<p>And now to install the aforementioned AWS CLI:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo pip install awscli
+</code></pre></div>
+<h3>Configuring My App</h3>
+
+<p>Now that all of the pre-requisites are satisfied, it&#39;s time to get my containers running and verify that my app is working. I cloned my git repo to <code>/opt/myapp</code> and then <code>chown -R ubuntu ubuntu /opt/myapp</code> so that sudo isn&#39;t required for simple things like getting the latest code with <code>git pull</code>.</p>
+
+<p>I have both my <code>Dockerfile</code> for building my web container and my <code>docker-compose.yml</code> in the root of my repo, so it was as simple as <code>cd /opt/myapp &amp;&amp; docker-compose up</code> to start them.</p>
+
+<p>Once the containers were done building, I confirmed that the web container was serving the website on port 8888. Internal to the container it&#39;s listening on port 80, but that port is being shared on the host as 8888, as you can see in my <code>docker-compose.yml</code> config above. From the host I make an HTTP request to localhost:8888:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>wget localhost:8888 -O /dev/null
+Resolving localhost <span class="o">(</span>localhost<span class="o">)</span>... 127.0.0.1
+Connecting to localhost <span class="o">(</span>localhost<span class="o">)</span><span class="p">|</span>127.0.0.1<span class="p">|</span>:8888... connected.
+HTTP request sent, awaiting response... <span class="m">200</span> OK
+Length: <span class="m">19789</span> <span class="o">(</span>19K<span class="o">)</span> <span class="o">[</span>text/html<span class="o">]</span>
+Saving to: ‘/dev/null’
+
+100%<span class="o">[==========================================</span>&gt;<span class="o">]</span> 19,789      --.-K/s   in 0s
+
+2016-09-05 09:56:39 <span class="o">(</span><span class="m">173</span> MB/s<span class="o">)</span> - ‘/dev/null’ saved <span class="o">[</span>19789/19789<span class="o">]</span>
+</code></pre></div>
+<p>Awesome, it&#39;s working!</p>
+
+<h4>Reverse Proxy</h4>
+
+<p>This part isn&#39;t strictly necessary. If I only wanted to run this one thing on the server I could just directly expose the container&#39;s port 80 as the server&#39;s port 80 and call it a day. But putting a reverse-proxy in the middle allows me to add more containers to this server to do other things, which I hope to do in the near future. So I quickly wrapped it up in an <a href="https://www.digitalocean.com/community/tutorials/how-to-install-nginx-on-ubuntu-14-04-lts">Nginx</a> reverse proxy:</p>
+<div class="highlight"><pre><code class="language-bash" data-lang="bash"><span class="nv">$ </span>sudo apt-get install nginx
+</code></pre></div>
+<p>Once installed, Nginx is already running:</p>
+
+<p><img src="/assets/images/posts/2016/nginx-welcome.png" alt="Nginx welcome screen"></p>
+
+<p>I didn&#39;t spend a lot of time searching out the best Nginx Reverse Proxy tutorial; it was something that was pretty easy to figure out from just the hints in the <a href="https://www.digitalocean.com/community/tutorials/how-to-configure-nginx-as-a-web-server-and-reverse-proxy-for-apache-on-one-ubuntu-14-04-droplet">2nd google result</a> (jump down to &quot;Step 7&quot;).</p>
+
+<p>I deleted the symlink at <code>/etc/nginx/sites-enabled/default</code> to disable the welcome screen, then added my own <code>/etc/nginx/sites-available/myapp.com</code> file with this content:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">server {
+    listen 80 default_server;
+
+    server_name myapp.com www.myapp.com aws.myapp.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8888;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+    }
+}
+</code></pre></div>
+<p>Then symlink this file into <code>/etc/nginx/sites-enabled/</code>, and restart nginx. This will proxy all requests to my container that&#39;s listening on port 8888, which is good enough for now!</p>
+
+<h3>Remaining Problems</h3>
+
+<p>Something&#39;s wonky with the system time inside the docker container. By default it comes up as UTC. My host was also UTC. I live in US/Eastern and my client is in US/Eastern so it just makes things easier for my servers to use US/Eastern, too. (Though really, <a href="https://youtu.be/-5wpm-gesOY">Timezones can die in a fire for all I care</a>.)</p>
+
+<p>But I noticed this in the Lucee admin overview at around 22:33 (10:33pm) on Sept 4th:</p>
+
+<p><img src="/assets/images/posts/2016/docker-lucee-time.png" alt="Nginx welcome screen"></p>
+
+<p>What&#39;s odd is that it&#39;s ahead by ten hours (The container and the host were both in UTC at the time). I changed both to use Timezone <code>America/New_York</code> and restarted both the host and the containers, but that doesn&#39;t seem to have helped. Setting the Timezone in the MariaDB container seems to have worked: <code>select current_timestamp;</code> returns my current local time, so I have to imagine there&#39;s some disconnect between the system time and Lucee.</p>
+
+<p>Just to verify I did add a comment to a view where I spit out the current value of <code>#now()#</code> and it matches what I see in the Lucee dashboard. So the website thinks that the time is off by a few hours. Not ideal, but I can live with it while I work with the folks in #lucee and #docker to find a fix.</p>
+
+<p>I initially made some scripting changes to my Dockerfile to set the timezone and install NTP, but later found some advice to set an environment variable named <code>TZ</code> with the desired Timezone. That worked too (in that <code>$ date</code> reported the desired date &amp; time), so I ripped out the Dockerfile changes. The environment variable approach works for the MariaDB container too, an added bonus.</p>
+
+<h3>Conclusion</h3>
+
+<p>Soup to nuts, it went surprisingly smoothly. Aside from the Timezone/system time issue, I finished all of that in a day. I started at about 9:00am, took short breaks for lunch and dinner, and finished before 10:00pm. I had mentally prepared myself to stay up until the wee hours of the morning pulling out what&#39;s left of my hair, as I usually would in a similar situation, but it just wasn&#39;t necessary. The time that I saved, I turned around and used to write this blog post. 🤓</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">I mean, it&#39;s also not even 10:00pm... This is just not how I envisioned my night going.<br><br>I&#39;ll allow it. <a href="https://t.co/iDwVd8PXgv">pic.twitter.com/iDwVd8PXgv</a></p>&mdash; Adam Tuttle (@AdamTuttle) <a href="https://twitter.com/AdamTuttle/status/772607180721750018">September 5, 2016</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>I Think Donald Trump Is an Idiot, but That Doesn't Mean I Think You Are</title>
 	  <link>//trump-is-an-idiot-but-you-arent/</link>
 	  <author>Adam Tuttle</author>
@@ -460,118 +687,6 @@ Thanks for coming by.</p>
 <span class="nt">&lt;/cfoutput&gt;</span>
 </code></pre></div>
 <p>Every time we reinitialize our application &ndash; part of an automated deploy &ndash; it will read the contents of the <code>cache-admin.md5</code> file and store it in memory; then use that value to ensure css is always updated in the browser, while maintaining aggressive cacheing.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>Three Reasons We Went Solar (and You Should Too!)</title>
-	  <link>//three-reasons-we-went-solar-and-you-should-too/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2015-11-17T11:30:00-05:00</pubDate>
-	  <guid>//three-reasons-we-went-solar-and-you-should-too/</guid>
-	  <description><![CDATA[
-	     <p>Last June, I called my buddy Mike and told him I wanted to go solar. We were about to move into our new house and I wanted him to look at the roof on Google Maps to confirm it would be worth installing solar panels. At the time he was a salesman (he&#39;s since been promoted) for <a href="https://share.solarcity.com/adamtuttle">Solar City</a>, and I know he&#39;ll always be honest with me even when he&#39;s trying to sell me something.</p>
-
-<p>Six days ago (in terrible weather for solar energy production) we turned our system on!</p>
-
-<iframe width="560" height="315" src="https://www.youtube.com/embed/hcAEw0Ft8G8" frameborder="0" allowfullscreen></iframe>
-
-<p>Solar energy is really hot right now. Every time I mention our system on Facebook and Twitter I get more people asking me for details about what we paid, how much we&#39;re saving, and so on. Everybody wants in. And the good news is it&#39;s unbelievably easy, and the savings are real.</p>
-
-<p>Here&#39;s our electric consumption compared with our solar production for yesterday. And remember, it&#39;s almost winter here in the northern hemisphere, so we&#39;re almost opposite of ideal conditions. This is only going to get better during the summer!</p>
-
-<p><img src="/assets/images/posts/2015/solar-usage.png" alt="Our solar production vs power consumption for Nov 16th"></p>
-
-<p>Here, then, are the very first three reasons that come to mind when asked why I wanted to go solar, and you should too:</p>
-
-<h2>1: It&#39;s good for the planet!</h2>
-
-<p>The sun is a renewable energy source that will be around billions of years after the last humans die (if we stay on our current trajectory, at least), and it&#39;s free. Just look up. Feel that warmth on your face? Free energy.</p>
-
-<p>Not dumping tons of carbon and other gross polution into the atmosphere is another added bonus.</p>
-
-<p>Really, do I have to sell the whole &quot;it&#39;s good for the environment&quot; thing that hard? I think pretty much everyone agrees that solar energy is much better than fossil fuels and easier to harness than wind or water.</p>
-
-<h2>2: Elon Musk, evil genius</h2>
-
-<p>Of course, Solar City makes some money from the contract they sign with you. How else would they pay for sales staff, installers, and so forth?</p>
-
-<p>The federal government provides a nice Alternative Energy Credit to the owner of the solar system. Since we lease our system from Solar City, they own it, and they get to pocket that AEC. Then there&#39;s the profit from selling any over-produced energy back into the grid. I&#39;ll cover some of the details from that in a later section, but for now just know: They make a profit and Elon Musk turns around and reinvests that money in making the world a better place. (That&#39;s my educated guess based on his current interests: Solar City, SpaceX, Tesla, etc)</p>
-
-<p>I love supporting a business that&#39;s out to make the world better, not just to make the shareholders rich.</p>
-
-<h2>3: We save money &amp; it costs us <em>nothing*</em></h2>
-
-<p>I know you&#39;re cringing at that asterisk. Give me a chance to explain!</p>
-
-<p>No matter what, there are no up-front costs. We&#39;ve paid nothing so far, and that has covered a site inspector, the installation crew and the solar panels themselves, and a few inspections after installation. All for $0.</p>
-
-<p>We signed a 20 year, fixed-rate contract at a per-kWh rate that is currently <em>higher</em> than what PECO charges. We&#39;re paying 15.67 cents per kWh that our solar panels produce, while PECO is only charging 13.9 per kWh that we consume from the grid. The electric utility industry, on average nationally, increases rates by 5% per year, so by year 6 we&#39;ll be saving money compared to PECO, according to those projections.</p>
-
-<p>Our contract is the green bars, and the PECO projection is the red bars.</p>
-
-<p><img src="/assets/images/posts/2015/solar-rates.png" alt="Solar City rates (actual) vs Peco rates (projection) over the next 20 years"></p>
-
-<p>But what are those blue bars? That&#39;s where the asterisk comes in.</p>
-
-<p>We chose a contract that has a higher initial per-kWh rate initially, but is fixed for 20 years. We&#39;re going to lose a little bit of money every year until that fixed rate is lower than the PECO rate. But...</p>
-
-<p>For people that want to start saving money immediately, Solar City offers a similarly-increasing rate plan, but the amount it will increase is fixed at 2.9% and will not change for the life of your contract; <em>and</em> they start you out lower than PECO rates, so you start saving immediately. As you can see, the blue bar starts below the red bar and never goes above it.</p>
-
-<p>How much more are we going to save over the life of the contract by signing up for the fixed rate (green bar) plan?</p>
-
-<p><img src="/assets/images/posts/2015/solar-savings.png" alt="Amount saved over time, two Solar City plans compared"></p>
-
-<p>At the end of your 20 year contract, you&#39;ve saved a bunch of money... And contributed to saving the planet in a meaningful way! But what&#39;s the real dollar difference between the two plans? In order to calculate this we need a rough estimate of the number of kWh used per year, which for my family is currently about 9,200 kWh/y.</p>
-
-<p>On the increasing rate plan (blue bar), we would save about $66 in the first year, and by the end of year 20 we would have saved a combined total of $5,658 and change (about $282/year). On the fixed rate plan (green bar) we&#39;re going to lose money for the first few years, and then once our rate is better than PECO&#39;s it&#39;s going to take a few more years worth of savings to recoup those first years losses; but then the savings take off. We&#39;ll lose $229 in our first year, and in year 5 our total combined loss will be up to $637 and change (about $127/year). But by year 20, including those losses up front, we will have saved $7,367 and change compared to the PECO projection (about $368/year).</p>
-
-<p>Because we&#39;re willing to take a little bit of a loss for the first few years, we&#39;ll save roughly an extra $1,700 over the 20 years of the contract.</p>
-
-<blockquote>
-<p>This is probably a good time to mention that your rates <strong>will vary</strong>. These numbers are all based on what <em>my</em> electric utility is charging <em>me</em>, and the rates that Solar City <em>offered me</em>. Unless you live near me, your starting rates will probably differ, and the rates that Solar City offers you will probably differ. But the intent will be the same.</p>
-</blockquote>
-
-<h2>How can they afford to do this?</h2>
-
-<p>I don&#39;t have special access or Nate-Silver-like abilities to divine truth from seemingly unrelated numbers, but there are a few things that we know for sure.</p>
-
-<ul>
-<li>Solar City charges you nothing for your panels and other expenses (installation, etc), and recovers those costs through income streams; making it <em>really easy</em> for anyone with appropriate roof space to get involved. For the average consumer, the cost of the panels alone would be prohibitive to going solar independently.</li>
-<li>Your electric utility will pay Solar City for any energy your system pushes back into the grid (after net metering)</li>
-<li>The federal government (and perhaps some states?) incentivize alternative energy with Alternative Engergy Credits, which is basically a rebate they pay you for using clean energy like solar power. That goes to the owner of the solar system, which is Solar City, not you.</li>
-</ul>
-
-<h3>What&#39;s net metering?</h3>
-
-<p>When you use electricity from the grid, your power meter spins in one direction. If you produce more energy than you consume, it will be pushed back into the grid and your meter will spin <em>backwards</em>.</p>
-
-<p>Now imagine someone reading your meter on the 1st of the month, and it&#39;s at 5,000. When she comes back to read it on the 1st of the following month, it&#39;s at 5,300, and you&#39;re charged for 300 kWh of usage. But what the meter doesn&#39;t show is that during the beginning of the month the weather was outstanding and your meter spun backwards to 4,800; before the sky turned black and you had to start drawing energy from the grid again.</p>
-
-<p>All that matters is that your <em>net</em> usage from the grid was 300 kWh. That&#39;s net-metering.</p>
-
-<p>If the reading on the 1st day of the second month was 4,500, that would represent 500 kWh pushed back into the grid, and <em>they</em> would pay <em>you</em> rather than the other way around.</p>
-
-<h2>Sounds great, where do I sign up?!</h2>
-
-<p>After learning all of these facts, this is how I felt:</p>
-
-<p><img src="/assets/images/posts/2015/take-my-money.gif" alt="shut up and take my money!"></p>
-
-<p>If you feel the same way, here&#39;s some information to help you get started:</p>
-
-<p>Solar City is licensed to operate in 31 US states and Washington, D.C. &mdash; <a href="http://www.solarcity.com/company/contractor-licenses">check here to see if your state is on the list</a>.</p>
-
-<p>If you&#39;re in a state where they operate, <a href="https://share.solarcity.com/adamtuttle">get in touch with them!</a> Or, if you&#39;d rather start talking directly with a person (and I know you), get in touch with me and I&#39;ll put you in contact with my salesman Mike.</p>
-
-<h3>Referral Disclosure</h3>
-
-<p>I wrote this post because I simply can not keep up with people asking me for details on my solar setup. I believe in the company (I signed a 20 year contract with them!) and I believe they will do right by you, too. I wouldn&#39;t share this information if that weren&#39;t true. But, in the interest of disclosure, I do stand to make a little bit of money if you sign up.</p>
-
-<p>If you use <a href="https://share.solarcity.com/adamtuttle">my referral link</a> to initiate contact with Solar City and you ultimately do get a solar system installed, <strong>your first month is free</strong> and I get $250.</p>
-
-<p>I hope you do, for our planet&#39;s sake.</p>
 
 	  ]]></description>
 	</item>
