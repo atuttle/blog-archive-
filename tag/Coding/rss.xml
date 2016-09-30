@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+<channel>
+   
+      <title>github.com/atuttle/blog</title>
+   
+   <link>http://adamtuttle.codes</link>
+   <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski</description>
+   <language>en-us</language>
+   <managingEditor> Adam Tuttle</managingEditor>
+   <atom:link href="rss" rel="self" type="application/rss+xml" />
+   
+	<item>
+	  <title>Giggle Driven Development</title>
+	  <link>//giggle-driven-development/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-09-30T05:00:00-04:00</pubDate>
+	  <guid>//giggle-driven-development/</guid>
+	  <description><![CDATA[
+	     <p>Yesterday morning while spending time with my kids before they left for school, and completely by accident, I found myself on a website making use of some really neat technology that made programming problems and lego-block style &quot;coding&quot; of solutions really novel, simple, and approachable. We had a bunch of fun working on some of the problems together, and I feel compelled to share.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-fail-algorithm.png" alt="Sample (wrong) source code"></p>
+
+<p>The technology is called <a href="https://developers.google.com/blockly/">Blockly</a> (by Google), and <a href="https://blockly-games.appspot.com/">these are the games we played</a>.</p>
+
+<p>The games start out with a simple puzzle mechanic that teaches you how to snap the puzzle pieces (that will later become &quot;code&quot;) together, and then moves on to the most basic form of coding challenges. The challenges get successively harder as you go, requiring the understanding of a new concept to complete each level.</p>
+
+<p>This feels like a very natural next step after <a href="http://www.robotturtles.com/">Robot Turtles</a>, a board game that teaches beginning programming concepts. I backed it on kickstarter and my kids and I enjoy breaking it out from time to time. Two things that Robot Turtles lacks and that Blockly introduces pretty early on are branching (if/else) and looping constructs. Those concepts would be really hard to model out with a deck of cards laid out on a table &ndash; the mechanic used in Robot Turtles &ndash; but the snap-together pieces approach in Blockly actually works pretty well.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-fail.jpg" alt="A screen shot of one of our failed attempts, which elicited much laughter"></p>
+
+<p>But the thing that really sucked my kids in was what happens when you fail. Instead of just making a &quot;you can&#39;t do that&quot; noise and stopping the little maze-wanderer dead in its tracks, the astronaut flies off into space. If you&#39;re playing with the default skin that resembles Google Maps then it sounds like the character walks into a wall. Hard. And if you&#39;re using the panda theme, it makes some sort of &quot;mew&quot; noise and then falls off of the bottom of the screen.</p>
+
+<p>That accidental joy: turning a failure into laughter; that&#39;s what drew my kids in and made them want to do more. They sought out more failures, and in doing so, learned more about the concepts being taught. Not because they wanted to learn more about programming, but because they thought it was hilarious when the astronaut floated off into space and they wanted to understand how to make it happen again, intentionally.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-scratch.png" alt="A screen shot of MIT Scratch"></p>
+
+<p>In the past, I&#39;ve tried introducing them to <a href="https://scratch.mit.edu/">MIT&#39;s Scratch</a>, but it never seemed to interest them. From what I&#39;ve seen so far, Scratch can be quite a bit more complex, though the only thing I&#39;ve seen done with it is to make (sometimes interactive) animations. Maybe once they get some more time in with Blockly they&#39;ll be more interested in Scratch. Or maybe my kids are puzzle gamers, and just not interested in creating animations.</p>
+
+<p>But clearly the hilarious (to a 5 and 7 year old) way that failure happens in these Blockly games is part of what makes them so appealing.</p>
+
+<p>And what can we learn from this as we create interfaces for non-technical users in business applications? We aren&#39;t teaching them to write code, but if we can turn their mistakes into something that makes them <em>want</em> to spend more time using the application, I would consider that a win.</p>
+
+<p>How cool would it be to have some negative behavior in your app enable <a href="https://github.com/codeinthedark/awesome-power-mode">Power Mode</a> instead of some boring &quot;You can&#39;t do that&quot; validation? I don&#39;t know when it would be appropriate to do so (outside of, perhaps, April Fools) but it strikes me as the type of thing that is harmless and would elicit joy from the users, if used sparingly.</p>
+
+<p><small><a href="https://www.flickr.com/photos/philiproeland/12100005003">Photo credit</a></small></p>
+
+	  ]]></description>
+	</item>
+
+
+</channel>
+</rss>

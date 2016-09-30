@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Giggle Driven Development</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Giggle Driven Development" />
+<meta property="og:description" content="Adam shares a tale of playing programming games with his kids" />
+<meta property="og:url" content="http://adamtuttle.codes/giggle-driven-development/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/minecraft.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="Giggle Driven Development" />
+<meta name="twitter:description" content="Adam shares a tale of playing programming games with his kids" />
+<meta name="twitter:url" content="http://adamtuttle.codes/giggle-driven-development/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/minecraft.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/giggle-driven-development/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/minecraft.jpg"
+  ,"description": "Adam shares a tale of playing programming games with his kids"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div class="cover-blur" style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/minecraft.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Giggle Driven Development</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-09-30">30 Sep 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/Coding'>Coding</a>,
+                    
+                
+                    
+                       <a href='/tag/Kids'>Kids</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>Yesterday morning while spending time with my kids before they left for school, and completely by accident, I found myself on a website making use of some really neat technology that made programming problems and lego-block style &quot;coding&quot; of solutions really novel, simple, and approachable. We had a bunch of fun working on some of the problems together, and I feel compelled to share.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-fail-algorithm.png" alt="Sample (wrong) source code"></p>
+
+<p>The technology is called <a href="https://developers.google.com/blockly/">Blockly</a> (by Google), and <a href="https://blockly-games.appspot.com/">these are the games we played</a>.</p>
+
+<p>The games start out with a simple puzzle mechanic that teaches you how to snap the puzzle pieces (that will later become &quot;code&quot;) together, and then moves on to the most basic form of coding challenges. The challenges get successively harder as you go, requiring the understanding of a new concept to complete each level.</p>
+
+<p>This feels like a very natural next step after <a href="http://www.robotturtles.com/">Robot Turtles</a>, a board game that teaches beginning programming concepts. I backed it on kickstarter and my kids and I enjoy breaking it out from time to time. Two things that Robot Turtles lacks and that Blockly introduces pretty early on are branching (if/else) and looping constructs. Those concepts would be really hard to model out with a deck of cards laid out on a table &ndash; the mechanic used in Robot Turtles &ndash; but the snap-together pieces approach in Blockly actually works pretty well.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-fail.jpg" alt="A screen shot of one of our failed attempts, which elicited much laughter"></p>
+
+<p>But the thing that really sucked my kids in was what happens when you fail. Instead of just making a &quot;you can&#39;t do that&quot; noise and stopping the little maze-wanderer dead in its tracks, the astronaut flies off into space. If you&#39;re playing with the default skin that resembles Google Maps then it sounds like the character walks into a wall. Hard. And if you&#39;re using the panda theme, it makes some sort of &quot;mew&quot; noise and then falls off of the bottom of the screen.</p>
+
+<p>That accidental joy: turning a failure into laughter; that&#39;s what drew my kids in and made them want to do more. They sought out more failures, and in doing so, learned more about the concepts being taught. Not because they wanted to learn more about programming, but because they thought it was hilarious when the astronaut floated off into space and they wanted to understand how to make it happen again, intentionally.</p>
+
+<p><img src="/assets/images/posts/2016/giggle-scratch.png" alt="A screen shot of MIT Scratch"></p>
+
+<p>In the past, I&#39;ve tried introducing them to <a href="https://scratch.mit.edu/">MIT&#39;s Scratch</a>, but it never seemed to interest them. From what I&#39;ve seen so far, Scratch can be quite a bit more complex, though the only thing I&#39;ve seen done with it is to make (sometimes interactive) animations. Maybe once they get some more time in with Blockly they&#39;ll be more interested in Scratch. Or maybe my kids are puzzle gamers, and just not interested in creating animations.</p>
+
+<p>But clearly the hilarious (to a 5 and 7 year old) way that failure happens in these Blockly games is part of what makes them so appealing.</p>
+
+<p>And what can we learn from this as we create interfaces for non-technical users in business applications? We aren&#39;t teaching them to write code, but if we can turn their mistakes into something that makes them <em>want</em> to spend more time using the application, I would consider that a win.</p>
+
+<p>How cool would it be to have some negative behavior in your app enable <a href="https://github.com/codeinthedark/awesome-power-mode">Power Mode</a> instead of some boring &quot;You can&#39;t do that&quot; validation? I don&#39;t know when it would be appropriate to do so (outside of, perhaps, April Fools) but it strikes me as the type of thing that is harmless and would elicit joy from the users, if used sparingly.</p>
+
+<p><small><a href="https://www.flickr.com/photos/philiproeland/12100005003">Photo credit</a></small></p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2016-09-30"><i class="fa fa-calendar-o"></i> 30 Sep 2016</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/Coding'>Coding</a>,
+                            
+                        
+                            
+                               <a href='/tag/Kids'>Kids</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Pennsylvania, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Giggle Driven Development&amp;url=http://adamtuttle.codes/giggle-driven-development/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/giggle-driven-development/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/giggle-driven-development/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/sit-clouds.png)" href="/AWS-Reserved-and-Docker-in-production/">
+            <section class="post">
+                <h2>My Experience With AWS Reserved EC2 Instances and Deploying Docker in Production</h2>
+                <p><p>This is going to be more field-notes than how-to, but when I tweeted about how...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>

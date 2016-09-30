@@ -9,7 +9,20 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Tue, 06 Sep 2016 05:00:00 -0400</pubDate>
+    <pubDate>Fri, 30 Sep 2016 05:00:00 -0400</pubDate>
+    <item>
+      <title>Giggle Driven Development</title>
+      <link>http://adamtuttle.codes/giggle-driven-development/</link>
+      <description>Yesterday morning while spending time with my kids before they left for school, and completely by accident, I found myself on a website making use of some really neat technology that made programming problems and lego-block style &quot;coding&quot; of solutions really novel, simple, and approachable. We had a bunch of fun working on some of the problems together, and I feel compelled to share.
+
+[blockly]: https://developers.google.com/blockly/
+[blockly_games]: https://blockly-games.appspot.com/
+[robot_turtles]: http://www.robotturtles.com/
+[scratch]: https://scratch.mit.edu/
+[power]: https://github.com/codeinthedark/awesome-power-mode</description>
+      <pubDate>Fri, 30 Sep 2016 05:00:00 -0400</pubDate>
+      <dc:date>2016-09-30T05:00:00-04:00</dc:date>
+    </item>
     <item>
       <title>My Experience With AWS Reserved EC2 Instances and Deploying Docker in Production</title>
       <link>http://adamtuttle.codes/AWS-Reserved-and-Docker-in-production/</link>
@@ -209,6 +222,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-09-06T05:00:00-04:00</dc:date>
+    <dc:date>2016-09-30T05:00:00-04:00</dc:date>
   </channel>
 </rss>
