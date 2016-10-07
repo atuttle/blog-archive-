@@ -4,7 +4,7 @@ categories: 'adam'
 cover: 'assets/images/covers/landing-at-night.jpg'
 cover_blur: false
 title: "The Cost of Abstraction"
-summary: "Adam forgot to write a summary blurb for this article! Oops!"
+summary: "Adam responds to a blog post about the half-life of career-knowledge"
 date: 2016-10-07 11:00:00
 tags: Coding Learning
 subclass: 'post'
