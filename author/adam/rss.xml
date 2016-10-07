@@ -12,6 +12,78 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>The Cost of Abstraction</title>
+	  <link>//the-cost-of-abstraction/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2016-10-07T07:00:00-04:00</pubDate>
+	  <guid>//the-cost-of-abstraction/</guid>
+	  <description><![CDATA[
+	     <p>Earlier today a friend and colleague who is almost 40 sent me a link to this article: <a href="http://www.bennorthrop.com/Essays/2016/reflections-of-an-old-programmer.php">Reflections of an &quot;Old&quot; Programmer</a>. I&#39;m 34, so still a few years shy of Ben, but I have been starting to get the feeling that I&#39;m an &quot;old&quot; coder too. So hopefully my thoughts in response aren&#39;t too far off-base.</p>
+
+<p>I think the motivation for Ben&#39;s post is correct:</p>
+
+<blockquote>
+<p>Without ... effort, we could be worse at our jobs in 5 years than we are today. There is no coasting.</p>
+</blockquote>
+
+<p>But his metaphors are full of holes and his thesis of knowledge decay is too broad. Allow me to explain.</p>
+
+<h3>Metaphors revisited</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Ignaz_Semmelweis">Ignaz Semmelweis</a>, a Hungarian doctor in the mid 1800s, was ridiculed because he believed that microscopic living organisms could reside on your skin and be transmitted from one patient to the next, spreading disease. Of course today we understand about bacteria and viruses and we wash our hands between surgeries.</p>
+
+<p>Ben asserts that doctors (probably) don&#39;t find themselves constantly dealing with knowledge decay and the threat of getting worse at their jobs over time:</p>
+
+<blockquote>
+<p>The doctor at 40 doesn&#39;t seem to be worried about discovering that all his knowledge of the vascular system is about to evaporate in favor of some new organizing theory. The same goes for the lawyer, the plumber, the accountant, or the english teacher.</p>
+</blockquote>
+
+<p>While there is a nugget of truth in this quote (more on that in a moment), I would assert in response that Ben probably doesn&#39;t know too many doctors, lawyers, plumbers, accountants, or teachers. Or at least he doesn&#39;t ask them about their Continuing Learning Efforts.</p>
+
+<p>Your family doctor probably attends at least once conference a year, and very likely <em>regularly</em> attends lunch-and-learn sessions paid for by pharmaceutical companies where she gets free lunch in exchange for learning about the company&#39;s new drugs: How they work, what they do, and what off-label uses they might be good for, to name just a few things. I have friends that were pharma reps and friends that are doctors, and I&#39;m speaking from first-hand conversations with them.</p>
+
+<p>Anyone remember &quot;New Math&quot;? Ben&#39;s parents were probably complaining about it when he was in 6th-10th grade, if my math is correct. Teachers were learning and applying new techniques for helping kids to understand mathematical concepts. The same is probably true for reading, writing, and other concepts too. And we&#39;re going through it again now: What people often refer to as &quot;common core&quot; (which I support) &ndash;which is actually just a new program put in place to <em>satisfy</em> common core&ndash; is an updated approach to teaching based on scientific research on the subject.</p>
+
+<p>Lawyers must be aware of new laws and precedents. Accountants have to keep up with the latest loop-holes to help their billionaire clients avoid paying taxes. Plumbers need to know about new materials (my house is plumbed with PEX pipes) and tools.</p>
+
+<p>In all of these cases, if someone abandons learning new things the day they get their first job they will not have a very long career at all.</p>
+
+<h3>That nugget of truth</h3>
+
+<blockquote>
+<p>The doctor at 40 doesn&#39;t seem to be worried about discovering that all his knowledge of the vascular system is about to evaporate in favor of some new organizing theory.</p>
+</blockquote>
+
+<p>This part is right, though. The vascular system is well understood and documented, and the hardware is unlikely to change drastically over the course of a doctor&#39;s career. Except artificial blood vessels and hearts and whatever other medical innovations come along in the next 40 years...</p>
+
+<p>There are certain concepts in any field, which I&#39;ll refer to as &quot;core concepts,&quot; that have a half life of much longer than the average human lifespan, if not effectively infinite.</p>
+
+<p>Looping, Branching, Recursion: These are all programming core concepts that you will not likely find yourself abandoning for new approaches in our lifetime. Not unless there are major breakthroughs in Quantum Computing, followed by mass market production of quantum computers to make them as common as PCs are today. These are the vascular and nervous systems of the computer: You&#39;re speaking using concepts born at a lower level of abstraction, even if you&#39;re using a 4th or 5th generation language.</p>
+
+<p>In the beginning there were 1st generation languages: byte code punched into cards. Then there were 2nd generation languages that abstracted a collection of bytecode commands into a single command that could be written with letters and numbers in a text file, i.e. Assembly. 3rd generation languages like C abstract collections of 2GL commands into a single line of code. And repeat for 4th and 5th generation languages.</p>
+
+<p>Each layer of abstraction exists because it &quot;makes hard things easier&quot; than the previous generation. But we&#39;re at a point now where we&#39;ve based our knowledge on something 4 or 5 layers of abstraction away from implementation. And because of that, things change more frequently.</p>
+
+<p>The problems that these JavaScript frameworks du jour are attempting to solve are simply not solved: The scientists (programmers) are still experimenting with different methods and techniques, and no consensus has been reached on the best ways to tackle these problems. Nor is it likely to be in our lifetime. So in this limited scope, I agree with Ben: the half-lives of these things are low when contrasted with core concepts.</p>
+
+<p>It is these higher layers of abstraction that are changing, not the core concepts. When you switch to a new tool or framework, recursion still works the same way it used to.</p>
+
+<p>You can&#39;t compare your highly abstracted concepts to the core concepts of another profession and proclaim that our industry is just different. That we churn more knowledge. We don&#39;t. Drugs get discontinued. Lead paint and leaded gasoline (and if you&#39;re me, you&#39;re hoping gasoline altogether!) are on their way out. Every industry evolves.</p>
+
+<p><strong>This is the cost of working at a high level of abstraction.</strong></p>
+
+<h3>The result is the same</h3>
+
+<p>Even with all of the above nit-picking, I agree with Ben&#39;s conclusion: Focus on learning the core concepts of your field well and they will serve you well for a long time to come. For everything else, don&#39;t rush to be an early adopter, and wait for some amount of consensus to grow before you dive in head-first.</p>
+
+<p>Early adoption is for &quot;kids&quot; (pre-30&#39;s) that have time to be burned by bad decisions and recover from those burns. Us old-folks need to focus on stability and sustainability.</p>
+
+<p>But I still think React Native looks pretty neat.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Giggle Driven Development</title>
 	  <link>//giggle-driven-development/</link>
 	  <author>Adam Tuttle</author>
@@ -649,30 +721,6 @@ Thanks for coming by.</p>
 <p>I&#39;m probably jinxing it by referencing <a href="https://meta.wikimedia.org/wiki/Cunningham%27s_Law">Cunningham&#39;s Law</a>; but here goes anyway. &quot;The best way to get the right answer on the Internet is not to ask a question, it&#39;s to post the wrong answer.&quot;</p>
 
 <p>Are you dying to point out how horribly wrong I am? <a href="https://twitter.com/adamtuttle">Please tweet at me!</a></p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>My First 100 Jumps</title>
-	  <link>//my-first-100-jumps/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2015-12-10T14:30:00-05:00</pubDate>
-	  <guid>//my-first-100-jumps/</guid>
-	  <description><![CDATA[
-	     <p>Just shy of two weeks ago I completed my 100th skydive, which was a huge accomplishment for me. It took me around 18 months to collect that many (not counting the 15 year layoff between jumps #1 and #2).</p>
-
-<p>This isn&#39;t some sort of brag: 100 is only a drop in the bucket in the average skydiving career. People that work in the sport can get thousands of jumps in a year. Most active hobbyist jumpers these days don&#39;t have much trouble getting 100+ in a year; and in fact I&#39;m hoping to come close to that for calendar year 2016, but for {reasons} I am not able to jump as often as I&#39;d like. Also, there are additional restrictions while you&#39;re a student, which I was from May (#2) to August 2014 (#25), resulting in reduced jump numbers.</p>
-
-<p>Let&#39;s be honest: I&#39;d jump twenty times every day if I could, so there&#39;s probably no reasonable amount that will satisfy the &quot;as much as I&#39;d like&quot; criteria.</p>
-
-<p>Anyway, here is a compilation of some of the video from my first 100 jumps.</p>
-
-<iframe width="1280" height="720" src="https://www.youtube.com/embed/51kxI9zvauI?rel=0&amp;showinfo=0" frameborder="0" allowfullscreen></iframe>
-
-<p>Jump #100 is not included in the compilation because nobody on the jump had a camera. C&#39;est la vie.</p>
-
-<p>For those of you wondering, in the USA you&#39;re not allowed to wear a camera until around 200 jumps. There are more rules and it gets more technical than that, but we&#39;ll just leave it at: wearing a camera is something I still have to look forward to, not something I can do yet.</p>
 
 	  ]]></description>
 	</item>

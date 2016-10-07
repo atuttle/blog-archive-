@@ -9,7 +9,17 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Fri, 30 Sep 2016 05:00:00 -0400</pubDate>
+    <pubDate>Fri, 07 Oct 2016 07:00:00 -0400</pubDate>
+    <item>
+      <title>The Cost of Abstraction</title>
+      <link>http://adamtuttle.codes/the-cost-of-abstraction/</link>
+      <description>Earlier today a friend and colleague who is almost 40 sent me a link to this article: [Reflections of an &quot;Old&quot; Programmer][old]. I'm 34, so still a few years shy of Ben, but I have been starting to get the feeling that I'm an &quot;old&quot; coder too. So hopefully my thoughts in response aren't too far off-base.
+
+[old]: http://www.bennorthrop.com/Essays/2016/reflections-of-an-old-programmer.php
+[handwasher]: https://en.wikipedia.org/wiki/Ignaz_Semmelweis</description>
+      <pubDate>Fri, 07 Oct 2016 07:00:00 -0400</pubDate>
+      <dc:date>2016-10-07T07:00:00-04:00</dc:date>
+    </item>
     <item>
       <title>Giggle Driven Development</title>
       <link>http://adamtuttle.codes/giggle-driven-development/</link>
@@ -222,6 +232,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-09-30T05:00:00-04:00</dc:date>
+    <dc:date>2016-10-07T07:00:00-04:00</dc:date>
   </channel>
 </rss>

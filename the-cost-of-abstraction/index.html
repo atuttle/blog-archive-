@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>The Cost of Abstraction</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="The Cost of Abstraction" />
+<meta property="og:description" content="Adam forgot to write a summary blurb for this article! Oops!" />
+<meta property="og:url" content="http://adamtuttle.codes/the-cost-of-abstraction/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/landing-at-night.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="The Cost of Abstraction" />
+<meta name="twitter:description" content="Adam forgot to write a summary blurb for this article! Oops!" />
+<meta name="twitter:url" content="http://adamtuttle.codes/the-cost-of-abstraction/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/landing-at-night.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/the-cost-of-abstraction/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/landing-at-night.jpg"
+  ,"description": "Adam forgot to write a summary blurb for this article! Oops!"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/landing-at-night.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">The Cost of Abstraction</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-10-07">07 Oct 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/Coding'>Coding</a>,
+                    
+                
+                    
+                       <a href='/tag/Learning'>Learning</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>Earlier today a friend and colleague who is almost 40 sent me a link to this article: <a href="http://www.bennorthrop.com/Essays/2016/reflections-of-an-old-programmer.php">Reflections of an &quot;Old&quot; Programmer</a>. I&#39;m 34, so still a few years shy of Ben, but I have been starting to get the feeling that I&#39;m an &quot;old&quot; coder too. So hopefully my thoughts in response aren&#39;t too far off-base.</p>
+
+<p>I think the motivation for Ben&#39;s post is correct:</p>
+
+<blockquote>
+<p>Without ... effort, we could be worse at our jobs in 5 years than we are today. There is no coasting.</p>
+</blockquote>
+
+<p>But his metaphors are full of holes and his thesis of knowledge decay is too broad. Allow me to explain.</p>
+
+<h3>Metaphors revisited</h3>
+
+<p><a href="https://en.wikipedia.org/wiki/Ignaz_Semmelweis">Ignaz Semmelweis</a>, a Hungarian doctor in the mid 1800s, was ridiculed because he believed that microscopic living organisms could reside on your skin and be transmitted from one patient to the next, spreading disease. Of course today we understand about bacteria and viruses and we wash our hands between surgeries.</p>
+
+<p>Ben asserts that doctors (probably) don&#39;t find themselves constantly dealing with knowledge decay and the threat of getting worse at their jobs over time:</p>
+
+<blockquote>
+<p>The doctor at 40 doesn&#39;t seem to be worried about discovering that all his knowledge of the vascular system is about to evaporate in favor of some new organizing theory. The same goes for the lawyer, the plumber, the accountant, or the english teacher.</p>
+</blockquote>
+
+<p>While there is a nugget of truth in this quote (more on that in a moment), I would assert in response that Ben probably doesn&#39;t know too many doctors, lawyers, plumbers, accountants, or teachers. Or at least he doesn&#39;t ask them about their Continuing Learning Efforts.</p>
+
+<p>Your family doctor probably attends at least once conference a year, and very likely <em>regularly</em> attends lunch-and-learn sessions paid for by pharmaceutical companies where she gets free lunch in exchange for learning about the company&#39;s new drugs: How they work, what they do, and what off-label uses they might be good for, to name just a few things. I have friends that were pharma reps and friends that are doctors, and I&#39;m speaking from first-hand conversations with them.</p>
+
+<p>Anyone remember &quot;New Math&quot;? Ben&#39;s parents were probably complaining about it when he was in 6th-10th grade, if my math is correct. Teachers were learning and applying new techniques for helping kids to understand mathematical concepts. The same is probably true for reading, writing, and other concepts too. And we&#39;re going through it again now: What people often refer to as &quot;common core&quot; (which I support) &ndash;which is actually just a new program put in place to <em>satisfy</em> common core&ndash; is an updated approach to teaching based on scientific research on the subject.</p>
+
+<p>Lawyers must be aware of new laws and precedents. Accountants have to keep up with the latest loop-holes to help their billionaire clients avoid paying taxes. Plumbers need to know about new materials (my house is plumbed with PEX pipes) and tools.</p>
+
+<p>In all of these cases, if someone abandons learning new things the day they get their first job they will not have a very long career at all.</p>
+
+<h3>That nugget of truth</h3>
+
+<blockquote>
+<p>The doctor at 40 doesn&#39;t seem to be worried about discovering that all his knowledge of the vascular system is about to evaporate in favor of some new organizing theory.</p>
+</blockquote>
+
+<p>This part is right, though. The vascular system is well understood and documented, and the hardware is unlikely to change drastically over the course of a doctor&#39;s career. Except artificial blood vessels and hearts and whatever other medical innovations come along in the next 40 years...</p>
+
+<p>There are certain concepts in any field, which I&#39;ll refer to as &quot;core concepts,&quot; that have a half life of much longer than the average human lifespan, if not effectively infinite.</p>
+
+<p>Looping, Branching, Recursion: These are all programming core concepts that you will not likely find yourself abandoning for new approaches in our lifetime. Not unless there are major breakthroughs in Quantum Computing, followed by mass market production of quantum computers to make them as common as PCs are today. These are the vascular and nervous systems of the computer: You&#39;re speaking using concepts born at a lower level of abstraction, even if you&#39;re using a 4th or 5th generation language.</p>
+
+<p>In the beginning there were 1st generation languages: byte code punched into cards. Then there were 2nd generation languages that abstracted a collection of bytecode commands into a single command that could be written with letters and numbers in a text file, i.e. Assembly. 3rd generation languages like C abstract collections of 2GL commands into a single line of code. And repeat for 4th and 5th generation languages.</p>
+
+<p>Each layer of abstraction exists because it &quot;makes hard things easier&quot; than the previous generation. But we&#39;re at a point now where we&#39;ve based our knowledge on something 4 or 5 layers of abstraction away from implementation. And because of that, things change more frequently.</p>
+
+<p>The problems that these JavaScript frameworks du jour are attempting to solve are simply not solved: The scientists (programmers) are still experimenting with different methods and techniques, and no consensus has been reached on the best ways to tackle these problems. Nor is it likely to be in our lifetime. So in this limited scope, I agree with Ben: the half-lives of these things are low when contrasted with core concepts.</p>
+
+<p>It is these higher layers of abstraction that are changing, not the core concepts. When you switch to a new tool or framework, recursion still works the same way it used to.</p>
+
+<p>You can&#39;t compare your highly abstracted concepts to the core concepts of another profession and proclaim that our industry is just different. That we churn more knowledge. We don&#39;t. Drugs get discontinued. Lead paint and leaded gasoline (and if you&#39;re me, you&#39;re hoping gasoline altogether!) are on their way out. Every industry evolves.</p>
+
+<p><strong>This is the cost of working at a high level of abstraction.</strong></p>
+
+<h3>The result is the same</h3>
+
+<p>Even with all of the above nit-picking, I agree with Ben&#39;s conclusion: Focus on learning the core concepts of your field well and they will serve you well for a long time to come. For everything else, don&#39;t rush to be an early adopter, and wait for some amount of consensus to grow before you dive in head-first.</p>
+
+<p>Early adoption is for &quot;kids&quot; (pre-30&#39;s) that have time to be burned by bad decisions and recover from those burns. Us old-folks need to focus on stability and sustainability.</p>
+
+<p>But I still think React Native looks pretty neat.</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2016-10-07"><i class="fa fa-calendar-o"></i> 07 Oct 2016</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/Coding'>Coding</a>,
+                            
+                        
+                            
+                               <a href='/tag/Learning'>Learning</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Pennsylvania, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=The Cost of Abstraction&amp;url=http://adamtuttle.codes/the-cost-of-abstraction/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/the-cost-of-abstraction/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/the-cost-of-abstraction/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/minecraft.jpg)" href="/giggle-driven-development/">
+            <section class="post">
+                <h2>Giggle Driven Development</h2>
+                <p><p>Yesterday morning while spending time with my kids before they left for school, and completely...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>
