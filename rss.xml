@@ -9,7 +9,20 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Fri, 07 Oct 2016 07:00:00 -0400</pubDate>
+    <pubDate>Tue, 15 Nov 2016 05:00:00 -0500</pubDate>
+    <item>
+      <title>Extra-Life 2016</title>
+      <link>http://adamtuttle.codes/extra-life-2016/</link>
+      <description>It is that time of year again! Time for me to beg you for donations to, in my opinion, one of the most honorable causes there is: The wellbeing of children.
+
+[cmnh]: https://chop.childrensmiraclenetworkhospitals.org/
+[chop]: http://www.chop.edu/
+[cn]: http://www.charitynavigator.org/index.cfm?bay=search.summary&amp;orgid=5756
+[book_splash]: /assets/images/posts/2016/rest-assured-extra-life.png
+[book]: http://restassuredbook.com</description>
+      <pubDate>Tue, 15 Nov 2016 05:00:00 -0500</pubDate>
+      <dc:date>2016-11-15T05:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>The Cost of Abstraction</title>
       <link>http://adamtuttle.codes/the-cost-of-abstraction/</link>
@@ -232,6 +245,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-10-07T07:00:00-04:00</dc:date>
+    <dc:date>2016-11-15T05:00:00-05:00</dc:date>
   </channel>
 </rss>
