@@ -69,6 +69,11 @@
 			</div>
 
 			<div class="row">
+				<div class="col-xs-6 col-xs-offset-3">
+					<label><input type="checkbox" id="isCode" value="1" checked="checked" /> I'm comparing code, preserve my linebreaks!</label>
+				</div>
+			</div>
+			<div class="row">
 				<div class="col-xs-12"><button type="button" class="form-control btn btn-warning" id="submit"><span class="glyphicon glyphicon-fire"></span> Diff</button></div>
 			</div>
 
@@ -88,7 +93,12 @@
 		<script>
 			$(function(){
 				$("#submit").on('click', function(){
-					$("#result").html( diffString( $('#left').val(), $('#right').val() ) );
+					var pre = $('#isCode').prop('checked');
+					if ( pre ){
+						$("#result").html( '<pre>' + diffString( $('#left').val(), $('#right').val() ) + '</pre>' );
+					}else{
+						$("#result").html( diffString( $('#left').val(), $('#right').val() ) );
+					}
 				});
 			});
 		</script>
