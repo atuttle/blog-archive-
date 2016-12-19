@@ -9,7 +9,19 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Tue, 15 Nov 2016 05:00:00 -0500</pubDate>
+    <pubDate>Mon, 19 Dec 2016 03:00:00 -0500</pubDate>
+    <item>
+      <title>Adding SSH Passphrase to Your Keychain on macOS Sierra</title>
+      <link>http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/</link>
+      <description>The truth is that I just don't have anywhere better to jot this down for my own future reference, so I'm inflicting it on the world as another blog post. I guess it could prove helpful to some people too, so there's that.
+
+[hack]: https://motherboard.vice.com/read/this-300-device-lets-you-steal-a-mac-encryption-password-in-30-seconds
+[cwb]: https://twitter.com/AdamTuttle/status/810117274355040256
+[keychain]: http://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra
+[boot]: https://github.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain</description>
+      <pubDate>Mon, 19 Dec 2016 03:00:00 -0500</pubDate>
+      <dc:date>2016-12-19T03:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>Extra-Life 2016</title>
       <link>http://adamtuttle.codes/extra-life-2016/</link>
@@ -245,6 +257,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-11-15T05:00:00-05:00</dc:date>
+    <dc:date>2016-12-19T03:00:00-05:00</dc:date>
   </channel>
 </rss>

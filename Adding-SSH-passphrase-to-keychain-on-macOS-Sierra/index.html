@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Adding SSH Passphrase to Your Keychain on macOS Sierra</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Adding SSH Passphrase to Your Keychain on macOS Sierra" />
+<meta property="og:description" content="In which Adam adds to his public system configuration notebook regarding SSH key passphrases and short term memory thereof." />
+<meta property="og:url" content="http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/locks.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="Adding SSH Passphrase to Your Keychain on macOS Sierra" />
+<meta name="twitter:description" content="In which Adam adds to his public system configuration notebook regarding SSH key passphrases and short term memory thereof." />
+<meta name="twitter:url" content="http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/locks.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/locks.jpg"
+  ,"description": "In which Adam adds to his public system configuration notebook regarding SSH key passphrases and short term memory thereof."
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/locks.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Adding SSH Passphrase to Your Keychain on macOS Sierra</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2016-12-19">19 Dec 2016</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/OSX'>Osx</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>The truth is that I just don&#39;t have anywhere better to jot this down for my own future reference, so I&#39;m inflicting it on the world as another blog post. I guess it could prove helpful to some people too, so there&#39;s that.</p>
+
+<p>Due to <a href="https://motherboard.vice.com/read/this-300-device-lets-you-steal-a-mac-encryption-password-in-30-seconds">a recent security announcement</a>, I decided it was time to stop putting off my upgrade to Sierra.</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">tl;dr: this weekend is the time you&#39;ve been waiting for to upgrade to Sierra. <a href="https://t.co/dpIO10Sf7O">https://t.co/dpIO10Sf7O</a></p>&mdash; 🎄dam T🎁ttle (@AdamTuttle) <a href="https://twitter.com/AdamTuttle/status/809832821045006336">December 16, 2016</a></blockquote>
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>After dinner that night I forgot to make sure my latest Apache config changes were checked into git and took the plunge. A couple of hours later and I was back on my feet. For what it&#39;s worth, not much has changed in the day to day operation of my computer, so that&#39;s good.</p>
+
+<p>However, one thing I noticed quickly &ndash;aside from the fact that Apple brazenly threw out anything they deemed unnecessary in my Apache config, as they always do&ndash; was that I was now required to enter my SSH passphrase every time I use ssh.</p>
+
+<p><img src="/assets/images/posts/2016/ssh-passphrase.jpg" alt="SSH passphrase required"></p>
+
+<p>In general I would say this is a good thing. I am pro-security. But I use ssh for my git repos and I&#39;m pushing and pulling commits all day long. Entering my password 50+ times in a day doesn&#39;t sound fun. I use whole-disk encryption, a strong system password, require my password immediately after the screen saver kicks on, and have developed a healthy habit of throwing my mouse cursor into the hot-corner that activates the screen saver if I have to leave my laptop unattended.</p>
+
+<p>Also, I work from home so I more frequently go outside in my slippers than leave my laptop on a desk in an office while I use the restroom. (I estimate this at about a 200:1 ratio. I really like my slippers.)</p>
+
+<p>While conceding that it is <em>slightly less secure</em> now, I also feel that requiring it so often before was overkill. I asked on Twitter if anyone had advice, and as it so often does, <a href="https://twitter.com/AdamTuttle/status/810117274355040256">the internet delivered</a>.</p>
+
+<p>First, <a href="http://superuser.com/questions/1127067/macos-keeps-asking-my-ssh-passphrase-since-i-updated-to-sierra">add the key to the keychain</a>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">ssh-add -K /Users/atcodes/.ssh/id_rsa
+</code></pre></div>
+<p>Note that the absolute path to the key file is used, not <code>~/.ssh/id_rsa</code>.</p>
+
+<p>Then, <a href="https://github.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain">add this file</a> as <code>~/Library/LaunchAgents/ssh.add.a.plist</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+&lt;dict&gt;
+    &lt;key&gt;Label&lt;/key&gt;
+    &lt;string&gt;ssh-add-a&lt;/string&gt;
+    &lt;key&gt;ProgramArguments&lt;/key&gt;
+    &lt;array&gt;
+        &lt;string&gt;ssh-add&lt;/string&gt;
+        &lt;string&gt;-A&lt;/string&gt;
+    &lt;/array&gt;
+    &lt;key&gt;RunAtLoad&lt;/key&gt;
+    &lt;true/&gt;
+&lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre></div>
+<p>You can create it from your terminal with this one-liner: <code>curl -o ~/Library/LaunchAgents/ssh.add.a.plist https://raw.githubusercontent.com/jirsbek/SSH-keys-in-macOS-Sierra-keychain/master/ssh.add.a.plist</code></p>
+
+<p>This adds a startup task that will run <code>ssh-add -A</code> every time you restart your computer.</p>
+
+<p>Now your SSH passphrase isn&#39;t required quite so often.</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2016-12-19"><i class="fa fa-calendar-o"></i> 19 Dec 2016</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/OSX'>Osx</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Pennsylvania, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Adding SSH Passphrase to Your Keychain on macOS Sierra&amp;url=http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/posts/2015/tsuro.jpg)" href="/extra-life-2016/">
+            <section class="post">
+                <h2>Extra-Life 2016</h2>
+                <p><p>It is that time of year again! Time for me to beg you for donations...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>
