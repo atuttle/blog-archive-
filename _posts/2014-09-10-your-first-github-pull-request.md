@@ -4,7 +4,7 @@ categories: 'adam'
 cover: 'assets/images/covers/branches.jpg'
 title:  GitHub Tip for Your First Pull Request
 date:   2014-09-10
-location: Coatesville, PA
+location: Coatesville, PA, USA
 tags: git github
 subclass: 'post'
 navigation: True
