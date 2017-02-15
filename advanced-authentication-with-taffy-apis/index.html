@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Advanced Authentication with Taffy APIs</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Advanced Authentication with Taffy APIs" />
+<meta property="og:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta property="og:url" content="http://adamtuttle.codes/advanced-authentication-with-taffy-apis/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/astronaut-art.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="Advanced Authentication with Taffy APIs" />
+<meta name="twitter:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta name="twitter:url" content="http://adamtuttle.codes/advanced-authentication-with-taffy-apis/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/astronaut-art.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/advanced-authentication-with-taffy-apis/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/astronaut-art.jpg"
+  ,"description": "It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/astronaut-art.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">Advanced Authentication with Taffy APIs</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2013-07-10">10 Jul 2013</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/taffy'>Taffy</a>,
+                    
+                
+                    
+                       <a href='/tag/security'>Security</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>I get a lot of advice requests for Taffy implementations, but the one I get most commonly has to be non-trivial authentication.</p>
+
+<p>What separates trivial from non-trivial? What I&#39;d consider &quot;trivial&quot; authentication would be using SSL and requiring HTTP Basic Auth with every request. It&#39;s simple and it doesn&#39;t reinvent the wheel. In version 1.3, Taffy also added <a href="http://docs.taffy.io/3.1.0#getbasicauthcredentials">a helper method for getting the Basic Auth credentials</a> so that you can easily validate them and respond as appropriate.</p>
+
+<p>Non-trivial would be anything more complicated than that. Anything up to and including OAuth. I&#39;ve never had the pleasure of implementing OAuth, but I regularly do a slightly simplified version, which I&#39;ll explain for you in this post.</p>
+
+<p>OAuth was designed for the use-case when there are 3 separate parties involved; for example Twitter, your Twitter App of choice, and you -- you being the granting authority for your Twitter account. OAuth is a way for you to tell Twitter that it&#39;s ok for {Twitter App Of The Week} to use your account on your behalf, without giving that application your password, and in such a way that you and Twitter can work together to revoke that app&#39;s privileges instantly and at any time.</p>
+
+<p>I have done a lot of APIs where there are only two involved parties: The account holder (&quot;you&quot;) and the API/client; because the API provider also provides (codes) the apps. What I&#39;m about to describe works very well, and actually pretty easily, in this last situation.</p>
+
+<h3>Let&#39;s Talk Theory</h3>
+
+<p>My apps generally allow you to use multiple devices -- perhaps you have both an iPad and an iPhone, and you want to use our app from both. Nothing wrong with that, right? But there&#39;s always the concern that someone might get your password or steal your phone and start doing less than desirable things with your account.</p>
+
+<p>You, as the API designer, want to be able to revoke a specific device&#39;s access individually (e.g. kick the 2nd iPad connected to your account out, without kicking out the 1st iPad or the iPhone), so that means each device will authenticate and then from that point on include a token with each request instead of the username &amp; password. Each device gets a unique token, and all tokens are tied back to a single account. An account can have many device tokens.</p>
+
+<p>As far as the user is concerned, they just need to log in once on each device, and from then on every time they use the app they&#39;re already logged in. As far as I -- the APP &amp; API administrator -- am concerned, you or I (on your behalf if I detect suspicious activity) can easily block a single discrete device at any time by revoking its token.</p>
+
+<p>Sound Good? Let&#39;s Implement It.</p>
+
+<h3>Step 1: Authentication &amp; Token Generation</h3>
+
+<p>The first thing you need is an API endpoint that accepts authentication requests and will return the device its own token on a successful authentication.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">component extends=&quot;taffy.core.resource&quot; taffy_uri=&quot;/authenticate&quot; {
+
+    public function post(username, password, deviceId) {
+
+        //implementation of verifying the username/password are up to you...
+        var authSuccess = authenticate(username, password);
+
+        if (!authSuccess){
+            return noData().withStatus(401, &quot;Not Authorized&quot;);
+        }
+
+        //create a new device token:
+        var deviceToken = createUUID();
+
+        //saving the device token to the database is up to you...
+        saveDeviceToken(username, deviceId, deviceToken);
+
+        //tell the device auth was successful and give it the device token
+        return representationOf({ token: deviceToken }).withStatus(200, &quot;OK&quot;);
+
+    }
+
+    private function authenticate(username, password){}
+    private function saveDeviceToken(username, deviceId, deviceToken){}
+
+}
+</code></pre></div>
+<p>You&#39;ll notice that in addition to the username and password we&#39;re also accepting a deviceId. The majority of my mobile development experience is with Phonegap, wherein we can access the device id on Android, and a UUID that represents the device-installation on iOS (this will change if the user uninstalls and reinstalls the application). You can capture whatever metadata you like here. In addition to deviceId, we tend to also grab OS version and a few other little things so that we can data-mine our install base, as well as tie any in-app feedback back to a particular device (e.g. lots of reports of a bug from iPad2 but nothing from the original iPad). The sky is the limit, you just need to store this metadata with the device token.</p>
+
+<p>If you wanted to, you could add an additional check for an existing device token for the supplied device Id, and return that if it exists instead of creating a new one.</p>
+
+<h3>Step 2: Require the Token for (Almost) All Requests</h3>
+
+<p>This is done via the Taffy lifecycle event method <code>onTaffyRequest</code>, in <code>Application.cfc</code>:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">component extends=&quot;taffy.core.api&quot; {
+
+    function onTaffyRequest(verb, cfc, requestArguments, mimeExt, headers){
+
+        //allow white-listed requests through
+        if (cfc == &quot;authenticate&quot;){
+            return true;
+        }
+
+        //otherwise require a device token
+        if (!structKeyExists(requestArguments, &quot;deviceToken&quot;)){
+
+            return newRepresentation().noData().withStatus(401, &quot;Not Authenticated&quot;);
+
+        //and make sure it&#39;s valid
+        }else if (!validateToken(requestArguments.deviceToken)){
+
+            return newRepresentation().noData().withStatus(403, &quot;Not Authorized&quot;);
+
+        }
+
+        //if a token is included, and valid, allow the request to continue
+        return true;
+    }
+
+    private function validateToken(token){}
+
+}
+</code></pre></div>
+<p>We verify that the <code>cfc</code> argument is <code>authenticate</code>, because the authentication cfc was named <code>authenticate.cfc</code>. <a href="https://github.com/atuttle/Taffy/wiki/Organizing-your-resources-into-subfolders">BeanId rules apply</a>. This effectively white-lists every method in the <code>authenticate</code> cfc, but if you want to be more selective you could also check the verb argument to see which method is being requested.</p>
+
+<h3>Where do we go from here?</h3>
+
+<p>We&#39;ve now setup a situation in which all requests require a device token (a.k.a. API Key), unless currently authenticating. This device token implies a few things, and it&#39;s possible to inject them into the request context so that they&#39;re made available in every resource automatically. For example, what if most of your resources wanted to know the username of the account making the request? Instead of having the device include it in the request details, you can look it up during request startup and add it to the request arguments.</p>
+
+<p>Here we&#39;ll be building onto <code>onTaffyRequest</code>. For the sake of brevity I&#39;m going to omit the parts I wrote above for authentication. Just know that you can (and should) include the code for both. I would do what follows after everything from the previous example, before the final <code>return true;</code>.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">function onTaffyRequest(verb, cfc, requestArguments, mimeExt, headers){
+
+    var userMetadata = getUserMetadata(requestArguments.deviceToken);
+    structAppend(requestArguments, userMetadata);
+
+    return true;
+
+}
+
+private function getUserMetadata(deviceToken){}
+</code></pre></div>
+<p>If <code>getUserMetadata</code> returns a structure, all of the data from the structure will be passed to the requested resource as if it were part of the request. You can use the device token to lookup the username, or userId, or device type, or myriad other things available in your data through that user-association. Be careful, however: This happens for every request. Don&#39;t use it lightly. (e.g. Don&#39;t run two database queries when one will do.)</p>
+
+<p>How do you access this injected data? The same way you access other request arguments: through method arguments.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">component extends=&quot;taffy.core.resource&quot; taffy_uri=&quot;/widgets/sprockets/{sprocketTypeId}&quot; {
+
+    function get(sprocketTypeId, color, userId){
+
+        //the device will include the sprocketTypeId in the URI, and the desired color in the request arguments
+
+        //but you&#39;ve used the deviceToken to look up the userId and injected it into the request arguments
+
+        //all three values are available through the method arguments
+
+    }
+
+}
+</code></pre></div>
+<p>I hope this has clearly explained what I consider to be a relatively complex (but no OAuth!) authentication mechanism that is robust and secure. When you break it down into discrete chunks like this, there&#39;s really not a whole lot to it, and that&#39;s a big part of why I like Taffy&#39;s approach. Less is more!</p>
+
+<p>Finally, remember that there are an infinite number of ways to remove the epidermis from your feline. Don&#39;t feel like you have to do it this way -- this is just an explanation of how I like to set things up, in the hopes that it inspires you or possibly even completely meets your needs.</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2013-07-10"><i class="fa fa-calendar-o"></i> 10 Jul 2013</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/taffy'>Taffy</a>,
+                            
+                        
+                            
+                               <a href='/tag/security'>Security</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Coatesville, PA, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=Advanced Authentication with Taffy APIs&amp;url=http://adamtuttle.codes/advanced-authentication-with-taffy-apis/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/advanced-authentication-with-taffy-apis/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/advanced-authentication-with-taffy-apis/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/assets/images/covers/branches.jpg)" href="/your-first-github-pull-request/">
+            <section class="post">
+                <h2>GitHub Tip for Your First Pull Request</h2>
+                <p>There is a mistake that I see a lot of people new to GitHub, or...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/dylan-no-stress.png)" href="/errors-are-best-when-emailed-said-nobody-ever/">
+            <section class="post">
+                <h2>Errors are Best When Emailed... Said Nobody Ever</h2>
+                <p><script async class="speakerdeck-embed" data-id="6142a1bd3e2b408786cf9c508c953d5c" data-ratio="1.33333333333333" src="https://speakerdeck.com/assets/embed.js"></script> <p>Exceptions happen. Bugless code is a myth.</p> <p>I hope...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>

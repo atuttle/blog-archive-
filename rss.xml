@@ -258,6 +258,15 @@
       <dc:date>2014-09-10T00:00:00-04:00</dc:date>
     </item>
     <item>
+      <title>Advanced Authentication with Taffy APIs</title>
+      <link>http://adamtuttle.codes/advanced-authentication-with-taffy-apis/</link>
+      <description>I get a lot of advice requests for Taffy implementations, but the one I get most commonly has to be non-trivial authentication.
+
+</description>
+      <pubDate>Wed, 10 Jul 2013 00:00:00 -0400</pubDate>
+      <dc:date>2013-07-10T00:00:00-04:00</dc:date>
+    </item>
+    <item>
       <title>Errors are Best When Emailed... Said Nobody Ever</title>
       <link>http://adamtuttle.codes/errors-are-best-when-emailed-said-nobody-ever/</link>
       <description>&lt;script async class=&quot;speakerdeck-embed&quot; data-id=&quot;6142a1bd3e2b408786cf9c508c953d5c&quot; data-ratio=&quot;1.33333333333333&quot; src=&quot;https://speakerdeck.com/assets/embed.js&quot;&gt;&lt;/script&gt;
