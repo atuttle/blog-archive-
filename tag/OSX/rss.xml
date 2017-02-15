@@ -12,18 +12,6 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
-	  <title>On Apple and Forced Obsolescence</title>
-	  <link>//on-apple-and-forced-obsolescence/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2016-12-19T03:00:00-05:00</pubDate>
-	  <guid>//on-apple-and-forced-obsolescence/</guid>
-	  <description><![CDATA[
-	     <p>Is iOS 6 the new IE6?</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
 	  <title>Adding SSH Passphrase to Your Keychain on macOS Sierra</title>
 	  <link>//Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/</link>
 	  <author>Adam Tuttle</author>
