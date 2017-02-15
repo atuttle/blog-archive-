@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GitHub Tip for Your First Pull Request</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="GitHub Tip for Your First Pull Request" />
+<meta property="og:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta property="og:url" content="http://adamtuttle.codes/your-first-github-pull-request/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/branches.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="GitHub Tip for Your First Pull Request" />
+<meta name="twitter:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta name="twitter:url" content="http://adamtuttle.codes/your-first-github-pull-request/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/branches.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/your-first-github-pull-request/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/branches.jpg"
+  ,"description": "It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/branches.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">GitHub Tip for Your First Pull Request</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2014-09-10">10 Sep 2014</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/git'>Git</a>,
+                    
+                
+                    
+                       <a href='/tag/github'>Github</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>There is a mistake that I see a lot of people new to GitHub, or new to making Pull Requests, making. It&#39;s something I find myself explaining often in people&#39;s first PR threads; so I thought I would clean it up a little bit and share it here for the benefit of a wider audience.</p>
+
+<p>In Git, unlike SVN and other centralized Version Control Systems, branches are easy, fast, and awesome. You should be using the heck out of them. And, if you&#39;re not, then that can come back to bite you when you get around to sending pull requests. I&#39;ll illustrate the problem with an example.</p>
+
+<p>Let&#39;s say you want to contribute something to <a href="https://github.com/foundeo/cfdocs">CFDocs</a>. So you fork the repository, clone your fork to your local machine, and edit the code. You&#39;re only planning on doing this one little thing, so why bother making a branch?</p>
+
+<p>You make your change, everything looks great, so you open a pull request. You select that you want to merge in the changes from your master branch into the original repo&#39;s master branch:</p>
+
+<p><img src="/assets/images/posts/2014/pr-1.png" alt="Pull Request Screen Shot"></p>
+
+<p>You submit your pull request, and happily go on about your business. All is right with the world.</p>
+
+<p>As it happens, it takes <a href="https://foundeo.com/">Pete</a> a few days to get to your Pull Request, but in the meantime, you&#39;ve become inspired at how easy it was to do that, so you want to help more!</p>
+
+<p>You make more changes, push them up to your repository, and then... oops. Because you still have an open Pull Request against your master branch, pushing new commits to that branch updates the Pull Request and adds those commits. Oops indeed! These new commits have nothing to do with the original PR and really should not be included.</p>
+
+<p>The solution to this problem is <strong>branches</strong>.</p>
+
+<p>If you create a branch for each feature, or for each discrete pull-request that you want to submit, then they will stay in their separate silos. This is particularly important if the project author asks you to make changes (add tests, change formatting, etc). Then you can update the code in one branch without affecting the other; and as luck would have it, these changes are automatically merged into the PR when you push them up to your fork on GitHub.</p>
+
+<p>Here&#39;s a more appropriate workflow:</p>
+
+<ol>
+<li>Fork the repo to your account</li>
+<li>Clone the repo to your local machine: <code>git clone https://github.com/atuttle/cfdocs.git</code> (replace the account and repo names, of course)</li>
+<li>Create a branch to do your work in, and name it after what you&#39;re working on: <code>git checkout -B ormExecuteQueryImprovements</code></li>
+<li>Make your changes, and commit them to your local clone</li>
+<li>Push your changes, in their branch, back up to GitHub: <code>git push -u origin ormExecuteQueryImprovements</code></li>
+<li>Then, open your PR and select this new branch as the HEAD of the PR.</li>
+<li>Profit</li>
+</ol>
+
+<p>I hope this saves you the headache of adding commits to the wrong Pull Request and helps you enjoy your experience with Git and GitHub a little bit more.</p>
+
+<h3>Update</h3>
+
+<p>It was suggested that I also add information on pulling in upstream changes to stay up to date. Here you go!</p>
+
+<p>As so often happens after you&#39;ve forked, coded, and pull-requested, the project continues to move forward — instantly making your clone outdated and out of sync. If you want to continue to contribute, you need to pull in those &quot;upstream&quot; (e.g. from the canonical repo) changes so that your future pull requests are based on the latest code and can be more easily merged. If you don&#39;t, there&#39;s a chance that your changes will be difficult to merge, and possibly even based on outdated code, making them (hate to say it, but) nearly worthless! For ongoing participation via fork and pull-request, this process is absolutely critical.</p>
+
+<p>Here&#39;s what I do:</p>
+
+<ol>
+<li>Add a new remote to your local clone of your fork, named upstream, and using the git url (http or ssh) of the original repository that you forked. In my example I&#39;m using the url for the <strong>cfdocs</strong> repo in the <strong>foundeo</strong> organization:<br/><code>git remote add upstream https://github.com/foundeo/cfdocs.git</code></li>
+<li>Before starting new changes of your own, make sure you&#39;ve got the latest code from upstream: <code>git checkout master</code> to get your own master branch and then <code>git pull --rebase upstream master</code> to merge in any changes from upstream.
+
+<ul>
+<li><strong>update-update:</strong> I&#39;ve recently decided to start using the <code>--rebase</code> flag on all of my pulls <a href="http://gitready.com/advanced/2009/02/11/pull-with-rebase.html">to keep the revision history cleaner</a>.</li>
+</ul></li>
+<li>Now create your new branch for your new feature/bug-fix: <code>git checkout -B arrayMapImprovements</code></li>
+<li>Make your changes and commit them.</li>
+<li>Merge upstream master again, into your branch this time (still just <code>git pull --rebase upstream master</code> — default target is your current branch), just to make sure that anything that changed since you started coding is also already merged (e.g. if it took you several days to make your changes, or if the canonical repo is fast-moving)</li>
+<li>Submit your new pull request from your new branch. (Once accepted and merged into the original repository, your local feature branches can be deleted)</li>
+<li>Rinse and repeat</li>
+</ol>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2014-09-10"><i class="fa fa-calendar-o"></i> 10 Sep 2014</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/git'>Git</a>,
+                            
+                        
+                            
+                               <a href='/tag/github'>Github</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Coatesville, PA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=GitHub Tip for Your First Pull Request&amp;url=http://adamtuttle.codes/your-first-github-pull-request/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/your-first-github-pull-request/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/your-first-github-pull-request/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+        <a class="read-next-story " style="background-image: url(/assets/images/covers/boston-terrier.jpg)" href="/on-old-dogs-and-new-tricks/">
+            <section class="post">
+                <h2>On Old Dogs and New Tricks</h2>
+                <p>Consider the following code. This isn't an exercise in figuring out what something does, or...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/dylan-no-stress.png)" href="/errors-are-best-when-emailed-said-nobody-ever/">
+            <section class="post">
+                <h2>Errors are Best When Emailed... Said Nobody Ever</h2>
+                <p><script async class="speakerdeck-embed" data-id="6142a1bd3e2b408786cf9c508c953d5c" data-ratio="1.33333333333333" src="https://speakerdeck.com/assets/embed.js"></script> <p>Exceptions happen. Bugless code is a myth.</p> <p>I hope...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>
