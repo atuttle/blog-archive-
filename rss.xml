@@ -9,7 +9,16 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Mon, 19 Dec 2016 03:00:00 -0500</pubDate>
+    <pubDate>Fri, 12 May 2017 11:30:00 -0400</pubDate>
+    <item>
+      <title>Stupid CFML Tricks: Run after return</title>
+      <link>http://adamtuttle.codes/stupid-cfml-tricks-run-after-return/</link>
+      <description>A few months back I ran into an interesting situation where I needed to use try/finally, but this was inside a method and I wanted to return a value from within the try. So I tried it, and to my surprise it worked!
+
+</description>
+      <pubDate>Fri, 12 May 2017 11:30:00 -0400</pubDate>
+      <dc:date>2017-05-12T11:30:00-04:00</dc:date>
+    </item>
     <item>
       <title>Adding SSH Passphrase to Your Keychain on macOS Sierra</title>
       <link>http://adamtuttle.codes/Adding-SSH-passphrase-to-keychain-on-macOS-Sierra/</link>
@@ -275,6 +284,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2016-12-19T03:00:00-05:00</dc:date>
+    <dc:date>2017-05-12T11:30:00-04:00</dc:date>
   </channel>
 </rss>
