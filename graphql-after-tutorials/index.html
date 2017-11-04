@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>GraphQL After Tutorials: The blog post I wish I had when I started</title>
+    <meta name="description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+    <meta name="HandheldFriendly" content="true" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="/assets/images/favicon.ico" >
+    <link rel="stylesheet" type="text/css" href="/assets/css/screen.css" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/syntax.css" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather:300,700,700italic,300italic|Open+Sans:700,400|Source+Code+Pro:400" />
+    <link rel="stylesheet" type="text/css" href="/assets/css/font-awesome.min.css" />
+    <link rel="canonical" href="http://adamtuttle.codes/" />
+<meta name="referrer" content="origin" />
+
+
+<meta property="og:site_name" content="Eat. Code. Skydive." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="GraphQL After Tutorials: The blog post I wish I had when I started" />
+<meta property="og:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta property="og:url" content="http://adamtuttle.codes/graphql-after-tutorials/" />
+<meta property="og:image" content="http://adamtuttle.codes/assets/images/covers/transit.jpg" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:site" content="@AdamTuttle" />
+<meta name="twitter:creator" content="@AdamTuttle" />
+<meta name="twitter:title" content="GraphQL After Tutorials: The blog post I wish I had when I started" />
+<meta name="twitter:description" content="It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski" />
+<meta name="twitter:url" content="http://adamtuttle.codes/graphql-after-tutorials/" />
+<meta name="twitter:image:src" content="http://adamtuttle.codes/assets/images/covers/transit.jpg" />
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org"
+  ,"@type": "Website"
+  ,"publisher": "Adam Tuttle"
+  ,"url": "http://adamtuttle.codes/graphql-after-tutorials/"
+  ,"image": "http://adamtuttle.codes/assets/images/covers/transit.jpg"
+  ,"description": "It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &mdash; Luke Wroblewski"
+}
+</script>
+
+<meta name="generator" content="Jekyll 3.0.0" />
+<link rel="alternate" type="application/rss+xml" title="Eat. Code. Skydive." href="http://adamtuttle.codes/rss.xml" />
+
+</head>
+<body class="post-template nav-closed">
+
+    <div class="nav">
+    <h3 class="nav-title">Menu</h3>
+    <a href="#" class="nav-close">
+        <span class="hidden">Close</span>
+    </a>
+    <ul>
+        <li class="nav-home " role="presentation"><a href="/">Home</a></li>
+        <li class="nav-about " role="presentation"><a href="/about.html">About</a></li>
+        <li class="nav-talks " role="presentation"><a href="/tag/Talks">Talks</a></li>
+        <li class="nav-ama" role="presentation"><a href="https://github.com/atuttle/ama">AMA</a></li>
+    </ul>
+    <a class="subscribe-button icon-feed" href="/rss.xml">Subscribe</a>
+</div>
+<span class="nav-cover"></span>
+
+
+    <div class="site-wrapper">
+
+        <!-- < default -->
+
+<!--
+    The comment above "< default" means - insert everything in this file into
+    the [body] of the default.hbs template, which contains our header/footer.
+
+    Everything inside the #post tags pulls data from the post
+-->
+
+<!-- #post -->
+
+<header class="main-header post-head ">
+    <div  style="height:100%; background-size: cover; background-position: 0% 50%; background-image: url(/assets/images/covers/transit.jpg)" >&nbsp;</div>
+    <nav class="main-nav  overlay  clearfix">
+        <a class="blog-logo" href="/" title="Eat. Code. Skydive." style="font-size:1.5em">🍴 💻 🚁</a>
+        
+            <a class="menu-button icon-menu" href="#"><span class="word">Menu</span></a>
+        
+    </nav>
+</header>
+
+<main class="content" role="main">
+
+    <article class="post">
+
+        <header class="post-header">
+            <h1 class="post-title">GraphQL After Tutorials: The blog post I wish I had when I started</h1>
+            <section class="post-meta">
+                <time class="post-date" datetime="2017-11-06">06 Nov 2017</time>
+                <!-- [[tags prefix=" on "]] -->
+                
+                on
+                
+                    
+                       <a href='/tag/GraphQL'>Graphql</a>
+                    
+                
+                
+            </section>
+        </header>
+
+        <section class="post-content">
+
+            <p>There is a ton of great getting started content out there for you to, well, get started with GraphQL. For starters, I recommend <a href="https://www.howtographql.com/">How To GraphQL</a>. And if your server platform of choice is node.js, I also recommend <a href="https://github.com/apollographql/apollo-server">Apollo Server</a> because it does a tremendous job of getting rid of boilerplate and letting you focus on your schema and resolvers. Of course, if you&#39;re using React for your front-end, they also make a pretty great GraphQL client: <a href="https://github.com/apollographql/apollo-client">Apollo Client</a>.</p>
+
+<p>But what I wanted to write about here is all of the things that were going on in my head after I finished the getting started tutorials. So I&#39;m going to assume you&#39;ve got a little bit of your schema and resolvers written and they&#39;re working well.</p>
+
+<p>But what about related data types from my schema? What about authentication? Action-authorization? Error logging? How does my client get the inserted id back from a create mutation?</p>
+
+<h3>Related Data</h3>
+
+<p>This one is specific to Apollo Server. You have a <code>User</code> type and a <code>Role</code> type, and users can have Roles:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">type</span> <span class="nx">Role</span> <span class="p">{</span>
+    <span class="nx">roleId</span><span class="o">:</span> <span class="nx">Int</span><span class="o">!</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="nx">type</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nx">userId</span><span class="o">:</span> <span class="nx">ID</span><span class="o">!</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="nx">Role</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you&#39;re using a traditional SQL database then you likely have a table that defines that many-to-many relationship. How do you query that?</p>
+
+<p>There&#39;s a special place to put that resolver:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">resolvers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">Query</span><span class="o">:</span> <span class="p">{...},</span>
+<span class="hll">    <span class="nx">User</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">roles</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">roleService</span><span class="p">.</span><span class="nx">getUserRoles</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">},</span>
+</span>    <span class="nx">Mutation</span><span class="o">:</span> <span class="p">{...}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>The <code>obj</code> arg passed to this <code>User.roles</code> resolver is the User record after it gets resolved.</p>
+
+<blockquote>
+<p><strong>Note:</strong> This is not the most efficient approach, using two separate queries. I&#39;ve heard rumors that it&#39;s possible to &quot;look ahead&quot; at the incoming query and detect certain situations to fork off to a more efficient single-query approach. I haven&#39;t figured that out yet.</p>
+</blockquote>
+
+<h3>Authentication</h3>
+
+<p>The general line here is, &quot;don&#39;t reinvent the wheel.&quot; Whatever you&#39;re using for the rest of your application should be fine for the API too. This took me some time to wrap my head around since I&#39;ve spent years adding token-based auth to REST APIs.</p>
+
+<p>In my case, I&#39;ve got an Express-powered web app using <code>express-session</code> and <code>connect-redis</code> to load people&#39;s sessions. There are a couple of different ways to use Apollo Server but to hook into your Express Session plugin setup, you need to use <code>graphqlExpress</code> (provided in <code>apollo-server</code>) to create an Express instance and then hook it up to Apollo Server. In the options for graphqlExpress you can pass a <code>context</code> object, to be passed to all resolvers.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="s1">&#39;/graphql&#39;</span><span class="p">,</span>
+    <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="nx">graphqlExpress</span><span class="p">(</span><span class="nx">request</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">schema</span><span class="p">,</span>
+<span class="hll">            <span class="c1">//make req user available to all resolvers</span>
+</span><span class="hll">            <span class="nx">context</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="p">}</span>
+</span>        <span class="p">};</span>
+    <span class="p">})</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>Of course this assumes that you&#39;ve already created <code>session.user</code> -- the same way that you would for any other web app.</p>
+
+<p>This <em>does not</em> reject requests that aren&#39;t logged in. Just like a regular express app, that would be up to you too. The usual approach for your web app is to redirect to the login screen. For REST APIs the usual approach is to return a 401, which the client understands to mean that the user isn&#39;t authenticated. I don&#39;t know if that&#39;s the official solution for GraphQL APIs too, but it&#39;s what I&#39;m doing:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span> <span class="p">){</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4>Action-Authorization</h4>
+
+<p>Now that I know the person making the request is logged in, what if I want to make sure they don&#39;t do things they shouldn&#39;t have access to?</p>
+
+<p>Let&#39;s assume you have a service method that is used to save updates to user accounts, but in order to use it you want to make sure the user has a specific role, <code>save-user</code>.</p>
+
+<p>The first thing you need to do is get that session user from the resolver&#39;s context argument and pass it to the service method:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">resolvers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">Query</span><span class="o">:</span> <span class="p">{...},</span>
+    <span class="nx">Mutation</span><span class="o">:</span> <span class="p">{</span>
+<span class="hll">        <span class="nx">saveUser</span><span class="o">:</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">userService</span><span class="p">.</span><span class="nx">saveUser</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>And then you need to enforce the role requirement:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">saveUser</span> <span class="o">=</span> <span class="p">(</span><span class="nx">reqUser</span><span class="p">,</span> <span class="nx">userToSave</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span> <span class="nx">reqUser</span><span class="p">.</span><span class="nx">roles</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;save-user&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="p">){</span>
+</span><span class="hll">        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Access Error&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+    <span class="c1">//save userToSave...</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3>Error Logging</h3>
+
+<p>This one turns out to be pretty easy. What you do with the errors is up to you (write to a log file, push them out to a service like Raygun, etc). We just need to give Apollo Server a function that does what we want with the exception:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="s1">&#39;/graphql&#39;</span><span class="p">,</span>
+    <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="nx">graphqlExpress</span><span class="p">(</span><span class="nx">request</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">schema</span><span class="p">,</span>
+<span class="hll">            <span class="nx">formatError</span><span class="o">:</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span> <span class="p">},</span>
+</span>            <span class="nx">context</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">})</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3>Getting inserted id from mutation</h3>
+
+<p>Apollo client gives us a really powerful <code>mutate</code> method (<a href="https://www.apollographql.com/docs/react/basics/mutations.html#calling-mutations">docs</a>), but of course with power comes a bit of complexity. One common necessity that I ran into and had some trouble with, even after following a tutorial that showed me exactly this, was getting the inserted id value back from a mutation that creates a database row.</p>
+
+<p>Let&#39;s say we&#39;re creating a new user and after it&#39;s saved we want to redirect to the view/edit screen for the new record. The mutate options object can contain an <code>update</code> method that gets called with the response from the mutation. So if your createUser mutation returns the created user, you might do the following:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">mutate</span><span class="p">({</span>
+    <span class="nx">variables</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">userToSave</span> <span class="p">},</span>
+<span class="hll">    <span class="nx">update</span><span class="o">:</span> <span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">user</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">redirectToEditUser</span><span class="p">(</span> <span class="nx">user</span><span class="p">.</span><span class="nx">userId</span> <span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2>What&#39;s next?</h2>
+
+<p>This post represents most of what I&#39;ve learned in the last week or two as I&#39;ve gotten the first few screens of my app ported over to GraphQL.</p>
+
+<p>What&#39;s next? Honestly, I don&#39;t really know! <em>Unknown unknowns.</em> Eventually I want to figure out that more efficient lookup approach I mentioned in the <strong>Related Data</strong> section. But I&#39;m sure I still have much to learn about GraphQL, so expect more tips in the future...</p>
+
+<p>Did this post help you out? <a href="https://twitter.com/AdamTuttle">Send me a shout-out on Twitter</a>. I&#39;d love to hear from you.</p>
+
+
+        </section>
+
+        <footer class="post-footer">
+
+            <!-- Everything inside the #author tags pulls data from the author -->
+            <!-- #author-->
+
+            
+            <figure class="author-image">
+                <a class="img" href="/about.html" style="background-image: url(/assets/images/adam@2x.jpg)"><span class="hidden">'s Picture</span></a>
+            </figure>
+            
+
+            <section class="author">
+                <h4><a href="/about.html">Adam Tuttle</a></h4>
+
+                
+                    <p> A skydiving bum trapped in a working man's body</p>
+                
+                <div class="author-meta">
+                    <div style="margin-bottom:10px">
+                        <time class="post-date" datetime="2017-11-06"><i class="fa fa-calendar-o"></i> 06 Nov 2017</time>
+                        <!-- [[tags prefix=" on "]] -->
+                        
+                        on
+                        
+                            
+                               <a href='/tag/GraphQL'>Graphql</a>
+                            
+                        
+                        
+                    </div>
+                    
+                        <span class="author-location icon-location"> Coatesville, PA, USA</span>
+                    
+                    <span class="author-link icon-link"><a href="http://github.com/atuttle/blog/">github.com/atuttle/blog/</a></span>
+                </div>
+            </section>
+
+            <!-- /author  -->
+
+            <section class="share">
+                <h4>Share this post</h4>
+                <a class="icon-twitter" href="http://twitter.com/share?text=GraphQL After Tutorials: The blog post I wish I had when I started&amp;url=http://adamtuttle.codes/graphql-after-tutorials/"
+                    onclick="window.open(this.href, 'twitter-share', 'width=550,height=235');return false;">
+                    <span class="hidden">Twitter</span>
+                </a>
+                <a class="icon-facebook" href="https://www.facebook.com/sharer/sharer.php?u=http://adamtuttle.codes/graphql-after-tutorials/"
+                    onclick="window.open(this.href, 'facebook-share','width=580,height=296');return false;">
+                    <span class="hidden">Facebook</span>
+                </a>
+                <a class="icon-google-plus" href="https://plus.google.com/share?url=http://adamtuttle.codes/graphql-after-tutorials/"
+                   onclick="window.open(this.href, 'google-plus-share', 'width=490,height=530');return false;">
+                    <span class="hidden">Google+</span>
+                </a>
+            </section>
+
+            <!-- Add Disqus Comments -->
+            
+
+        </footer>
+
+    </article>
+
+</main>
+
+<aside class="read-next">
+
+    <!-- [[! next_post ]] -->
+    
+    <!-- [[! /next_post ]] -->
+    <!-- [[! prev_post ]] -->
+    
+        <a class="read-next-story prev " style="background-image: url(/assets/images/covers/spiderweb.jpg)" href="/stupid-cfml-tricks-run-after-return/">
+            <section class="post">
+                <h2>Stupid CFML Tricks: Run after return</h2>
+                <p><p>A few months back I ran into an interesting situation where I needed to use...</p>
+            </section>
+        </a>
+    
+    <!-- [[! /prev_post ]] -->
+</aside>
+
+<!-- /post -->
+
+
+        <footer class="site-footer clearfix">
+          <section class="copyright"><a href="/">Eat. Code. Skydive.</a> &copy; 2015</section>
+          <section class="poweredby">Powered by <a href="http://jekyllrb.com/">Jekyll</a></section>
+        </footer>
+    </div>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script type="text/javascript" src="/assets/js/jquery.fitvids.js"></script>
+    <script type="text/javascript" src="/assets/js/index.js"></script>
+
+    
+	<script>
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+		ga('create', 'UA-2284831-10', 'auto');
+		ga('send', 'pageview');
+	</script>
+
+
+</body>
+</html>

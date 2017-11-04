@@ -9,7 +9,16 @@
     <link>http://adamtuttle.codes</link>
     <description>It's one thing to write code. It's another to humanize technology so it serves a purpose in people's lives. &amp;mdash; Luke Wroblewski</description>
     <copyright>2015 Adam Tuttle</copyright>
-    <pubDate>Fri, 12 May 2017 11:30:00 -0400</pubDate>
+    <pubDate>Mon, 06 Nov 2017 00:00:00 -0500</pubDate>
+    <item>
+      <title>GraphQL After Tutorials: The blog post I wish I had when I started</title>
+      <link>http://adamtuttle.codes/graphql-after-tutorials/</link>
+      <description>There is a ton of great getting started content out there for you to, well, get started with GraphQL. For starters, I recommend [How To GraphQL](https://www.howtographql.com/). And if your server platform of choice is node.js, I also recommend [Apollo Server](https://github.com/apollographql/apollo-server) because it does a tremendous job of getting rid of boilerplate and letting you focus on your schema and resolvers. Of course, if you're using React for your front-end, they also make a pretty great GraphQL client: [Apollo Client](https://github.com/apollographql/apollo-client).
+
+</description>
+      <pubDate>Mon, 06 Nov 2017 00:00:00 -0500</pubDate>
+      <dc:date>2017-11-06T00:00:00-05:00</dc:date>
+    </item>
     <item>
       <title>Stupid CFML Tricks: Run after return</title>
       <link>http://adamtuttle.codes/stupid-cfml-tricks-run-after-return/</link>
@@ -284,6 +293,6 @@
       <pubDate>Fri, 17 May 2013 00:00:00 -0400</pubDate>
       <dc:date>2013-05-17T00:00:00-04:00</dc:date>
     </item>
-    <dc:date>2017-05-12T11:30:00-04:00</dc:date>
+    <dc:date>2017-11-06T00:00:00-05:00</dc:date>
   </channel>
 </rss>

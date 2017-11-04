@@ -12,6 +12,140 @@
    <atom:link href="rss" rel="self" type="application/rss+xml" />
    
 	<item>
+	  <title>GraphQL After Tutorials: The blog post I wish I had when I started</title>
+	  <link>//graphql-after-tutorials/</link>
+	  <author>Adam Tuttle</author>
+	  <pubDate>2017-11-06T00:00:00-05:00</pubDate>
+	  <guid>//graphql-after-tutorials/</guid>
+	  <description><![CDATA[
+	     <p>There is a ton of great getting started content out there for you to, well, get started with GraphQL. For starters, I recommend <a href="https://www.howtographql.com/">How To GraphQL</a>. And if your server platform of choice is node.js, I also recommend <a href="https://github.com/apollographql/apollo-server">Apollo Server</a> because it does a tremendous job of getting rid of boilerplate and letting you focus on your schema and resolvers. Of course, if you&#39;re using React for your front-end, they also make a pretty great GraphQL client: <a href="https://github.com/apollographql/apollo-client">Apollo Client</a>.</p>
+
+<p>But what I wanted to write about here is all of the things that were going on in my head after I finished the getting started tutorials. So I&#39;m going to assume you&#39;ve got a little bit of your schema and resolvers written and they&#39;re working well.</p>
+
+<p>But what about related data types from my schema? What about authentication? Action-authorization? Error logging? How does my client get the inserted id back from a create mutation?</p>
+
+<h3>Related Data</h3>
+
+<p>This one is specific to Apollo Server. You have a <code>User</code> type and a <code>Role</code> type, and users can have Roles:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">type</span> <span class="nx">Role</span> <span class="p">{</span>
+    <span class="nx">roleId</span><span class="o">:</span> <span class="nx">Int</span><span class="o">!</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+<span class="p">}</span>
+
+<span class="nx">type</span> <span class="nx">User</span> <span class="p">{</span>
+    <span class="nx">userId</span><span class="o">:</span> <span class="nx">ID</span><span class="o">!</span>
+    <span class="nx">name</span><span class="o">:</span> <span class="nb">String</span>
+    <span class="nx">roles</span><span class="o">:</span> <span class="p">[</span><span class="nx">Role</span><span class="p">]</span>
+<span class="p">}</span>
+</code></pre></div>
+<p>If you&#39;re using a traditional SQL database then you likely have a table that defines that many-to-many relationship. How do you query that?</p>
+
+<p>There&#39;s a special place to put that resolver:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">resolvers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">Query</span><span class="o">:</span> <span class="p">{...},</span>
+<span class="hll">    <span class="nx">User</span><span class="o">:</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">roles</span><span class="p">(</span><span class="nx">obj</span><span class="p">)</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">roleService</span><span class="p">.</span><span class="nx">getUserRoles</span><span class="p">(</span><span class="nx">obj</span><span class="p">.</span><span class="nx">userId</span><span class="p">);</span>
+</span><span class="hll">        <span class="p">}</span>
+</span><span class="hll">    <span class="p">},</span>
+</span>    <span class="nx">Mutation</span><span class="o">:</span> <span class="p">{...}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>The <code>obj</code> arg passed to this <code>User.roles</code> resolver is the User record after it gets resolved.</p>
+
+<blockquote>
+<p><strong>Note:</strong> This is not the most efficient approach, using two separate queries. I&#39;ve heard rumors that it&#39;s possible to &quot;look ahead&quot; at the incoming query and detect certain situations to fork off to a more efficient single-query approach. I haven&#39;t figured that out yet.</p>
+</blockquote>
+
+<h3>Authentication</h3>
+
+<p>The general line here is, &quot;don&#39;t reinvent the wheel.&quot; Whatever you&#39;re using for the rest of your application should be fine for the API too. This took me some time to wrap my head around since I&#39;ve spent years adding token-based auth to REST APIs.</p>
+
+<p>In my case, I&#39;ve got an Express-powered web app using <code>express-session</code> and <code>connect-redis</code> to load people&#39;s sessions. There are a couple of different ways to use Apollo Server but to hook into your Express Session plugin setup, you need to use <code>graphqlExpress</code> (provided in <code>apollo-server</code>) to create an Express instance and then hook it up to Apollo Server. In the options for graphqlExpress you can pass a <code>context</code> object, to be passed to all resolvers.</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="s1">&#39;/graphql&#39;</span><span class="p">,</span>
+    <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="nx">graphqlExpress</span><span class="p">(</span><span class="nx">request</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">schema</span><span class="p">,</span>
+<span class="hll">            <span class="c1">//make req user available to all resolvers</span>
+</span><span class="hll">            <span class="nx">context</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="p">}</span>
+</span>        <span class="p">};</span>
+    <span class="p">})</span>
+<span class="p">);</span>
+</code></pre></div>
+<p>Of course this assumes that you&#39;ve already created <code>session.user</code> -- the same way that you would for any other web app.</p>
+
+<p>This <em>does not</em> reject requests that aren&#39;t logged in. Just like a regular express app, that would be up to you too. The usual approach for your web app is to redirect to the login screen. For REST APIs the usual approach is to return a 401, which the client understands to mean that the user isn&#39;t authenticated. I don&#39;t know if that&#39;s the official solution for GraphQL APIs too, but it&#39;s what I&#39;m doing:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">((</span><span class="nx">req</span><span class="p">,</span> <span class="nx">res</span><span class="p">,</span> <span class="nx">next</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+    <span class="k">if</span> <span class="p">(</span> <span class="o">!</span><span class="nx">req</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">hasOwnProperty</span><span class="p">(</span><span class="s1">&#39;user&#39;</span><span class="p">)</span> <span class="p">){</span>
+        <span class="k">return</span> <span class="nx">res</span><span class="p">.</span><span class="nx">status</span><span class="p">(</span><span class="mi">401</span><span class="p">).</span><span class="nx">end</span><span class="p">();</span>
+    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h4>Action-Authorization</h4>
+
+<p>Now that I know the person making the request is logged in, what if I want to make sure they don&#39;t do things they shouldn&#39;t have access to?</p>
+
+<p>Let&#39;s assume you have a service method that is used to save updates to user accounts, but in order to use it you want to make sure the user has a specific role, <code>save-user</code>.</p>
+
+<p>The first thing you need to do is get that session user from the resolver&#39;s context argument and pass it to the service method:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">resolvers</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="nx">Query</span><span class="o">:</span> <span class="p">{...},</span>
+    <span class="nx">Mutation</span><span class="o">:</span> <span class="p">{</span>
+<span class="hll">        <span class="nx">saveUser</span><span class="o">:</span> <span class="p">(</span><span class="nx">root</span><span class="p">,</span> <span class="nx">args</span><span class="p">,</span> <span class="nx">context</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">            <span class="k">return</span> <span class="nx">userService</span><span class="p">.</span><span class="nx">saveUser</span><span class="p">(</span><span class="nx">context</span><span class="p">.</span><span class="nx">user</span><span class="p">,</span> <span class="nx">args</span><span class="p">.</span><span class="nx">user</span><span class="p">);</span>
+</span>        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="p">};</span>
+</code></pre></div>
+<p>And then you need to enforce the role requirement:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="kr">const</span> <span class="nx">saveUser</span> <span class="o">=</span> <span class="p">(</span><span class="nx">reqUser</span><span class="p">,</span> <span class="nx">userToSave</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span>
+<span class="hll">    <span class="k">if</span> <span class="p">(</span> <span class="nx">reqUser</span><span class="p">.</span><span class="nx">roles</span><span class="p">.</span><span class="nx">indexOf</span><span class="p">(</span><span class="s1">&#39;save-user&#39;</span><span class="p">)</span> <span class="o">===</span> <span class="o">-</span><span class="mi">1</span> <span class="p">){</span>
+</span><span class="hll">        <span class="k">throw</span> <span class="k">new</span> <span class="nb">Error</span><span class="p">(</span><span class="s2">&quot;Access Error&quot;</span><span class="p">);</span>
+</span>    <span class="p">}</span>
+    <span class="c1">//save userToSave...</span>
+<span class="p">};</span>
+</code></pre></div>
+<h3>Error Logging</h3>
+
+<p>This one turns out to be pretty easy. What you do with the errors is up to you (write to a log file, push them out to a service like Raygun, etc). We just need to give Apollo Server a function that does what we want with the exception:</p>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript"><span class="nx">server</span><span class="p">.</span><span class="nx">use</span><span class="p">(</span>
+    <span class="s1">&#39;/graphql&#39;</span><span class="p">,</span>
+    <span class="nx">bodyParser</span><span class="p">.</span><span class="nx">json</span><span class="p">(),</span>
+    <span class="nx">graphqlExpress</span><span class="p">(</span><span class="nx">request</span> <span class="o">=&gt;</span> <span class="p">{</span>
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="nx">schema</span><span class="p">,</span>
+<span class="hll">            <span class="nx">formatError</span><span class="o">:</span> <span class="p">(</span><span class="nx">err</span><span class="p">)</span> <span class="o">=&gt;</span> <span class="p">{</span> <span class="nx">console</span><span class="p">.</span><span class="nx">error</span><span class="p">(</span><span class="nx">err</span><span class="p">.</span><span class="nx">stack</span><span class="p">);</span> <span class="p">},</span>
+</span>            <span class="nx">context</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">request</span><span class="p">.</span><span class="nx">session</span><span class="p">.</span><span class="nx">user</span> <span class="p">}</span>
+        <span class="p">};</span>
+    <span class="p">})</span>
+<span class="p">);</span>
+</code></pre></div>
+<h3>Getting inserted id from mutation</h3>
+
+<p>Apollo client gives us a really powerful <code>mutate</code> method (<a href="https://www.apollographql.com/docs/react/basics/mutations.html#calling-mutations">docs</a>), but of course with power comes a bit of complexity. One common necessity that I ran into and had some trouble with, even after following a tutorial that showed me exactly this, was getting the inserted id value back from a mutation that creates a database row.</p>
+
+<p>Let&#39;s say we&#39;re creating a new user and after it&#39;s saved we want to redirect to the view/edit screen for the new record. The mutate options object can contain an <code>update</code> method that gets called with the response from the mutation. So if your createUser mutation returns the created user, you might do the following:</p>
+<div class="highlight"><pre><code class="language-js" data-lang="js"><span class="nx">mutate</span><span class="p">({</span>
+    <span class="nx">variables</span><span class="o">:</span> <span class="p">{</span> <span class="nx">user</span><span class="o">:</span> <span class="nx">userToSave</span> <span class="p">},</span>
+<span class="hll">    <span class="nx">update</span><span class="o">:</span> <span class="p">(</span><span class="nx">store</span><span class="p">,</span> <span class="p">{</span> <span class="nx">data</span><span class="o">:</span> <span class="nx">user</span> <span class="p">})</span> <span class="o">=&gt;</span> <span class="p">{</span>
+</span><span class="hll">        <span class="nx">redirectToEditUser</span><span class="p">(</span> <span class="nx">user</span><span class="p">.</span><span class="nx">userId</span> <span class="p">);</span>
+</span>    <span class="p">}</span>
+<span class="p">});</span>
+</code></pre></div>
+<h2>What&#39;s next?</h2>
+
+<p>This post represents most of what I&#39;ve learned in the last week or two as I&#39;ve gotten the first few screens of my app ported over to GraphQL.</p>
+
+<p>What&#39;s next? Honestly, I don&#39;t really know! <em>Unknown unknowns.</em> Eventually I want to figure out that more efficient lookup approach I mentioned in the <strong>Related Data</strong> section. But I&#39;m sure I still have much to learn about GraphQL, so expect more tips in the future...</p>
+
+<p>Did this post help you out? <a href="https://twitter.com/AdamTuttle">Send me a shout-out on Twitter</a>. I&#39;d love to hear from you.</p>
+
+	  ]]></description>
+	</item>
+
+	<item>
 	  <title>Stupid CFML Tricks: Run after return</title>
 	  <link>//stupid-cfml-tricks-run-after-return/</link>
 	  <author>Adam Tuttle</author>
@@ -643,22 +777,6 @@ Thanks for coming by.</p>
 <p>There are a lot of things that we as software developers are prone to let slide like this. Version controlling tiny little side projects is another example. And there&#39;s only one appropriate response when addressing these questions in your head. There&#39;s really no other answer you can give.</p>
 
 <p>Just do it.</p>
-
-	  ]]></description>
-	</item>
-
-	<item>
-	  <title>"Fork Me on GitHub" Stickers</title>
-	  <link>//fork-me-stickers/</link>
-	  <author>Adam Tuttle</author>
-	  <pubDate>2016-04-20T10:00:00-04:00</pubDate>
-	  <guid>//fork-me-stickers/</guid>
-	  <description><![CDATA[
-	     <p>I have been going a little sticker-crazy lately, and I decided I wanted a &quot;Fork Me&quot; sticker, ala GitHub&#39;s <a href="https://github.com/blog/273-github-ribbons">Fork Me ribbons</a> (pro-tip: use <a href="https://github.com/aral/fork-me-on-github-retina-ribbons">these retina-friendly ones instead</a>) that are common for OSS developers to put onto their websites or their project websites. I couldn&#39;t find one anywhere, so I made one, and now you too can emblazon your favorite things with a &quot;Fork Me&quot; ribbon sticker.</p>
-
-<p><a href="https://www.stickermule.com/marketplace/11734-fork-me"><img src="/assets/images/posts/2016/fork-me-screen-shot.png" alt="Fork Me ribbon sticker now available on StickerMule!"></a></p>
-
-<p align="center"><a href="https://www.stickermule.com/marketplace/11734-fork-me">Click here to get yours!</a></p>
 
 	  ]]></description>
 	</item>
